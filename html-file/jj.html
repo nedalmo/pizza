@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/* تصميم عربي RTL */
+.product-card {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Cairo', 'Tahoma', sans-serif;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* الصورة على اليمين */
+.product-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.product-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px; /* يمين في العربية */
+    background: #ff4757;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* المحتوى */
+.product-content {
+    padding: 20px;
+}
+
+/* العنوان والسعر */
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.product-title {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+    text-align: right;
+}
+
+.product-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+/* الوصف */
+.product-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+/* الخيارات */
+.product-options {
+    margin-bottom: 20px;
+}
+
+.size-options {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end; /* يبدأ من اليمين */
+}
+
+.size-btn {
+    padding: 8px 15px;
+    background: #f5f5f5;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+}
+
+.size-btn.active {
+    background: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+/* 🎯 **القسم الأهم: تذييل البطاقة** */
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+/* **زر الإضافة على اليسار** */
+.add-to-cart-btn {
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    transition: all 0.3s;
+    order: 1; /* يجعل الزر أول عنصر (على اليسار) */
+}
+
+.add-to-cart-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+/* السعر على الجوال (على اليمين) */
+.product-price-mobile {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    order: 2; /* يجعل السعر ثاني عنصر (على اليمين) */
+}
+
+/* تصميم للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .product-footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .add-to-cart-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .product-price-mobile {
+        font-size: 16px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- تصميم بطاقة المنتج العربي -->
+<div class="product-card" dir="rtl">
+    
+    <!-- الصورة (على اليمين) -->
+    <div class="product-image">
+        <img src="pizza.jpg" alt="بيتزا">
+        <span class="product-badge">🔥 الأكثر طلباً</span>
+    </div>
+    
+    <!-- المحتوى -->
+    <div class="product-content">
+        <!-- العنوان والسعر (على اليمين) -->
+        <div class="product-header">
+            <h3 class="product-title">🍕 بيتزا بيبروني عائلية</h3>
+            <span class="product-price">﷼45.00</span>
+        </div>
+        
+        <!-- الوصف (يبدأ من اليمين) -->
+        <p class="product-description">
+            بيتزا بلحم البيبروني، جبن موزاريلا، صلصة طماطم
+        </p>
+        
+        <!-- الخيارات (حجم، إضافات) -->
+        <div class="product-options">
+            <div class="size-options">
+                <button class="size-btn active">صغير</button>
+                <button class="size-btn">متوسط</button>
+                <button class="size-btn">كبير</button>
+            </div>
+        </div>
+        
+        <!-- 🎯 **زر الإضافة على اليسار** -->
+        <div class="product-footer">
+            <!-- الزر الأساسي على اليسار -->
+            <button class="add-to-cart-btn">
+                <i class="fas fa-cart-plus"></i>
+                أضف إلى السلة
+            </button>
+            
+            <!-- السعر على اليمين (مكرر للتوضيح) -->
+            <span class="product-price-mobile">﷼45.00</span>
+        </div>
+    </div>
+</div>
+<script>
+    // اكتشاف إذا كانت اللغة عربية
+const isArabic = /[\u0600-\u06FF]/.test(navigator.language);
+
+if (isArabic) {
+    // إضافة سمة dir للصفحة
+    document.documentElement.setAttribute('dir', 'rtl');
+    document.documentElement.setAttribute('lang', 'ar');
+    
+    // إضافة كلاس للتصميم العربي
+    document.body.classList.add('rtl-mode');
+    
+    // تعديل CSS ديناميكياً
+    const style = document.createElement('style');
+    style.textContent = `
+        .rtl-mode .product-card {
+            direction: rtl;
+            text-align: right;
+        }
+        .rtl-mode .add-to-cart-btn {
+            order: 1;
+            margin-left: 10px;
+            margin-right: 0;
+        }
+        .rtl-mode .product-price {
+            order: 2;
+        }
+    `;
+    document.head.appendChild(style);
+}
+</script>
+</body>
+</html>
