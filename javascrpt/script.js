@@ -1,5 +1,3 @@
-let hamburger  = document.getElementById("hamburger");
-let ulList = document.querySelector("nav ul");
 let slider = document.querySelector(".slider-container .slide");
 let items = document.querySelectorAll(".slider-container .slide .item");
 let lengthImges = items.length
@@ -7,6 +5,16 @@ let bolites  =document.querySelector(".bolites")
 let next  = document.getElementById("next");
 let preveus  = document.getElementById("prev");
 let start = 0;
+let nav = document.querySelector("nav")
+console.log(nav)
+
+let hamburger  = document.getElementById("hamburger");
+hamburger.addEventListener("click",e=>{
+
+    hamburger.classList.toggle("active")
+    nav.classList.toggle("active")
+})
+
 
 
 // strart slider 
@@ -68,6 +76,32 @@ plitesAll.forEach((li,index)=>{
 // End slider 
 
 
-hamburger.onclick = function(){
-    ulList.classList.toggle("active")
+
+
+
+
+
+function openTabs(){
+        cartTabs.classList.toggle("active");
+    overly.classList.toggle("active");
+    if(cartTabs.classList.contains("active") && overly.classList.contains("active")){
+        document.body.style.overflowY = "hidden"
+    }else{
+        document.body.style.overflowY = "auto"
+    }
+}
+closeCart.addEventListener("click",e=>{
+openTabs()
+})
+iconNavCart.onclick = _=>{
+openTabs()
+}
+overly.onclick = _=>{
+    cartTabs.classList.remove("active");
+    overly.classList.remove("active");
+    if(cartTabs.classList.contains("active") && overly.classList.contains("active")){
+        document.body.style.overflowY = "hidden"
+    }else{
+        document.body.style.overflowY = "auto"
+    }
 }

@@ -5,38 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="/pizza/css/normalize.css">
-    <link rel="stylesheet" href="/pizza/css/all.min.css">
+        <link rel="stylesheet" href="/pizza/css/all.min.css">
+        <link rel="stylesheet" href="/pizza/css/header.css">
     <link rel="stylesheet" href="/pizza/css/style.css">
     <title>Document</title>
 </head>
 <body>
-            <header>
-<div class="container">
-            <div class="hamburger" id="hamburger">☰</div>
-
-        <div class="logo">
-            <img src="/pizza/imges/logo1.jpeg" alt="">
-        </div>
-        <div class="form">
-            <input type="search" placeholder="ما الذي تبحث عنه؟">
-        </div>
-        
-        <nav>
-            <ul>
-                <li><a href="/pizza/index.html">الرئيسية</a></li>
-                <li><a href="/pizza/html-file/muen.html">قائمة المنتجات</a></li>
-                <li><a href="/pizza/html-file/product.html">المنتجات</a></li>
-                <li><a href="">تسجيل الدخول</a></li>
-                <li><a href="">الطلبات</a></li>
-            </ul>
-        </nav>
-        <div class="cart-icon">
-            <i class="fa-solid fa-cart-arrow-down"></i>
-
-        </div>
-</div>
-</header>
+  <header>
 <div class="cart-overly"></div>
+        <div class="container">
+            <div class="header-content">
+                <!-- Mobile Menu Toggle - هامبورجر -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- Logo - الشعار -->
+                <div class="logo">
+                    <a href="/pizza/index.html">
+                        <img src="/pizza/imges/logo1.jpeg" alt="بيتزا">
+                    </a>
+                </div>
+                
+                <!-- Search Form - نموذج البحث -->
+                <div class="search-wrapper">
+                    <div class="form">
+                        <input type="search" placeholder="ما الذي تبحث عنه؟" aria-label="بحث">
+                        <button type="submit" aria-label="بحث">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Navigation Menu - القائمة الرئيسية -->
+                <nav id="nav-menu">
+                    <ul>
+                        <li><a href="/pizza/index.html" class="active">الرئيسية</a></li>
+                        <li><a href="/pizza/html-file/muen.html">قائمة المنتجات</a></li>
+                        <li><a href="/pizza/html-file/product.html">المنتجات</a></li>
+                        <li><a href="">تسجيل الدخول</a></li>
+                        <li><a href="">الطلبات</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Cart Icon - أيقونة السلة -->
+                <div class="cart-icon">
+                 <i class="fa-solid fa-cart-arrow-down"></i>
+                    <span class="cart-badge">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
 <div class="cart-tab">
     <div class="header-cart">
         <div class="header-name-cart">
@@ -47,36 +70,44 @@
         <button class="close-btuuon"><i class="fas fa-times"></i></buttoXn>
     </div>
     <div class="products">
-        <div class="Main-element"></div>
+        <div class="Main_element">
+         
+        </div>
     </div>
+      <div class="empty-cart" id="emptyCart">
+                <i class="fas fa-shopping-basket"></i>
+                <p>سلتك فارغة</p>
+                <p class="empty-cart-sub">أضف بعض المنتجات  من قائمتنا!</p>
+                <button class="btn-browse" id="btnBrowse"> اضف منتجات</button>
+            </div>
         <div class="samary-details-elemnt">
             <div class="samary-price">
                 <div class="first-element">
                     <div>المجموع الجزئي:</div>
-                    <div class="part-price"><div class="count-price">20</div>جنيه</div>
+                    <div class="part-price"><div class="count-price">0</div>جنيه</div>
                 </div>
                 <div class="first-element">
                     <span> رسوم التوصيل:</span>
-                    <div class="part-price"><div class="count-price">10</div>جنيه</div>
+                    <div class="part-price"><div class="conections">30</div>جنيه</div>
                 </div>
             </div>
             <div class="samary-price">
-                     <div class="first-element">
+                     <div class="first-element last ">
                     <span> المجموع الكلي:</span>
-                    <div class="part-price"><div class="count-price">220</div>جنيه</div>
+                    <div class="part-price"><div class="total_price_of_cart">0</div>جنيه</div>
                 </div>
             </div>
             <div class="samary-price">
-                <div class=" buttons-action">
-                    <button>متابعة التسوق</button>
-                    <button>إتمام الطلب</button>
+                <div class="buttons-action">
+                    <button class="follow_showpping">متابعة التسوق</button>
+                    <button class="Place_Order">إتمام الطلب</button>
                 </div>
             </div>
         </div>
     </div>
    <!-- <div class="container"></div> -->
 </div>
-<div class="header-product">
+<div class="header-product wow" >
   <div class="container">
       <div class="Main-pro">
         <h2>طعم البيتزا الأصلي… زي ما بتحبه بطعم إيطالي أصيل</h2>
@@ -84,7 +115,7 @@
     </div>
   </div>
 </div>
-<div class="caarygore">
+<div class="caarygore wow">
     <div class="container">
         <ul>
             <li><a href="">بيتزا كلاسيك</a></li>
@@ -97,7 +128,7 @@
         </ul>
     </div>
 </div>
-<div class="productAll">
+<div class="productAll wow">
  <div class="container">
         
  
@@ -105,25 +136,155 @@
     </div>
 </div>
 
-<!-- strart footer  -->
- <footer>
-      <div class="artecails-section">
-        <h2>footer section</h2>
-        <p>the section foter dcd</p>
+<!-- start add product cacssyfual -->
+ <div class="container">
+ <div class="add_product">  <i class="fa-solid fa-square-check"></i>
+  تم اضافه <div class="name_product"></div> الي السله </div>
+ </div>
+<!-- end add product cacssyfual -->
+
+
+<!-- start Checkout -->
+
+<div class="Checkout">
+    <div class="container">
+        <div class="header_checkout">
+            <div class="confirm_order">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <div>تأكيد طلبك</div>
+            </div>
+            <div class="close_chekout_page"><i class="fa-solid fa-xmark"></i>
+</div>
+        </div>
+        <div class="details_order">
+            <div class="header_detalis_order">
+                <i class="fa-solid fa-file-lines"></i>
+                <div>تفاصيل طلبك</div>
+            </div>
+            <div class="ALL_product_details_chechout"></div>
+            <!-- <div class="text_detalis_order">
+                <div class="text_info">
+                <div class="name">بيتزا مارغريتا كلاسيكية</div>
+                <div class="size">الحجم : <span class="size_main">كبير</span></div>
+                <div class="quntity">  الكميه :  <div class="quntity_main">2</div></div>
+                </div>
+                <div class="price_details_order"><div class="price">100</div><div>جنيه</div></div>
+            </div>
+            <div class="text_detalis_order">
+                <div class="text_info">
+                <div class="name">بيتزا مارغريتا كلاسيكية</div>
+                <div class="size">الحجم : <span class="size_main">كبير</span></div>
+                <div class="quntity">  الكميه :  <div class="quntity_main">2</div></div>
+                </div>
+                <div class="price_details_order"><div class="price">100</div><div>جنيه</div></div>
+            </div>
+            <div class="text_detalis_order">
+                <div class="text_info">
+                <div class="name">بيتزا مارغريتا كلاسيكية</div>
+                <div class="size">الحجم : <span class="size_main">كبير</span></div>
+                <div class="quntity">  الكميه :  <div class="quntity_main">2</div></div>
+                </div>
+                <div class="price_details_order"><div class="price">100</div><div>جنيه</div></div>
+            </div> -->
+            <button class="retrev_page" > <i class="fa-solid fa-plus"></i> أضف المزيد من المنتجات</button>
+           
+           
+        </div>
+       <div class="Order_Summary">
+        <div class="header_order_summary">
+            <i class="fa-solid fa-money-bill"></i>
+            <div>ملخص الطلب</div>
+        </div>
+        <div class="all_price_summary">
+            <div class="Subtotal">
+                <div class="text">المجموع الجزئي:</div>
+                <div class="pruce"><div class="number">100</div>جنيه</div>
+            </div>
+            <div class="Subtotal spi">
+                <div class="text"> رسوم التوصيل:</div>
+                <div class="pruce"><div class="number">60</div>جنيه</div>
+            </div>
+            <div class="Subtotal ">
+                <div class="text"> المبلغ المستحق:</div>
+                <div class="pruce"><div class="number">10870</div>جنيه</div>
+            </div>
+        </div>
+       </div>
+       <div class="locations">
+        <div class="header_location">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>عنوان التوصيل</div>
+        </div>
+        <div class="locations_input">
+            <input type="text">
+            <div class="change">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <div>تغيير</div>
+            </div>
+        </div>
+        <div class="name_locations">ksk ksxns skxsxsxk</div>
+       </div>
+       <div class="Payment_Methods">
+        <div class="payment_methods_header">
+              <i class="fa-solid fa-wallet"></i>
+            <div class="header">طريقة الدفع</div>
+        </div>
+            <div class="cheked_chosen">
+                   <div class="answer">
+                    <input type="radio" id="ch1" checked>
+                    <label for="ch1"><i class="fa-solid fa-money-bill-wave"></i><div>نقداً عند الاستلام</div></label>
+                   </div>
+                   <div class="answer">
+                    <input type="radio" id="ch2">
+                    <label for="ch2">  <i class="fa-solid fa-credit-card"></i><div>  بطاقة ائتمان/مدينة</div></label>
+                   </div>
+                   <div class="answer">
+                    <input type="radio" id="ch3">
+                    <label for="ch3">  <i class="fa-brands fa-apple-pay"></i><div> Apple Pay / Mada </div></label>
+                   </div>
+            </div>
+       </div>
+       <div class="notaick">
+        <div class="header_notaick">
+            <i class="fa-solid fa-file-lines"></i>
+            <div>ملاحظات خاصة (اختياري)</div>
+        </div>
+            <textarea name="" placeholder="اكتب ملاحظاتك او اي شيئ تريده في الطلب" id=""></textarea>
+       </div>
+       <div class="withdoem">
+            <input type="checkbox" id="on">
+            <label for="on"> أوافق على <span>الشروط والأحكام</span> وسياسة الخصوصية </label>
+       </div>
+          <div class="checkout-actions">
+            <button class="btn-back" id="backToCart"><i class="fas fa-arrow-right"></i> العودة للسلة</button>
+            <button class="btn-confirm" id="confirmOrder"><i class="fas fa-check-circle"></i> تأكيد الطلب والدفع</button>
+        </div>
     </div>
+     
+</div>
+
+
+<!-- end Checkout -->
+
+<!-- strart footer  -->
+<div class="artecails-section wow">
+  <h2>معلومات التواصل</h2>
+  <p>نوفر لك جميع وسائل التواصل للوصول إلينا بسرعة وسهولة في أي وقت</p>
+</div>
+ <footer class="wow">
     <div class="container">
 
         <div class="imges">
-            <img src="/pizza/imges/images (1).jpeg" alt="">
-            <img src="/pizza/imges/images (2).jpeg" alt="">
-            <img src="/pizza/imges/images (4).jpeg" alt="">
-            <img src="/pizza/imges/images (6).jpeg" alt="">
+            <img src="./imges/images (1).jpeg" alt="">
+            <img src="./imges/images (2).jpeg" alt="">
+            <img src="./imges/images (4).jpeg" alt="">
+            <img src="./imges/images (6).jpeg" alt="">
         </div>
        <div class="coluem2">
-            <ul>
+           <ul>
                 <li><a href="./index.html">الرئيسية</a></li>
-                <li><a href="/pizza/html-file/muen.html">قائمة المنتجات</a></li>
-                <li><a href="/pizza/html-file/product.html">المنتجات</a></li>
+                <li><a href="./html-file/muen.html">قائمة المنتجات</a></li>
+                <li><a href="./html-file/product.html">المنتجات</a></li>
                 <li><a href="">تسجيل الدخول</a></li>
                 <li><a href="">الطلبات</a></li>
             </ul>
@@ -149,6 +310,7 @@
       
         <div class="coluem1">
          <h1>pizza</h1>
+        
         <ul class="social">
             <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
             <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
@@ -161,5 +323,6 @@
  </footer>
 <!-- End footer  -->
 <script src="/pizza/javascrpt/product.js"></script>
+
 </body>
 </html>

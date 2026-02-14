@@ -1,6 +1,6 @@
 let myproducts = "/pizza/data.json";
 
-let ulList = document.querySelector("nav ul");
+ ulList = document.querySelector("nav ul");
 let iconNavCart = document.querySelector(" header .container .cart-icon i");
 let cartTabs = document.querySelector(" .cart-tab");
 let overly  =document.querySelector(".cart-overly");
@@ -8,12 +8,50 @@ let closeCart = document.querySelector(".close-btuuon");
 let productIncart = document.querySelector(".cart-tab .products .Main-element");
 let  cartTabProducts  = document.querySelector(" .cart-tab .products");
 let  samaryDetails = document.querySelector(" .cart-tab .samary-details-elemnt");
+let samaryPrice = document.querySelector(".samary-price .part-price .count-price");
+let priceCarte = document.querySelector(" .cartElement .price-carte");
+let emptyCart = document.getElementById("emptyCart")
+let btnBrowse = document.getElementById("btnBrowse")
+let body_of_cart = document.querySelector(".Main_element");
+let  buttons_two  = document.querySelector(".buttons-action .follow_showpping");
+let add_product   =document.querySelector(".add_product")
+let add_product_name_product   =document.querySelector(".add_product .name_product");
+let conections = document.querySelector(".conections");
+let total_price_of_cart  = document.querySelector(".total_price_of_cart");
+let Checkout = document.querySelector(".Checkout");
+let Place_Order = document.querySelector(".Place_Order");
+let close_chekout_page = document.querySelector(".close_chekout_page");
+let retrev_page = document.querySelector(".retrev_page");
+let details_order = document.querySelector(".ALL_product_details_chechout");
+let headerIcone = document.querySelector(".cart-tab .header-cart button i")
+console.log(headerIcone)
+headerIcone.addEventListener("click",e=>{
+    openTabs()
+})
+ nav = document.querySelector("nav")
+
+close_chekout_page.addEventListener("click",e=>{
+    Checkout.classList.remove("active")
+})
+retrev_page.addEventListener("click",e=>{
+    Checkout.classList.remove("active")
+})
+Place_Order.onclick = function(){
+    Checkout.classList.add("active")
+}
+
+
+// end body of cart 
+
 samaryDetails.style.display = "none"
+buttons_two.addEventListener("click",openTabs)
+btnBrowse.addEventListener("click",openTabs);
 
 
 
 function openTabs(){
         cartTabs.classList.toggle("active");
+ 
     overly.classList.toggle("active");
     if(cartTabs.classList.contains("active") && overly.classList.contains("active")){
         document.body.style.overflowY = "hidden"
@@ -38,9 +76,7 @@ overly.onclick = _=>{
 }
 
 let unmberOfProduct = 0;
-hamburger.onclick = function () {
-    ulList.classList.toggle("active");
-}
+
 
 
 let cartIcon = document.querySelector(".cart-icon")
@@ -55,7 +91,6 @@ if (document.querySelector(".productAll .container")) {
         }
     }
 }
-let Arr = [];
 function createElement(myData) {
     let mainDivs = document.querySelector(".productAll .container");
     let div = document.createElement("div");
@@ -75,7 +110,6 @@ function createElement(myData) {
         let stringPrice = document.createElement("bold");
         stringPrice.append("جنيه")
         price.append(e["price"],stringPrice);
-
         let cart = document.createElement("button");
         let cartIcone  = document.createElement("i");
         cartIcone.className = "fas fa-cart-plus fa-flip-horizontal";
@@ -97,125 +131,217 @@ function createElement(myData) {
         mainDivs.append(div)
     })
 }
-let div = document.createElement("div");
-div.className = "number-products";  
-function addToCart(onpro) {
-    console.log(onpro)
-    Arr.push(onpro.id);
-    console.log(Arr)
+
+// start code cart   
+
+function renderCheckout() {
+
+  if(!details_order){
+        return;
+  } 
+
+  details_order.innerHTML = "";
+
+  cars.forEach(item => {
+    Checkout_function(item);
+  });
+
+}
+
+let cars = JSON.parse(localStorage.getItem("car")) || [];
+
+window.onload = function () {
+  cars.forEach(item => {
+    drawItem(item);
+    emptyCart.style.display = "none";
     samaryDetails.style.display = "block"
-    feelNum.innerHTML = ""
-    localStorage.setItem("the-product",JSON.stringify(+onpro))
-    localStorage.setItem("number-product", ++unmberOfProduct)
-    div.innerHTML = localStorage.getItem("number-product")
-    cartIcon.appendChild(div);
-    let cartElement =document.createElement("div");
-    cartElement.className = "cartElement";
-    let imge = document.createElement("img");
-    let namepro = document.createElement("h5");
-    let priceCarte  = document.createElement("div");
-    priceCarte.className = "price-carte"
-    let mainIncAndDec = document.createElement("div");
-    let valueINc  =document.createElement("valueINc");
-    let deletElem = document.createElement("div");
-    deletElem.className = "deletElem"
-    let deletIcon = document.createElement("i");
-    deletIcon.addEventListener("click",e=>{
-        cartElement.remove()
-      if(productIncart.children.length == 0){
-        ele()
-        samaryDetails.style.display = "none"
-         productIncart.style.overflowY = "auto";
-    productIncart.style.height = "0";
-      }
+    body_of_cart.style.overflowY = "scroll"
+
+  });
+ renderCheckout()
+};
+
+
+localStorage.setItem("car", JSON.stringify(cars));
+
+function message_Add_product(cart){
+            setTimeout(e=>{
+            add_product.classList.add("active");
+            add_product_name_product.innerHTML = cart.name
+
+    },0)
+    setTimeout(e=>{
+        add_product.classList.remove("active")
+    },3000)
+}
+
+
+  function addToCart(cart){
+
+  message_Add_product(cart);
+
+  emptyCart.style.display = "none";
+  samaryDetails.style.display = "block";
+  body_of_cart.style.overflowY = "scroll";
+
+  let reosse = cars.find(item => {  
+    return item.id == cart.id
+
+});
+
+  if(reosse){
+
+    reosse.qwn++;
+
+    document.getElementById(reosse.id).innerHTML = reosse.qwn;
+
+    document.querySelector(`.prices[data-pre="${reosse.id}"]`).innerHTML = (reosse.price * reosse.qwn) + " جنيه";
+
+  }else{
+
+    let newCart = {
+      ...cart,
+      qwn: cart.qwn || 1
+    };
+
+    cars.push(newCart);
+    drawItem(newCart);
+  }
+
+  samaryPrice.innerHTML = calcTotalPrice();
+
+  localStorage.setItem("car", JSON.stringify(cars));
+
+  renderCheckout();
+}
+
+function drawItem(cart) {
+
+  let box = document.createElement("div");
+ 
+         box.className = "box";
+    let imge_And_name = document.createElement("div");
+    imge_And_name.className = "imge_And_name";
+      
+    let imge  =document.createElement("img");
+    imge.src = cart.images[0];
+
+    let name  = document.createElement("div");
+    name.className = "name"
+
+    name.append(cart.name)
+    imge_And_name.append(imge,name);
+
+    let increment_And_decrement = document.createElement("div");
+    increment_And_decrement.className = "increment_And_decrement";
+
+    let increment = document.createElement("div");
+    increment.className = "increment"
+    increment.append("+")
+
+    
+
+
+    let decrement = document.createElement("div");
+    decrement.className = "decrement"
+    decrement.append("-");
+    let counte = document.createElement("div");
+    counte.className = "count";
+    counte.id = cart.id
+    counte.innerHTML = cart.qwn;
+
+    let price  =document.createElement("div");
+    price.className = "prices";
+    price.dataset.pre = cart.id;
+    price.append((cart.price * cart.qwn) + "جنيه");
+    increment.addEventListener("click",e=>{
+
+        cart.qwn++
+            counte.innerHTML = cart.qwn;
+            price.innerHTML = (cart.price * cart.qwn) + "جنيه";
+
+            localStorage.setItem("car", JSON.stringify(cars));
+            samaryPrice.innerHTML = calcTotalPrice() ;
+            document.querySelector(".quntity").innerHTML = cart.qwn
+            document.querySelector(".price").innerHTML = cart.price * cart.qwn
+renderCheckout()
+
 
     })
-    let mainImgesAndName = document.createElement("div");
-    deletIcon.className  = "fa-solid fa-trash";
-    deletElem.append(deletIcon);
+        decrement.addEventListener("click",e=>{
+        cart.qwn--
+        if(cart.qwn <=0){
+            removeItem(cart.id)
+            samaryPrice.innerHTML = calcTotalPrice() ;
+            document.querySelector(".quntity").innerHTML = cart.qwn
 
-    valueINc.append("1")
-    let inc  =document.createElement("div");
-    let dec  =document.createElement("div");
-    inc.append("+");
-    function increment(){
-         let val = parseInt(valueINc.innerHTML) ;
-         val++
-         valueINc.innerHTML =val 
-        let valueprice =   parseInt(onpro.price);
-        let allprce = valueprice*val
-        priceCarte.innerHTML =allprce + " جنيه   "
-    }
-    function decremnt(){
-             let val = parseInt(valueINc.innerHTML) ;
-     val--
-     if(val < 1){
-        priceCarte.innerHTML =onpro.price+ "  جنيه ";
-                priceCarte.parentElement.remove()
-         if(productIncart.children.length == 0){
-            ele()
-            productIncart.style.overflowY = "auto";
-            productIncart.style.height = "0";
+        }else{
+             counte.innerHTML = cart.qwn;
+            price.innerHTML = (cart.price * cart.qwn) + "جنيه";
+            localStorage.setItem("car", JSON.stringify(cars));  
+            samaryPrice.innerHTML = calcTotalPrice() ;
+            document.querySelector(".quntity").innerHTML = cart.qwn
+
         }
- 
-     }
-     else{
-            valueINc.innerHTML =val 
-            let valueprice =   parseInt(onpro.price);
-            let allprce = valueprice*val
-            priceCarte.innerHTML =allprce + "  جنيه ";
-        }
+renderCheckout()
 
-    }
-    inc.addEventListener("click",increment)
-    dec.append("-")
-        dec.addEventListener("click",decremnt)
-    mainIncAndDec.className = "mainIncAndDec";
-    mainIncAndDec.append(inc,valueINc,dec)
-    priceCarte.append(onpro.price + " جنيه  ")
-    namepro.append(onpro.name);
-    mainImgesAndName.append(imge,namepro)
-    imge.src = onpro.images[0];
 
-    cartElement.append(mainImgesAndName,mainIncAndDec,priceCarte,deletElem);
-    productIncart.append(cartElement)
-     productIncart.style.overflowY = "scroll";
-    productIncart.style.height = "200px";
+    })
+
+    let remove   = document.createElement("div");
+    remove.className = "remove";
+    let icon_remove = document.createElement("i");
+    icon_remove.className = " fa-solid fa-trash"
+    remove.append(icon_remove)
+
+            remove.onclick = function () {
+                removeItem(cart.id);
+             };
+        increment_And_decrement.append(increment,counte,decrement);
+        box.append(imge_And_name,increment_And_decrement,price,remove);
+        body_of_cart.append(box);
+        samaryPrice.innerHTML = calcTotalPrice() ;
+
    
-
-}
-let feelNum = document.createElement("div");
-function ele(){
-let iuconeNum = document.createElement("i");
-let paraNull = document.createElement("p");
-let textNull  = document.createElement("h3");
-let buttomNull = document.createElement("button");
-buttomNull.addEventListener("click",e=>{
-    // window.location.href = "./product.html"
-      cartTabs.classList.toggle("active");
-    overly.classList.toggle("active");
-    if(cartTabs.classList.contains("active") && overly.classList.contains("active")){
-        document.body.style.overflowY = "hidden"
-    }else{
-        document.body.style.overflowY = "auto"
-    }
-})
-buttomNull.id = "buttNull"
-buttomNull.append("اضف منتجات");
-
-textNull.append("السله فارغه")
-paraNull.append("أضف بعض المنتجات اللذيذة من قائمتنا!")
-iuconeNum.className = "fa-solid fa-basket-shopping"
-feelNum.className = "num";
-feelNum.append(iuconeNum,textNull,paraNull,buttomNull)
-cartTabProducts.append(feelNum)
-}
-ele()
-    if(localStorage.getItem("number-product")){
-        div.append( localStorage.getItem("number-product"))
-        cartIcon.appendChild(div)
+   
     }
 
+
+function removeItem(id) {
+  cars = cars.filter(item => item.id != id);
+  document.getElementById(id).closest(".box").remove();
+  localStorage.setItem("car", JSON.stringify(cars));
+  samaryPrice.innerHTML = calcTotalPrice() ;
+
+  if(body_of_cart.children.length === 0){
+    samaryDetails.style.display = "none"
+    emptyCart.style.display = "block"
+    body_of_cart.style.overflowY = "hidden"
+    // samaryPrice.innerHTML = calcTotalPrice() ;
+
+  }
+    document.querySelector(".quntity").closest(".text_detalis_order").remove()
+
+  renderCheckout()
+
+  
+}
+
+
+
+function calcTotalPrice() {
+  let total = 0;
+
+  cars.forEach(item => {
+    total += item.price * item.qwn;
+
+});
+total_price_of_cart.innerHTML = total + parseInt(conections.innerHTML)
+
+  return total;
+}
+
+// end code cart   
 if (document.querySelector(".detailselemnt")) {
 
 
@@ -235,6 +361,10 @@ if (document.querySelector(".detailselemnt")) {
         }
     }
 }
+
+
+
+
 
 function createDetails(e) {
     // إنشاء العنصر الرئيسي
@@ -1245,5 +1375,100 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     })
     // إضافة العنصر إلى الصفحة
 }
+
+
+
+function Checkout_function(cart){
+    // إنشاء العنصر الرئيسي
+const textDetailsOrder = document.createElement('div');
+textDetailsOrder.className = 'text_detalis_order';
+
+// إنشاء div.text_info
+const textInfo = document.createElement('div');
+textInfo.className = 'text_info';
+
+// إنشاء العناصر الداخلية
+const nameDiv = document.createElement('div');
+nameDiv.className = 'name';
+nameDiv.textContent = cart.name;
+
+const sizeDiv = document.createElement('div');
+sizeDiv.className = 'size';
+sizeDiv.innerHTML = 'الحجم : <span class="size_main">كبير</span>';
+
+const quantityDiv = document.createElement('div');
+quantityDiv.className = 'quntity';
+quantityDiv.innerHTML =` الكميه : <div class="quntity_main">${cart.qwn}</div>`;
+
+// إضافة العناصر إلى textInfo
+textInfo.appendChild(nameDiv);
+textInfo.appendChild(sizeDiv);
+textInfo.appendChild(quantityDiv);
+
+// إنشاء div.price_details_order
+const priceDetailsOrder = document.createElement('div');
+priceDetailsOrder.className = 'price_details_order';
+
+const priceDiv = document.createElement('div');
+priceDiv.className = 'price';
+priceDiv.textContent = cart.price*cart.qwn;
+
+const currencyDiv = document.createElement('div');
+currencyDiv.textContent = 'جنيه';
+
+// إضافة العناصر إلى priceDetailsOrder
+priceDetailsOrder.appendChild(priceDiv);
+priceDetailsOrder.appendChild(currencyDiv);
+
+// إضافة العناصر إلى العنصر الرئيسي
+textDetailsOrder.appendChild(textInfo);
+textDetailsOrder.appendChild(priceDetailsOrder);
+console.log(textDetailsOrder)
+details_order.append(textDetailsOrder)
+
+// إضافة العنصر إلى الصفحة (مثال)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let wow =document.querySelectorAll(".wow")
+
+
+let r =0;
+
+
+window.addEventListener("scroll",e=>{
+    for(i =0;i<wow.length;i++){
+        if(wow[i].getBoundingClientRect().top <window.innerHeight -100){
+            wow[i].classList.add("show")
+        }else{
+            wow[i].classList.remove("show")
+        }
+    }
+})
+
+
+
+
+
+
+
+
+
+
 
 
