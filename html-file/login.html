@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/pizza/css/normalize.css">
+        <link rel="stylesheet" href="/pizza/css/all.min.css">
+        <link rel="stylesheet" href="/pizza/css/header.css">
+    <link rel="stylesheet" href="/pizza/css/style.css">
+    <title>Olive Pizza | تسجيل الدخول</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e2b25 0%, #2a3a32 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+
+    </style> -->
+
+</head>
+<body>
+    <div class="login">
+        <div class="container">
+            <div class="card">
+                <!-- الجانب الأيمن - التراث الإيطالي مع إحصائيات ديناميكية -->
+                <div class="heritage-side">
+                    <div class="heritage-icons">
+                        <i class="fas fa-pizza-slice"></i>
+                        <i class="fas fa-wine-bottle"></i>
+                        <i class="fas fa-olive"></i>
+                        <i class="fas fa-cheese"></i>
+                    </div>
+                    <div class="heritage-content">
+                        <div class="heritage-tag">
+                            <i class="fas fa-crown"></i> EST. 1985 • ITALY
+                        </div>
+                        <h1 class="heritage-title">حيث تلتقي الأصالة بالنكهة</h1>
+                        <p class="heritage-desc">من قلب نابولي إلى طاولتك، نقدم لك وصفات عائلية إيطالية أصيلة تم توارثها عبر أربعة أجيال.</p>
+                        <div class="quote">
+                            <i class="fas fa-quote-right"></i> البيتزا ليست مجرد طعام، إنها قصة حب إيطالية <i class="fas fa-quote-left"></i>
+                        </div>
+                        
+                        <!-- قسم الإحصائيات المهمة - تتغير مع كل reload -->
+                        <div class="stats-container" id="statsContainer">
+                            <div class="stats-title">
+                                <i class="fas fa-chart-line"></i>
+                                <span>إحصائيات حية اليوم</span>
+                            </div>
+                            <div class="stats-grid" id="statsGrid">
+                                <!-- سيتم ملء الإحصائيات بواسطة JavaScript -->
+
+      <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas ${stat.icon}"></i>
+                        </div>
+                        <div class="stat-value">343</div>
+                        <div class="stat-label">يبيبيبيبي</div>
+                        <div class="stat-trend" style="color: red">
+                            <i class="fa-sign-in-alt"></i>
+                            304% عن الأمس
+                        </div>
+                    </div>
+
+      <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas ${stat.icon}"></i>
+                        </div>
+                        <div class="stat-value">343</div>
+                        <div class="stat-label">يبيبيبيبي</div>
+                        <div class="stat-trend" style="color: red">
+                            <i class="fa-sign-in-alt"></i>
+                            304% عن الأمس
+                        </div>
+                    </div>
+
+      <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas ${stat.icon}"></i>
+                        </div>
+                        <div class="stat-value">343</div>
+                        <div class="stat-label">يبيبيبيبي</div>
+                        <div class="stat-trend" style="color: red">
+                            <i class="fa-sign-in-alt"></i>
+                            304% عن الأمس
+                        </div>
+                    </div>
+
+
+                            </div>
+                            <div class="update-time" id="updateTime">
+                                <i class="fas fa-sync-alt"></i>
+                                <span>تحديث تلقائي مع كل زيارة</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الجانب الأيسر - النماذج -->
+                <div class="forms-side">
+                    <div class="welcome-text">
+                        <h2>مرحباً بك</h2>
+                        <p>سجل دخولك أو أنشئ حساب للاستمتاع بتجربة بيتزا استثنائية</p>
+                    </div>
+
+                    <!-- تبويبات أنيقة -->
+                    <div class="auth-tabs">
+                        <button class="auth-tab active " onclick="changeTab('login')">
+                            <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                        </button>
+                        <button class="auth-tab"  onclick="changeTab('register')">
+                            <i class="fas fa-user-plus"></i> حساب جديد
+                        </button>
+                    </div>
+
+                    <!-- نموذج تسجيل الدخول -->
+                    <div id="loginForm" class="auth-form active">
+                        <div class="input-group">
+                            <label class="input-label">
+                                <i class="fas fa-envelope"></i>
+                                البريد الإلكتروني
+                            </label>
+                            <input type="email" class="input-field" placeholder="your@email.com">
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label">
+                                <i class="fas fa-lock"></i>
+                                كلمة المرور
+                            </label>
+                            <input type="password" class="input-field" placeholder="********">
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                            <label>
+                                <input type="checkbox"> 
+                                <i class="far fa-check-circle"></i> تذكرني
+                            </label>
+                            <a href="#" class="forget_password">
+                                <i class="fas fa-question-circle"></i> نسيت كلمة المرور؟
+                            </a>
+                        </div>
+
+                        <button class="btn-submit">
+                            سجل دخولك واطلب
+                        </button>
+
+                        <div class="alt-options">
+                            <p><i class="fas fa-asterisk"></i> أو الدخول باستخدام <i class="fas fa-asterisk"></i></p>
+                            <div class="social-buttons">
+                                <button class="social-btn"><i class="fab fa-google"></i></button>
+                                <button class="social-btn"><i class="fab fa-facebook-f"></i></button>
+                                <button class="social-btn"><i class="fab fa-twitter"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- نموذج إنشاء حساب -->
+                    <div id="registerForm" class="auth-form">
+                        <div class="name-row">
+                            <div class="input-group">
+                                <label class="input-label"><i class="fas fa-user"></i> الاسم الأول</label>
+                                <input type="text" class="input-field" placeholder="محمد">
+                            </div>
+                            <div class="input-group">
+                                <label class="input-label"><i class="fas fa-user"></i> الاسم الأخير</label>
+                                <input type="text" class="input-field" placeholder="العنزي">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label"><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
+                            <input type="email" class="input-field" placeholder="mohammed@example.com">
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label"><i class="fas fa-phone-alt"></i> رقم الجوال</label>
+                            <input type="tel" class="input-field" placeholder="05XXXXXXXX">
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label"><i class="fas fa-lock"></i> كلمة المرور</label>
+                            <input type="password" class="input-field" placeholder="********">
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label"><i class="fas fa-lock"></i> تأكيد كلمة المرور</label>
+                            <input type="password" class="input-field" placeholder="********">
+                        </div>
+                  
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                            <label>
+                                <input type="checkbox"> 
+                                <i class="far fa-check-circle"></i> أوافق على الشروط
+                            </label>
+                            <a href="#" class="forget_password">
+                                <i class="fas fa-question-circle"></i> تحتاج مساعدة؟
+                            </a>
+                        </div>
+
+                        <button class="btn-submit">
+                            <i class="fas fa-fire"></i>
+                            أنشئ حساب
+                        </button>
+
+                        <div class="alt-options">
+                            <p><i class="fas fa-asterisk"></i> أو التسجيل باستخدام <i class="fas fa-asterisk"></i></p>
+                            <div class="social-buttons">
+                                <button class="social-btn"><i class="fab fa-google"></i></button>
+                                <button class="social-btn"><i class="fab fa-facebook-f"></i></button>
+                                <button class="social-btn"><i class="fab fa-twitter"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeTab(tab) {
+            const tabs = document.querySelectorAll('.auth-tab');
+            const forms = document.querySelectorAll('.auth-form');
+            
+            tabs.forEach(t => t.classList.remove('active'));
+            forms.forEach(f => f.classList.remove('active'));
+            
+            if (tab === 'login') {
+                tabs[0].classList.add('active');
+                document.getElementById('loginForm').classList.add('active');
+            } else {
+                tabs[1].classList.add('active');
+                document.getElementById('registerForm').classList.add('active');
+            }
+        }
+
+        function randomInRange(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function randomFloatInRange(min, max, decimals = 1) {
+            const value = Math.random() * (max - min) + min;
+            return Number(value.toFixed(decimals));
+        }
+
+        function updateStatistics() {
+            const statsGrid = document.getElementById('statsGrid');
+            
+            const stats = [
+                {
+                    icon: 'fa-pizza-slice',
+                    value: randomInRange(350, 520),
+                    label: 'بيتزا مباعة اليوم',
+                    trend: randomInRange(5, 25)
+                },
+                {
+                    icon: 'fa-users',
+                    value: randomInRange(180, 300),
+                    label: 'زوار جدد اليوم',
+                    trend: randomInRange(8, 35)
+                },
+                {
+                    icon: 'fa-clock',
+                    value: randomInRange(25, 45),
+                    label: 'متوسط وقت التوصيل',
+                    unit: 'دقيقة',
+                    trend: randomInRange(-15, -5)
+                },
+                {
+                    icon: 'fa-star',
+                    value: randomFloatInRange(4.5, 4.9),
+                    label: 'تقييم اليوم',
+                    trend: randomFloatInRange(0.1, 0.3)
+                }
+            ];
+
+            let statsHTML = '';
+            stats.forEach(stat => {
+                const trendIcon = stat.trend > 0 ? 'fa-arrow-up' : 'fa-arrow-down';
+                const trendColor = stat.trend > 0 ? '#4caf50' : '#f44336';
+                const trendValue = Math.abs(stat.trend);
+                
+                statsHTML += `
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas ${stat.icon}"></i>
+                        </div>
+                        <div class="stat-value">${stat.value}${stat.unit ? ' ' + stat.unit : ''}</div>
+                        <div class="stat-label">${stat.label}</div>
+                        <div class="stat-trend" style="color: ${trendColor}">
+                            <i class="fas ${trendIcon}"></i>
+                            ${trendValue}% عن الأمس
+                        </div>
+                    </div>
+                `;
+            });
+
+            statsGrid.innerHTML = statsHTML;
+
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('ar-SA', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            
+            const updateTimeElement = document.getElementById('updateTime');
+            updateTimeElement.innerHTML = `
+                <i class="fas fa-sync-alt"></i>
+                <span>آخر تحديث: ${timeString}</span>
+            `;
+        }
+
+        window.addEventListener('load', updateStatistics);
+    </script>
+</body>
+</html>

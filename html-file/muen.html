@@ -6,37 +6,60 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="/pizza/css/normalize.css">
     <link rel="stylesheet" href="/pizza/css/all.min.css">
+    <link rel="stylesheet" href="/pizza/css/header.css">
     <link rel="stylesheet" href="/pizza/css/style.css">
     <title>pizza</title>
     <title>Document</title>
 </head>
 <body>
-            <header>
-<div class="container">
-            <div class="hamburger" id="hamburger">☰</div>
+  <header>
+<div class="cart-overly"></div>
+        <div class="container">
+            <div class="header-content">
+                <!-- Mobile Menu Toggle - هامبورجر -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
 
-        <div class="logo">
-            <img src="/pizza/imges/logo1.jpeg" alt="">
+                <!-- Logo - الشعار -->
+                <div class="logo">
+                    <a href="/pizza/index.html">
+                        <img src="/pizza/imges/logo1.jpeg" alt="بيتزا">
+                    </a>
+                </div>
+                
+                <!-- Search Form - نموذج البحث -->
+                <div class="search-wrapper">
+                    <div class="form">
+                        <input type="search" placeholder="ما الذي تبحث عنه؟" aria-label="بحث">
+                        <button type="submit" aria-label="بحث">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Navigation Menu - القائمة الرئيسية -->
+                <nav id="nav-menu">
+                    <ul>
+                        <li><a href="/pizza/index.html" class="active">الرئيسية</a></li>
+                        <li><a href="/pizza/html-file/muen.html">قائمة المنتجات</a></li>
+                        <li><a href="/pizza/html-file/product.html">المنتجات</a></li>
+                        <li><a href="">تسجيل الدخول</a></li>
+                        <li><a href="">الطلبات</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Cart Icon - أيقونة السلة -->
+                <div class="cart-icon">
+                 <i class="fa-solid fa-cart-arrow-down"></i>
+                    <span class="cart-badge">0</span>
+                </div>
+            </div>
         </div>
-        <div class="form">
-            <input type="search" placeholder="ما الذي تبحث عنه؟">
-        </div>
-        
-        <nav>
-            <ul>
-                <li><a href="/pizza/index.html">الرئيسية</a></li>
-                <li><a href="/pizza/html-file/muen.html">قائمة المنتجات</a></li>
-                <li><a href="/pizza/html-file/product.html">المنتجات</a></li>
-                <li><a href="">تسجيل الدخول</a></li>
-                <li><a href="">الطلبات</a></li>
-            </ul>
-        </nav>
-        <div class="cart-icon">
-            <i class="fa-solid fa-cart-arrow-down"></i>
+    </header>
 
-        </div>
-</div>
-</header>
 <div class="laind">
     <div class="container">
         <div class="logoptr">
@@ -624,6 +647,7 @@
     <div class="copy">copy with @ <span>2025</span></div>
  </footer>
 <!-- End footer  -->
+<script src="/pizza/javascrpt/product.js"></script>
 <script src="/pizza/javascrpt/muen.js"></script>
 </body>
 </html>

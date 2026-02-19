@@ -5,15 +5,6 @@ let bolites  =document.querySelector(".bolites")
 let next  = document.getElementById("next");
 let preveus  = document.getElementById("prev");
 let start = 0;
-let nav = document.querySelector("nav")
-console.log(nav)
-
-let hamburger  = document.getElementById("hamburger");
-hamburger.addEventListener("click",e=>{
-
-    hamburger.classList.toggle("active")
-    nav.classList.toggle("active")
-})
 
 
 
@@ -90,9 +81,7 @@ function openTabs(){
         document.body.style.overflowY = "auto"
     }
 }
-closeCart.addEventListener("click",e=>{
-openTabs()
-})
+
 iconNavCart.onclick = _=>{
 openTabs()
 }

@@ -23,8 +23,8 @@ let Place_Order = document.querySelector(".Place_Order");
 let close_chekout_page = document.querySelector(".close_chekout_page");
 let retrev_page = document.querySelector(".retrev_page");
 let details_order = document.querySelector(".ALL_product_details_chechout");
-let headerIcone = document.querySelector(".cart-tab .header-cart button i")
-console.log(headerIcone)
+let headerIcone = document.querySelector(".cart-tab .header-cart button i");
+let cart_badge = document.querySelector(".cart-badge");
 headerIcone.addEventListener("click",e=>{
     openTabs()
 })
@@ -62,6 +62,9 @@ function openTabs(){
 closeCart.addEventListener("click",e=>{
 openTabs()
 })
+closeCart.addEventListener("click",e=>{
+openTabs()
+})
 iconNavCart.onclick = _=>{
 openTabs()
 }
@@ -95,9 +98,12 @@ function createElement(myData) {
     let mainDivs = document.querySelector(".productAll .container");
     let div = document.createElement("div");
     div.className = "itemspro";
-    myData.forEach(e => {
+    myData.forEach((e,ind) => {
         let box = document.createElement("div");
         box.className = "box";
+        if(ind >=5){
+            box.classList.add("wow")
+        }
         let img = document.createElement("img");
         img.src = e["images"][0];
         let h3 = document.createElement("h3");
@@ -130,8 +136,49 @@ function createElement(myData) {
         div.append(box);
         mainDivs.append(div)
     })
-}
 
+
+
+    
+
+let text = "طعم البيتزا الأصلي… زي ما بتحبه بطعم إيطالي أصيل ";
+   let i = 0;
+    // let text = "Hello Nedal Mohamed Ahmed";
+    let speed = 200;
+    let isDeleting = false;
+
+    function typeEffect() {
+      let element = document.getElementById("head_para_main");
+
+      if (!isDeleting) {
+        // كتابة
+        element.innerHTML = text.slice(0, i + 1);
+        i++;
+
+        if (i === text.length) {
+          setTimeout(() => {
+            isDeleting = true;
+          }, 3000);
+        }
+
+      } else {
+        // مسح
+        element.innerHTML = text.slice(0, i - 1);
+        i--;
+
+        if (i === 0) {
+          isDeleting = false;
+        }
+      }
+
+      setTimeout(typeEffect, isDeleting ? 60 : speed);
+    }
+
+    typeEffect();
+
+
+}
+let srt = 0;
 // start code cart   
 
 function renderCheckout() {
@@ -156,11 +203,13 @@ window.onload = function () {
     emptyCart.style.display = "none";
     samaryDetails.style.display = "block"
     body_of_cart.style.overflowY = "scroll"
-
+  cart_badge.innerHTML = +this.localStorage.getItem("numberOfProduct")||0;
   });
  renderCheckout()
+//  if (localStorage.getItem("numberOfProduct")) {
+//      cart_badge.innerHTML += localStorage.getItem("numberOfProduct");
+//  }
 };
-
 
 localStorage.setItem("car", JSON.stringify(cars));
 
@@ -177,7 +226,6 @@ function message_Add_product(cart){
 
 
   function addToCart(cart){
-
   message_Add_product(cart);
 
   emptyCart.style.display = "none";
@@ -211,6 +259,14 @@ function message_Add_product(cart){
   samaryPrice.innerHTML = calcTotalPrice();
 
   localStorage.setItem("car", JSON.stringify(cars));
+//   srt++;
+let r = parseInt(cart_badge.innerHTML);
+cart_badge.innerHTML = r + 1;
+
+localStorage.setItem("numberOfProduct", r+1);
+
+
+
 
   renderCheckout();
 }
@@ -265,7 +321,10 @@ function drawItem(cart) {
             document.querySelector(".quntity").innerHTML = cart.qwn
             document.querySelector(".price").innerHTML = cart.price * cart.qwn
 renderCheckout()
+let r = parseInt(cart_badge.innerHTML);
+cart_badge.innerHTML = r + 1;
 
+localStorage.setItem("numberOfProduct", r+1);
 
     })
         decrement.addEventListener("click",e=>{
@@ -283,6 +342,10 @@ renderCheckout()
             document.querySelector(".quntity").innerHTML = cart.qwn
 
         }
+        let r = parseInt(cart_badge.innerHTML);
+cart_badge.innerHTML = r - 1;
+
+localStorage.setItem("numberOfProduct", r-1);
 renderCheckout()
 
 
@@ -305,21 +368,30 @@ renderCheckout()
    
    
     }
-
-
 function removeItem(id) {
   cars = cars.filter(item => item.id != id);
+  cart_badge.innerHTML = + localStorage.getItem("numberOfProduct") - +document.querySelector(".quntity_main").innerHTML;
+  localStorage.setItem("numberOfProduct", cart_badge.innerHTML);
+  console.log(document.querySelector(".quntity_main"))
   document.getElementById(id).closest(".box").remove();
   localStorage.setItem("car", JSON.stringify(cars));
   samaryPrice.innerHTML = calcTotalPrice() ;
+//         let r = parseInt(cart_badge.innerHTML);
 
-  if(body_of_cart.children.length === 0){
-    samaryDetails.style.display = "none"
-    emptyCart.style.display = "block"
-    body_of_cart.style.overflowY = "hidden"
-    // samaryPrice.innerHTML = calcTotalPrice() ;
+// localStorage.setItem("numberOfProduct", r-1);
+if (body_of_cart.children.length === 0) {
 
-  }
+    samaryDetails.style.display = "none";
+    emptyCart.style.display = "block";
+    body_of_cart.style.overflowY = "hidden";
+    
+    // Reset cart-related UI elements
+    samaryPrice.innerHTML = "0 جنيه";
+    total_price_of_cart.innerHTML = "0 جنيه";
+    
+    // Optional: Add animation or focus
+    // emptyCart.scrollIntoView({ behavior: "smooth" });
+}
     document.querySelector(".quntity").closest(".text_detalis_order").remove()
 
   renderCheckout()
@@ -634,9 +706,33 @@ function createDetails(e) {
     let optionsSectionCrust = document.querySelectorAll(".crust-options .crust-option");
     let mainPrice = (document.querySelector(".descirption .prices .number-price"));
 
-    console.log()
     let inputCount = document.querySelector(".forms input");
     let increment = document.querySelectorAll(".forms span");
+
+
+    let count_namber = document.querySelector(".forms .coutm-number");
+
+   count_namber.addEventListener("input", () => {
+    count_namber.value = count_namber.value.replace(/[^0-9]/g, "");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     mainPrice.innerHTML = `${e.price} جنيه`
     let total = 0;
     let crustPrice = 0;
@@ -700,6 +796,7 @@ function createDetails(e) {
 
 
 }
+
 
 
 function elel(e) {
@@ -1423,7 +1520,6 @@ priceDetailsOrder.appendChild(currencyDiv);
 // إضافة العناصر إلى العنصر الرئيسي
 textDetailsOrder.appendChild(textInfo);
 textDetailsOrder.appendChild(priceDetailsOrder);
-console.log(textDetailsOrder)
 details_order.append(textDetailsOrder)
 
 // إضافة العنصر إلى الصفحة (مثال)
@@ -1469,6 +1565,22 @@ window.addEventListener("scroll",e=>{
 
 
 
+    let caarygore = document.querySelectorAll(".caarygore .container ul a");
+    caarygore.forEach(a=>{
+        a.addEventListener("click",e=>{
+                e.preventDefault();
+            caarygore.forEach(li=>{
+                li.classList.remove("active");
+            })
+            e.target.classList.add("active");
+        })
+    })
+    // let nav = document.querySelector("nav")
+console.log(nav)
 
+let hamburger  = document.getElementById("hamburger");
+hamburger.addEventListener("click",e=>{
 
-
+    hamburger.classList.toggle("active")
+    nav.classList.toggle("active")
+})
