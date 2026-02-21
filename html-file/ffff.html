@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Corner | عروض حصرية</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* --------------------------------------------- */
+        /* جميع العناصر محددة بمسار كامل من body إلى أعمق ابن */
+        /* --------------------------------------------- */
+
+        /* ---------- RESET STYLES ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* ---------- OFFERS GRID ---------- */
+        body .container .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        /* ---------- OFFER CARD ---------- */
+        body .container .offers-grid .offer-card {
+            background: white;
+            border-radius: 28px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #f1f5f9;
+            position: relative;
+            cursor: pointer;
+        }
+
+        body .container .offers-grid .offer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px -12px rgba(249, 115, 22, 0.25);
+            border-color: #f97316;
+        }
+
+        /* ---------- CARD BADGE ---------- */
+        body .container .offers-grid .offer-card .card-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid #f1f5f9;
+        }
+
+        body .container .offers-grid .offer-card .card-badge i {
+            font-size: 0.8rem;
+        }
+
+        body .container .offers-grid .offer-card .card-badge.badge-hot {
+            color: #dc2626;
+        }
+
+        body .container .offers-grid .offer-card .card-badge.badge-popular {
+            color: #f97316;
+        }
+
+        body .container .offers-grid .offer-card .card-badge.badge-new {
+            color: #16a34a;
+        }
+
+        body .container .offers-grid .offer-card .card-badge.badge-limited {
+            color: #7c3aed;
+        }
+
+        /* ---------- CARD IMAGE ---------- */
+        body .container .offers-grid .offer-card .card-image {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #fff3e6, #ffe4cc);
+            border-radius: 20px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body .container .offers-grid .offer-card .card-image i {
+            font-size: 4rem;
+            color: #f97316;
+            opacity: 0.9;
+            transition: transform 0.3s;
+        }
+
+        body .container .offers-grid .offer-card:hover .card-image i {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        body .container .offers-grid .offer-card .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.1), transparent 70%);
+        }
+
+        /* ---------- CARD CONTENT ---------- */
+        body .container .offers-grid .offer-card .card-content {
+            text-align: right;
+        }
+
+        body .container .offers-grid .offer-card .card-content .card-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        body .container .offers-grid .offer-card .card-content .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        body .container .offers-grid .offer-card .card-content .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        body .container .offers-grid .offer-card .card-content .card-meta i {
+            color: #f97316;
+            font-size: 0.8rem;
+        }
+
+        /* ---------- ITEMS GRID ---------- */
+        body .container .offers-grid .offer-card .card-content .items-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        body .container .offers-grid .offer-card .card-content .items-grid .item {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 8px;
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            border: 1px solid #f1f5f9;
+            transition: all 0.2s;
+        }
+
+        body .container .offers-grid .offer-card:hover .card-content .items-grid .item {
+            border-color: #fed7aa;
+        }
+
+        body .container .offers-grid .offer-card .card-content .items-grid .item i {
+            color: #f97316;
+            font-size: 0.7rem;
+        }
+
+        /* ---------- CARD FOOTER ---------- */
+        body .container .offers-grid .offer-card .card-content .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        body .container .offers-grid .offer-card .card-content .card-footer .price-box {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        body .container .offers-grid .offer-card .card-content .card-footer .price-box .current-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #f97316;
+            line-height: 1;
+        }
+
+        body .container .offers-grid .offer-card .card-content .card-footer .price-box .current-price .currency {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+
+        body .container .offers-grid .offer-card .card-content .card-footer .price-box .old-price {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-decoration: line-through;
+            font-weight: 500;
+        }
+
+        body .container .offers-grid .offer-card .card-content .card-footer .add-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 16px;
+            background: #f97316;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px -8px rgba(249, 115, 22, 0.3);
+        }
+
+        body .container .offers-grid .offer-card .card-content .card-footer .add-btn:hover {
+            background: #ea580c;
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px -8px rgba(249, 115, 22, 0.4);
+        }
+
+        body .container .offers-grid .offer-card .card-content .card-footer .add-btn i {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* ---------- SAVINGS BADGE ---------- */
+        body .container .offers-grid .offer-card .card-content .savings {
+            background: #f0fdf4;
+            color: #16a34a;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 30px;
+            border: 1px solid #dcfce7;
+            margin-top: 8px;
+            display: inline-block;
+        }
+
+        /* ---------- DELIVERY BAR ---------- */
+        body .container .delivery-bar {
+            margin-top: 48px;
+            background: white;
+            border-radius: 60px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        body .container .delivery-bar .delivery-info {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        body .container .delivery-bar .delivery-info .delivery-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        body .container .delivery-bar .delivery-info .delivery-item i {
+            color: #f97316;
+            font-size: 1.1rem;
+        }
+
+        body .container .delivery-bar .delivery-info .delivery-item strong {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        body .container .delivery-bar .delivery-badge {
+            background: #0f172a;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        body .container .delivery-bar .delivery-badge i {
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* ---------- TOAST NOTIFICATION ---------- */
+        body .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #0f172a;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        body .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        body .toast i {
+            color: #4ade80;
+            font-size: 1.2rem;
+        }
+
+        /* ---------- RESPONSIVE MEDIA QUERIES ---------- */
+        @media (max-width: 1200px) {
+            body .container .offers-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            body .container .offers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 16px;
+            }
+            
+            body .container .offers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            body .container .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            body .container .header .header-right {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 8px;
+            }
+            
+            body .container .header .header-right .filter-btn {
+                white-space: nowrap;
+            }
+            
+            body .container .delivery-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* ---------- CUSTOM SCROLLBAR ---------- */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #f97316;
+            border-radius: 20px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ea580c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        
+
+        <!-- Offers Grid -->
+        <div class="offers-grid">
+            <!-- Card 1 -->
+            <div class="offer-card">
+                <div class="card-badge badge-popular">
+                    <i class="fas fa-crown"></i>
+                    الأكثر مبيعاً
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">عرض العائلة المثالية</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-user-friends"></i> 4-5 أشخاص</span>
+                        <span><i class="fas fa-clock"></i> 45 دقيقة</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> 2 بيتزا</div>
+                        <div class="item"><i class="fas fa-can-food"></i> 4 مشروبات</div>
+                        <div class="item"><i class="fas fa-french-fries"></i> 2 بطاطس</div>
+                        <div class="item"><i class="fas fa-cookie"></i> 4 حلويات</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">39.90 <span class="currency">دينار</span></span>
+                            <span class="old-price">49.90</span>
+                        </div>
+                        <button class="add-btn" onclick="showToast()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="savings">وفر 10 دينار</div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="offer-card">
+                <div class="card-badge badge-limited">
+                    <i class="fas fa-heart"></i>
+                    حصري
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">عشاء رومانسي</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-user-friends"></i> شخصين</span>
+                        <span><i class="fas fa-wine-glass-alt"></i> مع شمعة</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> بيتزا قلب</div>
+                        <div class="item"><i class="fas fa-utensils"></i> باستا ألفريدو</div>
+                        <div class="item"><i class="fas fa-wine-bottle"></i> زجاجة نبيذ</div>
+                        <div class="item"><i class="fas fa-cake"></i> تشيز كيك</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">32.00 <span class="currency">دينار</span></span>
+                            <span class="old-price">42.00</span>
+                        </div>
+                        <button class="add-btn" onclick="showToast()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="savings">وفر 10 دينار</div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="offer-card">
+                <div class="card-badge badge-new">
+                    <i class="fas fa-gift"></i>
+                    هدية مجانية
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-child"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">عرض الأولاد</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-child"></i> للأطفال</span>
+                        <span><i class="fas fa-gamepad"></i> مع لعبة</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> بيتزا أطفال</div>
+                        <div class="item"><i class="fas fa-french-fries"></i> أصابع جبنة</div>
+                        <div class="item"><i class="fas fa-juice"></i> عصير طبيعي</div>
+                        <div class="item"><i class="fas fa-gamepad"></i> لعبة مفاجأة</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">8.90 <span class="currency">دينار</span></span>
+                        </div>
+                        <button class="add-btn" onclick="showToast()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="offer-card">
+                <div class="card-badge badge-hot">
+                    <i class="fas fa-clock"></i>
+                    سريع
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">غداء تنفيذي</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-user"></i> فردي</span>
+                        <span><i class="fas fa-clock"></i> 20 دقيقة</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> 2 شريحة</div>
+                        <div class="item"><i class="fas fa-salad"></i> سلطة سيزر</div>
+                        <div class="item"><i class="fas fa-can-food"></i> مشروب + قهوة</div>
+                        <div class="item"><i class="fas fa-cookie"></i> كوكيز</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">6.90 <span class="currency">دينار</span></span>
+                            <span class="old-price">9.90</span>
+                        </div>
+                        <button class="add-btn" onclick="showToast()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="offer-card">
+                <div class="card-badge badge-popular">
+                    <i class="fas fa-fire"></i>
+                    مكس
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-drumstick-bite"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">دجاج & بيتزا</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-user-friends"></i> 2-3 أشخاص</span>
+                        <span><i class="fas fa-fire"></i> حار</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> بيتزا كبيرة</div>
+                        <div class="item"><i class="fas fa-drumstick-bite"></i> 6 بروستد</div>
+                        <div class="item"><i class="fas fa-french-fries"></i> 2 بطاطس</div>
+                        <div class="item"><i class="fas fa-can-food"></i> 3 مشروبات</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">29.90 <span class="currency">دينار</span></span>
+                            <span class="old-price">38.90</span>
+                        </div>
+                        <button class="add-btn" onclick="showToast()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="savings">وفر 9 دينار</div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="offer-card">
+                <div class="card-badge badge-hot">
+                    <i class="fas fa-pepper-hot"></i>
+                    حار جداً
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-pepper-hot"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">تحدي النار</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-user"></i> فردي</span>
+                        <span><i class="fas fa-trophy"></i> مع شهادة</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> بيتزا حارة</div>
+                        <div class="item"><i class="fas fa-can-food"></i> 3 مشروبات</div>
+                        <div class="item"><i class="fas fa-milk"></i> كأس حليب</div>
+                        <div class="item"><i class="fas fa-award"></i> شهادة</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">18.00 <span class="currency">دينار</span></span>
+                        </div>
+                        <button class="add-btn" onclick="showToast()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="offer-card">
+                <div class="card-badge badge-popular">
+                    <i class="fas fa-star"></i>
+                    كومبو
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">بيتزا & باستا</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-user-friends"></i> 2 شخص</span>
+                        <span><i class="fas fa-clock"></i> 35 دقيقة</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> بيتزا وسط</div>
+                        <div class="item"><i class="fas fa-utensils"></i> باستا ألفريدو</div>
+                        <div class="item"><i class="fas fa-can-food"></i> 2 مشروب</div>
+                        <div class="item"><i class="fas fa-bread"></i> خبز ثوم</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">21.90 <span class="currency">دينار</span></span>
+                            <span class="old-price">27.90</span>
+                        </div>
+                        <button class="add-btn" onclick="showToast()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="offer-card">
+                <div class="card-badge badge-new">
+                    <i class="fas fa-leaf"></i>
+                    نباتي
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">خيارات نباتية</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-seedling"></i> عضوي</span>
+                        <span><i class="fas fa-heart"></i> صحي</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> بيتزا خضار</div>
+                        <div class="item"><i class="fas fa-salad"></i> سلطة كينوا</div>
+                        <div class="item"><i class="fas fa-juice"></i> عصير أخضر</div>
+                        <div class="item"><i class="fas fa-cake"></i> كيك جزر</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">24.00 <span class="currency">دينار</span></span>
+                            <span class="old-price">29.00</span>
+                        </div>
+                        <button class="add-btn" onclick="showToast()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delivery Bar -->
+        <div class="delivery-bar">
+            <div class="delivery-info">
+                <div class="delivery-item">
+                    <i class="fas fa-truck-fast"></i>
+                    <span>توصيل: <strong>30-45 دقيقة</strong></span>
+                </div>
+                <div class="delivery-item">
+                    <i class="fas fa-clock"></i>
+                    <span>الطلب المسبق: <strong>متاح</strong></span>
+                </div>
+                <div class="delivery-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>الدفع: <strong>كاش/بطاقة</strong></span>
+                </div>
+            </div>
+            <div class="delivery-badge">
+                <i class="fas fa-gift"></i>
+                طلبك الأول خصم 15%
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        تمت إضافة العرض إلى سلة المشتريات
+    </div>
+
+    <script>
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

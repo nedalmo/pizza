@@ -3,998 +3,763 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بيتزا مارغريتا كلاسيكية - بيتزا هاوس</title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+    <title>Pizza Corner | عروض حصرية</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts - خطوط عصرية -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #E63946;
-            --secondary: #F4A261;
-            --light: #F1FAEE;
-            --dark: #1D3557;
-            --success: #2A9D8F;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            font-family: 'Tajawal', sans-serif;
+            background: #1a1a1a;
+            color: #fff;
             line-height: 1.6;
+            overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(to right, var(--dark), var(--primary));
-            color: white;
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
+
+        /* خلفية متحركة */
+        .bg-animation {
+            position: fixed;
             top: 0;
-            z-index: 100;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            margin-left: 10px;
-            color: var(--secondary);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-right: 20px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--secondary);
-        }
-        
-        .cart-icon {
-            position: relative;
-            font-size: 22px;
-            cursor: pointer;
-        }
-        
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--secondary);
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        
-        /* Product Details */
-        .product-details {
-            padding: 30px 0;
-        }
-        
-        .product-container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .product-header {
-            display: flex;
-            padding: 20px;
-            background: var(--light);
-            border-bottom: 1px solid #eee;
-        }
-        
-        .back-btn {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-        }
-        
-        .back-btn i {
-            margin-right: 8px;
-        }
-        
-        .product-title {
-            flex-grow: 1;
-            text-align: center;
-            font-size: 24px;
-            color: var(--dark);
-        }
-        
-        .product-content {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
-        
-        .product-images {
-            flex: 1;
-            min-width: 300px;
-            padding: 15px;
-        }
-        
-        .main-image {
-            width: 100%;
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .main-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .image-thumbnails {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .thumbnail {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: border 0.3s;
-        }
-        
-        .thumbnail.active {
-            border-color: var(--primary);
-        }
-        
-        .thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .product-info {
-            flex: 1;
-            min-width: 300px;
-            padding: 15px;
-        }
-        
-        .quick-description {
-            font-size: 18px;
-            color: var(--dark);
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .price-section {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .current-price {
-            font-size: 32px;
-            font-weight: bold;
-            color: var(--primary);
-        }
-        
-        .original-price {
-            font-size: 20px;
-            color: #999;
-            text-decoration: line-through;
-            margin-right: 15px;
-        }
-        
-        .discount-badge {
-            background: var(--success);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-right: 15px;
-        }
-        
-        .options-section {
-            margin-bottom: 25px;
-        }
-        
-        .option-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-        
-        .size-options, .crust-options {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-        }
-        
-        .size-option, .crust-option {
-            padding: 10px 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-            min-width: 100px;
-        }
-        
-        .size-option:hover, .crust-option:hover {
-            border-color: var(--secondary);
-        }
-        
-        .size-option.selected, .crust-option.selected {
-            border-color: var(--primary);
-            background-color: rgba(230, 57, 70, 0.05);
-        }
-        
-        .size-details {
-            display: flex;
-            justify-content: space-between;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-        
-        .quantity-section {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .quantity-btn {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #ddd;
-            background: white;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        
-        .quantity-input {
-            width: 60px;
-            height: 40px;
-            text-align: center;
-            border: 1px solid #ddd;
-            margin: 0 10px;
-            font-size: 18px;
-            border-radius: 5px;
-        }
-        
-        .action-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .btn {
-            padding: 15px 25px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            flex: 1;
-        }
-        
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: #c1121f;
-        }
-        
-        .btn-secondary {
-            background: var(--secondary);
-            color: white;
-        }
-        
-        .btn-secondary:hover {
-            background: #e76f51;
-        }
-        
-        .btn i {
-            margin-left: 8px;
-        }
-        
-        /* Tabs Section */
-        .tabs-section {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .tabs-header {
-            display: flex;
-            border-bottom: 1px solid #eee;
-            background: var(--light);
-        }
-        
-        .tab-btn {
-            padding: 15px 25px;
-            background: none;
-            border: none;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            color: var(--dark);
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .tab-btn.active {
-            color: var(--primary);
-        }
-        
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
             left: 0;
             width: 100%;
-            height: 3px;
-            background: var(--primary);
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(125deg, #0a0f0f 0%, #1a1f1f 40%, #2c1810 100%);
+            overflow: hidden;
         }
-        
-        .tab-content {
-            padding: 25px;
-            display: none;
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 140, 0, 0.03) 10px,
+                rgba(255, 140, 0, 0.03) 20px
+            );
+            animation: moveBg 20s linear infinite;
         }
-        
-        .tab-content.active {
-            display: block;
+
+        @keyframes moveBg {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
-        
-        .ingredients-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
         }
-        
-        .ingredient-item {
-            background: var(--light);
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .nutrition-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-        }
-        
-        .nutrition-item {
-            background: var(--light);
-            padding: 15px;
-            border-radius: 8px;
+
+        /* الهيدر بتصميم جريء */
+        .header {
             text-align: center;
+            margin-bottom: 60px;
+            position: relative;
         }
-        
-        .nutrition-value {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-        
-        .reviews-container {
-            max-height: 400px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-        
-        .review-item {
-            background: var(--light);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-        
-        .review-header {
-            display: flex;
-            justify-content: space-between;
+
+        .header h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff8e7 0%, #ffd700 50%, #ff8c00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
+            letter-spacing: 2px;
             margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
         }
-        
-        .review-rating {
-            color: var(--secondary);
+
+        .header h1::before,
+        .header h1::after {
+            content: '🍕';
+            font-size: 3rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.3;
+            animation: float 3s ease-in-out infinite;
         }
-        
-        .product-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
+
+        .header h1::before {
+            left: -60px;
         }
-        
-        .tag {
-            background: #e9ecef;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 14px;
-            color: #495057;
+
+        .header h1::after {
+            right: -60px;
         }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
+
+        .header p {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50%) rotate(0deg); }
+            50% { transform: translateY(-50%) rotate(10deg); }
+        }
+
+        /* شبكة البطاقات */
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        /* تصميم البطاقة */
+        .offer-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 140, 0, 0.1);
+            border-radius: 40px;
+            padding: 35px 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255, 215, 0, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: #ff8c00;
+            box-shadow: 0 30px 60px rgba(255, 140, 0, 0.3);
+        }
+
+        .offer-card:hover::before {
+            opacity: 1;
+        }
+
+        /* خلفية مخصصة لكل بطاقة */
+        .offer-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            transform: rotate(35deg);
+            transition: 0.6s;
+        }
+
+        .offer-card:hover::after {
+            animation: shine 0.6s;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(35deg); }
+            100% { transform: translateX(200%) rotate(35deg); }
+        }
+
+        /* شارة العرض */
+        .offer-badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #ff8c00, #ff4500);
+            padding: 8px 20px;
+            border-radius: 30px;
             color: white;
-            padding: 30px 0;
-            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+            z-index: 2;
+            animation: pulseBadge 2s infinite;
         }
-        
-        .footer-content {
+
+        @keyframes pulseBadge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* أيقونة البطاقة */
+        .card-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #ff8c00, #ff4500);
+            border-radius: 30px;
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(255, 140, 0, 0.4);
+            transition: all 0.3s;
+        }
+
+        .offer-card:hover .card-icon {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .card-icon i {
+            font-size: 3.5rem;
+            color: white;
+            filter: drop-shadow(2px 4px 6px black);
+        }
+
+        .card-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 35px;
+            animation: borderPulse 2s infinite;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.2; }
+        }
+
+        /* محتوى البطاقة */
+        .card-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .card-subtitle {
+            font-size: 1rem;
+            color: #ff8c00;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            padding: 15px;
+
+        .card-subtitle i {
+            font-size: 1.2rem;
         }
-        
-        .footer-section h3 {
-            margin-bottom: 15px;
-            color: var(--secondary);
+
+        /* قائمة المكونات */
+        .ingredients {
+            list-style: none;
+            margin-bottom: 30px;
         }
-        
-        .copyright {
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+
+        .ingredients li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #d0d0d0;
+            font-weight: 500;
+            transition: all 0.3s;
         }
-        
-        /* Responsive */
+
+        .ingredients li:hover {
+            color: #ff8c00;
+            transform: translateX(5px);
+        }
+
+        .ingredients li i {
+            color: #ff8c00;
+            font-size: 1.2rem;
+            width: 25px;
+        }
+
+        /* منطقة السعر */
+        .price-section {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .current-price {
+            background: linear-gradient(135deg, #ff8c00, #ff4500);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+        }
+
+        .save-amount {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 1px solid rgba(46, 204, 113, 0.3);
+        }
+
+        /* زر الطلب */
+        .order-button {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #ff8c00, #ff4500);
+            color: white;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 900;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .order-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .order-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.6);
+        }
+
+        .order-button i {
+            transition: transform 0.3s;
+        }
+
+        .order-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* ألوان مختلفة للبطاقات */
+        .card-1 .card-icon { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .card-2 .card-icon { background: linear-gradient(135deg, #f39c12, #d35400); }
+        .card-3 .card-icon { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+        .card-4 .card-icon { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .card-5 .card-icon { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .card-6 .card-icon { background: linear-gradient(135deg, #e67e22, #d35400); }
+        .card-7 .card-icon { background: linear-gradient(135deg, #e74c3c, #bdc3c7); }
+        .card-8 .card-icon { background: linear-gradient(135deg, #1abc9c, #16a085); }
+        .card-9 .card-icon { background: linear-gradient(135deg, #f1c40f, #f39c12); }
+
+        /* تصميم متجاوب */
+        @media (max-width: 1200px) {
+            .offers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
-            .product-content {
-                flex-direction: column;
+            .header h1 {
+                font-size: 2.5rem;
             }
             
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
+            .header h1::before,
+            .header h1::after {
+                display: none;
             }
             
-            nav ul {
-                justify-content: center;
+            .offers-grid {
+                grid-template-columns: 1fr;
             }
             
-            .action-buttons {
-                flex-direction: column;
+            .offer-card {
+                padding: 25px;
             }
             
-            .tabs-header {
-                flex-wrap: wrap;
+            .card-title {
+                font-size: 1.8rem;
             }
-            
-            .tab-btn {
-                flex: 1;
-                min-width: 120px;
-            }
+        }
+
+        /* تأثيرات إضافية */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* تخصيص scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #ff8c00, #ff4500);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #ff4500, #ff8c00);
+        }
+
+        /* رسالة منبثقة للطلب */
+        .order-toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.4);
+            transform: translateX(400px);
+            transition: transform 0.5s;
+            z-index: 1000;
+        }
+
+        .order-toast.show {
+            transform: translateX(0);
+        }
+
+        .order-toast i {
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <i class="fas fa-pizza-slice"></i>
-                بيتزا هاوس
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
-                    <li><a href="#"><i class="fas fa-utensils"></i> القائمة</a></li>
-                    <li><a href="#"><i class="fas fa-percent"></i> العروض</a></li>
-                    <li><a href="#"><i class="fas fa-info-circle"></i> من نحن</a></li>
-                    <li><a href="#"><i class="fas fa-phone"></i> اتصل بنا</a></li>
+    <div class="bg-animation"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>PIZZA CORNER</h1>
+            <p>عروضنا الحصرية • طعم لا يقاوم • جودة عالية</p>
+        </div>
+
+        <div class="offers-grid">
+            <!-- بطاقة 1: العائلة -->
+            <div class="offer-card card-1">
+                <div class="offer-badge">🔥 أشهر العروض</div>
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h2 class="card-title">العائلة السعيدة</h2>
+                <div class="card-subtitle">
+                    <i class="fas fa-utensils"></i>
+                    <span>يكفي 4-5 أشخاص</span>
+                </div>
+                <ul class="ingredients">
+                    <li><i class="fas fa-pizza-slice"></i> 2 بيتزا فاخرة (أي حجم كبير)</li>
+                    <li><i class="fas fa-french-fries"></i> 2 بطاطس ودجز حارة</li>
+                    <li><i class="fas fa-can-food"></i> 4 مشروبات غازية (علب)</li>
+                    <li><i class="fas fa-cookie"></i> 4 قطع براونيز</li>
                 </ul>
-            </nav>
-            <div class="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <div class="cart-count">3</div>
+                <div class="price-section">
+                    <span class="old-price">68 دينار</span>
+                    <span class="current-price">49 دينار</span>
+                    <span class="save-amount">وفر 19 دينار</span>
+                </div>
+                <button class="order-button" onclick="showOrderToast()">
+                    اطلب الآن <i class="fas fa-arrow-left"></i>
+                </button>
             </div>
-        </div>
-    </header>
 
-    <!-- Product Details -->
-    <section class="product-details">
-        <div class="container">
-            <div class="product-container">
-                <div class="product-header">
-                    <a href="#" class="back-btn">
-                        <i class="fas fa-arrow-right"></i> العودة للقائمة
-                    </a>
-                    <div class="product-title">
-                        بيتزا مارغريتا كلاسيكية
-                    </div>
+            <!-- بطاقة 2: الرومانسية -->
+            <div class="offer-card card-2">
+                <div class="offer-badge">❤️ للعشاق</div>
+                <div class="card-icon">
+                    <i class="fas fa-heart"></i>
                 </div>
-                
-                <div class="product-content">
-                    <div class="product-images">
-                        <div class="main-image">
-                            <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="بيتزا مارغريتا" id="mainImage">
-                        </div>
-                        <div class="image-thumbnails">
-                            <div class="thumbnail active" onclick="changeImage('https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80')">
-                                <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="بيتزا مارغريتا">
-                            </div>
-                            <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1081&q=80')">
-                                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1081&q=80" alt="بيتزا مارغريتا">
-                            </div>
-                            <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1081&q=80')">
-                                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1081&q=80" alt="بيتزا مارغريتا">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-info">
-                        <div class="quick-description">
-                            بيتزا إيطالية تقليدية بصلصة الطماطم والموتزاريلا والريحان الطازج
-                        </div>
-                        
-                        <div class="price-section">
-                            <div class="original-price">38.00 ر.س</div>
-                            <div class="current-price">35.00 ر.س</div>
-                            <div class="discount-badge">خصم 10%</div>
-                        </div>
-                        
-                        <div class="options-section">
-                            <div class="option-title">اختر الحجم:</div>
-                            <div class="size-options">
-                                <div class="size-option selected" onclick="selectSize(this, 28.00)">
-                                    <div>صغير (25 سم)</div>
-                                    <div class="size-details">
-                                        <span>28.00 ر.س</span>
-                                        <span>1-2 أشخاص</span>
-                                    </div>
-                                </div>
-                                <div class="size-option" onclick="selectSize(this, 35.00)">
-                                    <div>متوسط (30 سم)</div>
-                                    <div class="size-details">
-                                        <span>35.00 ر.س</span>
-                                        <span>2-3 أشخاص</span>
-                                    </div>
-                                </div>
-                                <div class="size-option" onclick="selectSize(this, 42.00)">
-                                    <div>كبير (35 سم)</div>
-                                    <div class="size-details">
-                                        <span>42.00 ر.س</span>
-                                        <span>3-4 أشخاص</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="option-title">اختر نوع العجينة:</div>
-                            <div class="crust-options">
-                                <div class="crust-option selected" onclick="selectCrust(this, 0)">
-                                    رقيقة ومقرمشة
-                                </div>
-                                <div class="crust-option" onclick="selectCrust(this, 5)">
-                                    سميكة وطرية (+5 ر.س)
-                                </div>
-                                <div class="crust-option" onclick="selectCrust(this, 8)">
-                                    محشوة بالجبن (+8 ر.س)
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="quantity-section">
-                            <div class="option-title">الكمية:</div>
-                            <div style="display: flex; align-items: center; margin-right: 15px;">
-                                <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
-                                <input type="text" class="quantity-input" value="1" id="quantity">
-                                <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
-                            </div>
-                        </div>
-                        
-                        <div class="product-tags">
-                            <span class="tag"><i class="fas fa-flag"></i> إيطالي</span>
-                            <span class="tag"><i class="fas fa-leaf"></i> نباتي</span>
-                            <span class="tag"><i class="fas fa-fire"></i> طازج</span>
-                            <span class="tag"><i class="fas fa-star"></i> تقليدي</span>
-                        </div>
-                        
-                        <div class="action-buttons">
-                            <button class="btn btn-primary" onclick="addToCart()">
-                                <i class="fas fa-cart-plus"></i> أضف إلى السلة
-                            </button>
-                            <button class="btn btn-secondary" onclick="orderNow()">
-                                <i class="fas fa-bolt"></i> اطلب الآن
-                            </button>
-                        </div>
-                    </div>
+                <h2 class="card-title">عشاء رومانسي</h2>
+                <div class="card-subtitle">
+                    <i class="fas fa-wine-glass-alt"></i>
+                    <span>لشخصين مع إطلالة</span>
                 </div>
+                <ul class="ingredients">
+                    <li><i class="fas fa-pizza-slice"></i> بيتزا قلب وسط (صوص سري)</li>
+                    <li><i class="fas fa-plate-wheat"></i> باستا ألفريدو بالدجاج</li>
+                    <li><i class="fas fa-wine-bottle"></i> زجاجة نبيذ أحمر فاخر</li>
+                    <li><i class="fas fa-cake"></i> تشيز كيك بالتوت</li>
+                </ul>
+                <div class="price-section">
+                    <span class="old-price">45 دينار</span>
+                    <span class="current-price">35 دينار</span>
+                    <span class="save-amount">وفر 10 دينار</span>
+                </div>
+                <button class="order-button" onclick="showOrderToast()">
+                    اطلب الآن <i class="fas fa-arrow-left"></i>
+                </button>
             </div>
-            
-            <!-- Tabs Section -->
-            <div class="tabs-section">
-                <div class="tabs-header">
-                    <button class="tab-btn active" onclick="openTab('description')">الوصف التفصيلي</button>
-                    <button class="tab-btn" onclick="openTab('ingredients')">المكونات</button>
-                    <button class="tab-btn" onclick="openTab('nutrition')">القيمة الغذائية</button>
-                    <button class="tab-btn" onclick="openTab('reviews')">التقييمات</button>
-                </div>
-                
-                <div id="description" class="tab-content active">
-                    <h3>بيتزا مارغريتا الكلاسيكية</h3>
-                    <p>بيتزا مارغريتا الكلاسيكية هي البيتزا الإيطالية الأصلية التي اخترعت في نابولي عام 1889 تكريماً للملكة مارغريتا. تتميز بمكوناتها البسيطة والطازجة التي تمثل ألوان العلم الإيطالي: الأحمر (الطماطم)، الأبيض (الموتزاريلا)، والأخضر (الريحان).</p>
-                    
-                    <h4>معلومات إضافية:</h4>
-                    <ul>
-                        <li><strong>وقت التحضير:</strong> 15-20 دقيقة</li>
-                        <li><strong>طريقة الطهي:</strong> تُخبز في فرن حجري على درجة حرارة 280°م حتى تصبح الحواف ذهبية</li>
-                        <li><strong>مستوى الحرارة:</strong> 0/5 (غير حار)</li>
-                        <li><strong>مدة الصلاحية:</strong> 48 ساعة في الثلاجة</li>
-                        <li><strong>توصية الشيف:</strong> ننصح بإضافة رشة من زيت الزيتون البكر الممتاز بعد الخبز</li>
-                        <li><strong>الأطباق المناسبة:</strong> سلطة سيزر، مشروب غازي، نبيذ أحمر خفيف</li>
-                    </ul>
-                    
-                    <h4>المحتوى الغذائي (للحجم المتوسط):</h4>
-                    <p>تحتوي على 850 سعر حراري، 35 جم بروتين، 110 جم كربوهيدرات، 28 جم دهون، 5 جم ألياف، 1200 ملجم صوديوم.</p>
-                </div>
-                
-                <div id="ingredients" class="tab-content">
-                    <h3>مكونات بيتزا مارغريتا</h3>
-                    <div class="ingredients-list">
-                        <div class="ingredient-item">
-                            <h4>عجينة البيتزا الإيطالية</h4>
-                            <p><strong>الكمية:</strong> 300 جم</p>
-                            <p>مصنوعة من دقيق القمح العضوي وخميرة طبيعية</p>
-                        </div>
-                        <div class="ingredient-item">
-                            <h4>صلصة الطماطم الطازجة</h4>
-                            <p><strong>الكمية:</strong> 150 مل</p>
-                            <p>طماطم عضوية محضرة يومياً مع أعشاب إيطالية</p>
-                        </div>
-                        <div class="ingredient-item">
-                            <h4>جبنة موتزاريلا بوفالا</h4>
-                            <p><strong>الكمية:</strong> 200 جم</p>
-                            <p>جبنة إيطالية طازجة ذات قوام كريمي</p>
-                        </div>
-                        <div class="ingredient-item">
-                            <h4>ريحان طازج</h4>
-                            <p><strong>الكمية:</strong> 10 جم</p>
-                            <p>ريحان عضوي طازج من المزارع المحلية</p>
-                        </div>
-                        <div class="ingredient-item">
-                            <h4>زيت زيتون بكر ممتاز</h4>
-                            <p><strong>الكمية:</strong> 15 مل</p>
-                            <p>زيت زيتون إيطالي عالي الجودة</p>
-                        </div>
-                    </div>
-                    
-                    <div class="warning">
-                        <h4><i class="fas fa-exclamation-triangle"></i> يحوي على مسببات للحساسية:</h4>
-                        <p>جلوتين، لاكتوز</p>
-                    </div>
-                </div>
-                
-                <div id="nutrition" class="tab-content">
-                    <h3>المعلومات الغذائية</h3>
-                    <div class="nutrition-grid">
-                        <div class="nutrition-item">
-                            <div class="nutrition-value">850</div>
-                            <div>سعر حراري</div>
-                        </div>
-                        <div class="nutrition-item">
-                            <div class="nutrition-value">35 جم</div>
-                            <div>بروتين</div>
-                        </div>
-                        <div class="nutrition-item">
-                            <div class="nutrition-value">110 جم</div>
-                            <div>كربوهيدرات</div>
-                        </div>
-                        <div class="nutrition-item">
-                            <div class="nutrition-value">28 جم</div>
-                            <div>دهون</div>
-                        </div>
-                        <div class="nutrition-item">
-                            <div class="nutrition-value">5 جم</div>
-                            <div>ألياف</div>
-                        </div>
-                        <div class="nutrition-item">
-                            <div class="nutrition-value">1200 ملجم</div>
-                            <div>صوديوم</div>
-                        </div>
-                    </div>
-                    
-                    <h4>القيم اليومية الموصى بها*</h4>
-                    <p>تعتمد على نظام غذائي يحتوي على 2000 سعر حراري في اليوم:</p>
-                    <ul>
-                        <li>السعرات الحرارية: 42.5% من القيمة اليومية</li>
-                        <li>الدهون: 36% من القيمة اليومية</li>
-                        <li>الصوديوم: 52% من القيمة اليومية</li>
-                        <li>الكربوهيدرات: 37% من القيمة اليومية</li>
-                        <li>الألياف: 18% من القيمة اليومية</li>
-                    </ul>
-                    <p><small>*القيم التقريبية وقد تختلف حسب حجم البيتزا والإضافات</small></p>
-                </div>
-                
-                <div id="reviews" class="tab-content">
-                    <h3>تقييمات العملاء</h3>
-                    <div class="reviews-container">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <div>
-                                    <strong>أحمد محمد</strong>
-                                    <div class="review-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div>15 يناير 2024</div>
-                            </div>
-                            <p>أفضل بيتزا مارغريتا جربتها! الطعم الإيطالي الأصلي، العجينة رقيقة ومقرمشة، الجبنة طازجة والريحان يعطي نكهة رائعة.</p>
-                        </div>
-                        
-                        <div class="review-item">
-                            <div class="review-header">
-                                <div>
-                                    <strong>سارة عبدالله</strong>
-                                    <div class="review-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                </div>
-                                <div>10 يناير 2024</div>
-                            </div>
-                            <p>بيتزا ممتازة ونظيفة. أحببت بساطة المكونات وجودتها. الطعم أصلي كما ذكر في الوصف.</p>
-                        </div>
-                        
-                        <div class="review-item">
-                            <div class="review-header">
-                                <div>
-                                    <strong>محمد السعد</strong>
-                                    <div class="review-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                                <div>5 يناير 2024</div>
-                            </div>
-                            <p>جيدة جداً ولكن كنت أتمنى أن تكون الصلصة أكثر. بشكل عام جيدة وتستحق السعر.</p>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 20px;">
-                        <h4>أضف تقييمك:</h4>
-                        <div class="review-rating" id="userRating">
-                            <i class="far fa-star" onclick="rateProduct(1)"></i>
-                            <i class="far fa-star" onclick="rateProduct(2)"></i>
-                            <i class="far fa-star" onclick="rateProduct(3)"></i>
-                            <i class="far fa-star" onclick="rateProduct(4)"></i>
-                            <i class="far fa-star" onclick="rateProduct(5)"></i>
-                        </div>
-                        <textarea placeholder="اكتب تقييمك هنا..." style="width: 100%; padding: 10px; margin-top: 10px; border-radius: 5px; border: 1px solid #ddd;"></textarea>
-                        <button class="btn btn-primary" style="margin-top: 10px;">إرسال التقييم</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>بيتزا هاوس</h3>
-                    <p>نقدم أفضل البيتزا الإيطالية بأجود المكونات وأحدث طرق التحضير.</p>
-                    <div style="margin-top: 15px;">
-                        <i class="fab fa-facebook" style="margin: 0 10px; font-size: 20px; cursor: pointer;"></i>
-                        <i class="fab fa-twitter" style="margin: 0 10px; font-size: 20px; cursor: pointer;"></i>
-                        <i class="fab fa-instagram" style="margin: 0 10px; font-size: 20px; cursor: pointer;"></i>
-                    </div>
+            <!-- بطاقة 3: الأولاد -->
+            <div class="offer-card card-3">
+                <div class="offer-badge">🎁 مع هدية</div>
+                <div class="card-icon">
+                    <i class="fas fa-child"></i>
                 </div>
-                <div class="footer-section">
-                    <h3>روابط سريعة</h3>
-                    <p><a href="#" style="color: white; text-decoration: none;">القائمة</a></p>
-                    <p><a href="#" style="color: white; text-decoration: none;">العروض</a></p>
-                    <p><a href="#" style="color: white; text-decoration: none;">فروعنا</a></p>
-                    <p><a href="#" style="color: white; text-decoration: none;">اتصل بنا</a></p>
+                <h2 class="card-title">مفاجأة الأطفال</h2>
+                <div class="card-subtitle">
+                    <i class="fas fa-gamepad"></i>
+                    <span>مع لعبة مجانية</span>
                 </div>
-                <div class="footer-section">
-                    <h3>معلومات الاتصال</h3>
-                    <p><i class="fas fa-phone"></i> 0123456789</p>
-                    <p><i class="fas fa-envelope"></i> info@pizzahouse.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> الرياض، السعودية</p>
+                <ul class="ingredients">
+                    <li><i class="fas fa-pizza-slice"></i> بيتزا أطفال (شكل ديناصور)</li>
+                    <li><i class="fas fa-french-fries"></i> أصابع جبنة + بطاطس صغير</li>
+                    <li><i class="fas fa-juice"></i> عصير طبيعي + لعبة</li>
+                    <li><i class="fas fa-ice-cream"></i> آيس كريم مجاني</li>
+                </ul>
+                <div class="price-section">
+                    <span class="current-price">8.9 دينار</span>
                 </div>
+                <button class="order-button" onclick="showOrderToast()">
+                    اطلب الآن <i class="fas fa-arrow-left"></i>
+                </button>
             </div>
-            <div class="copyright">
-                © 2024 بيتزا هاوس. جميع الحقوق محفوظة.
+
+            <!-- بطاقة 4: تحدي الحار -->
+            <div class="offer-card card-4">
+                <div class="offer-badge">🌶️ التحدي</div>
+                <div class="card-icon">
+                    <i class="fas fa-pepper-hot"></i>
+                </div>
+                <h2 class="card-title">تحدي النار</h2>
+                <div class="card-subtitle">
+                    <i class="fas fa-trophy"></i>
+                    <span>الفائز يحصل على جائزة</span>
+                </div>
+                <ul class="ingredients">
+                    <li><i class="fas fa-pizza-slice"></i> بيتزا كارولينا رايبر (الأشد حراً)</li>
+                    <li><i class="fas fa-can-food"></i> 3 مشروبات مثلجة</li>
+                    <li><i class="fas fa-milk"></i> كأس حليب كبير</li>
+                    <li><i class="fas fa-award"></i> شهادة + صورة على الحائط</li>
+                </ul>
+                <div class="price-section">
+                    <span class="current-price">22 دينار</span>
+                </div>
+                <button class="order-button" onclick="showOrderToast()">
+                    اطلب الآن <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+
+            <!-- بطاقة 5: غداء العمل -->
+            <div class="offer-card card-5">
+                <div class="offer-badge">⚡ سريع</div>
+                <div class="card-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h2 class="card-title">غداء العمل</h2>
+                <div class="card-subtitle">
+                    <i class="fas fa-clock"></i>
+                    <span>توصيل خلال 20 دقيقة</span>
+                </div>
+                <ul class="ingredients">
+                    <li><i class="fas fa-pizza-slice"></i> 2 شريحة بيتزا كبيرة</li>
+                    <li><i class="fas fa-can-food"></i> مشروب غازي + قهوة</li>
+                    <li><i class="fas fa-salad"></i> سلطة سيزر صغيرة</li>
+                    <li><i class="fas fa-cookie"></i> كوكيز بالشوكولاتة</li>
+                </ul>
+                <div class="price-section">
+                    <span class="current-price">6.9 دينار</span>
+                </div>
+                <button class="order-button" onclick="showOrderToast()">
+                    اطلب الآن <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+
+            <!-- بطاقة 6: البروستد والبيتزا -->
+            <div class="offer-card card-6">
+                <div class="offer-badge">🍗 ميكس</div>
+                <div class="card-icon">
+                    <i class="fas fa-drumstick-bite"></i>
+                </div>
+                <h2 class="card-title">دجاج & بيتزا</h2>
+                <div class="card-subtitle">
+                    <i class="fas fa-fire"></i>
+                    <span>أفضل مزيج في المدينة</span>
+                </div>
+                <ul class="ingredients">
+                    <li><i class="fas fa-pizza-slice"></i> بيتزا كبيرة (اختيارك)</li>
+                    <li><i class="fas fa-drumstick-bite"></i> 6 قطع بروستد حار</li>
+                    <li><i class="fas fa-french-fries"></i> 2 بطاطس كبير + صوصات</li>
+                    <li><i class="fas fa-can-food"></i> 2 مشروب غازي</li>
+                </ul>
+                <div class="price-section">
+                    <span class="old-price">42 دينار</span>
+                    <span class="current-price">33 دينار</span>
+                    <span class="save-amount">وفر 9 دينار</span>
+                </div>
+                <button class="order-button" onclick="showOrderToast()">
+                    اطلب الآن <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+
+            <!-- بطاقة 7: نباتي -->
+            <div class="offer-card card-7">
+                <div class="offer-badge">🌱 نباتي</div>
+                <div class="card-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h2 class="card-title">خيارات نباتية</h2>
+                <div class="card-subtitle">
+                    <i class="fas fa-seedling"></i>
+                    <span>عضوي 100%</span>
+                </div>
+                <ul class="ingredients">
+                    <li><i class="fas fa-pizza-slice"></i> بيتزا خضار (جبنة نباتية)</li>
+                    <li><i class="fas fa-salad"></i> سلطة كينوا بالرمان</li>
+                    <li><i class="fas fa-juice"></i> عصير أخضر طازج</li>
+                    <li><i class="fas fa-cake"></i> كيك جزر صحي</li>
+                </ul>
+                <div class="price-section">
+                    <span class="current-price">28 دينار</span>
+                </div>
+                <button class="order-button" onclick="showOrderToast()">
+                    اطلب الآن <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+
+            <!-- بطاقة 8: عشاء متأخر -->
+            <div class="offer-card card-8">
+                <div class="offer-badge">🌙 بعد منتصف الليل</div>
+                <div class="card-icon">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <h2 class="card-title">سهرة الليل</h2>
+                <div class="card-subtitle">
+                    <i class="fas fa-clock"></i>
+                    <span>متاح 11م - 4ص</span>
+                </div>
+                <ul class="ingredients">
+                    <li><i class="fas fa-pizza-slice"></i> بيتزا كبيرة (عجينة سميكة)</li>
+                    <li><i class="fas fa-french-fries"></i> بطاطس بالجبنة والبيكون</li>
+                    <li><i class="fas fa-mug-hot"></i> قهوة تركية + حلا</li>
+                    <li><i class="fas fa-can-food"></i> 2 مشروب طاقة</li>
+                </ul>
+                <div class="price-section">
+                    <span class="current-price">29 دينار</span>
+                </div>
+                <button class="order-button" onclick="showOrderToast()">
+                    اطلب الآن <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+
+            <!-- بطاقة 9: باكستاج طلابي -->
+            <div class="offer-card card-9">
+                <div class="offer-badge">📚 طلابي</div>
+                <div class="card-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h2 class="card-title">باكستاج طلاب</h2>
+                <div class="card-subtitle">
+                    <i class="fas fa-id-card"></i>
+                    <span>بإبراز البطاقة</span>
+                </div>
+                <ul class="ingredients">
+                    <li><i class="fas fa-pizza-slice"></i> 2 شريحة بيتزا كبيرة</li>
+                    <li><i class="fas fa-french-fries"></i> بطاطس حجم وسط</li>
+                    <li><i class="fas fa-can-food"></i> مشروب غازي</li>
+                    <li><i class="fas fa-wifi"></i> وايفاي مجاني في الفرع</li>
+                </ul>
+                <div class="price-section">
+                    <span class="old-price">12 دينار</span>
+                    <span class="current-price">7.5 دينار</span>
+                    <span class="save-amount">خصم 40%</span>
+                </div>
+                <button class="order-button" onclick="showOrderToast()">
+                    اطلب الآن <i class="fas fa-arrow-left"></i>
+                </button>
             </div>
         </div>
-    </footer>
+    </div>
+
+    <!-- رسالة تأكيد الطلب -->
+    <div class="order-toast" id="orderToast">
+        <i class="fas fa-check-circle"></i>
+        تم إضافة العرض إلى سلة المشتريات
+    </div>
 
     <script>
-        // تغيير الصورة الرئيسية
-        function changeImage(src) {
-            document.getElementById('mainImage').src = src;
+        function showOrderToast() {
+            const toast = document.getElementById('orderToast');
+            toast.classList.add('show');
             
-            // تحديث حالة الصور المصغرة
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            thumbnails.forEach(thumb => {
-                thumb.classList.remove('active');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // تأثيرات حركية إضافية
+        document.querySelectorAll('.offer-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const angleX = (y - centerY) / 20;
+                const angleY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-10px)`;
             });
             
-            event.currentTarget.classList.add('active');
-        }
-        
-        // اختيار الحجم
-        let selectedSizePrice = 35.00;
-        
-        function selectSize(element, price) {
-            const sizeOptions = document.querySelectorAll('.size-option');
-            sizeOptions.forEach(option => {
-                option.classList.remove('selected');
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
             });
-            
-            element.classList.add('selected');
-            selectedSizePrice = price;
-            updatePrice();
-        }
-        
-        // اختيار نوع العجينة
-        let selectedCrustPrice = 0;
-        
-        function selectCrust(element, price) {
-            const crustOptions = document.querySelectorAll('.crust-option');
-            crustOptions.forEach(option => {
-                option.classList.remove('selected');
-            });
-            
-            element.classList.add('selected');
-            selectedCrustPrice = price;
-            updatePrice();
-        }
-        
-        // تحديث السعر
-        function updatePrice() {
-            const totalPrice = selectedSizePrice + selectedCrustPrice;
-            document.querySelector('.current-price').textContent = totalPrice.toFixed(2) + ' ر.س';
-            
-            // تحديث السعر الأصلي مع الخصم
-            const originalPrice = (totalPrice / 0.9).toFixed(2);
-            document.querySelector('.original-price').textContent = originalPrice + ' ر.س';
-        }
-        
-        // تغيير الكمية
-        function changeQuantity(change) {
-            const quantityInput = document.getElementById('quantity');
-            let currentQuantity = parseInt(quantityInput.value);
-            
-            if (change > 0) {
-                quantityInput.value = currentQuantity + 1;
-            } else if (change < 0 && currentQuantity > 1) {
-                quantityInput.value = currentQuantity - 1;
-            }
-        }
-        
-        // فتح تبويب
-        function openTab(tabName) {
-            // إخفاء جميع المحتويات
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // إزالة النشاط من جميع الأزرار
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            tabButtons.forEach(button => {
-                button.classList.remove('active');
-            });
-            
-            // إظهار المحتوى المطلوب
-            document.getElementById(tabName).classList.add('active');
-            
-            // تفعيل الزر المطلوب
-            event.currentTarget.classList.add('active');
-        }
-        
-        // تقييم المنتج
-        function rateProduct(rating) {
-            const stars = document.querySelectorAll('#userRating i');
-            stars.forEach((star, index) => {
-                if (index < rating) {
-                    star.classList.remove('far');
-                    star.classList.add('fas');
-                } else {
-                    star.classList.remove('fas');
-                    star.classList.add('far');
-                }
-            });
-        }
-        
-        // إضافة إلى السلة
-        function addToCart() {
-            const quantity = document.getElementById('quantity').value;
-            const size = document.querySelector('.size-option.selected div').textContent;
-            const crust = document.querySelector('.crust-option.selected').textContent;
-            
-            alert(`تم إضافة ${quantity} من بيتزا مارغريتا (${size} - ${crust}) إلى سلة التسوق`);
-            
-            // تحديث عداد السلة
-            const cartCount = document.querySelector('.cart-count');
-            let currentCount = parseInt(cartCount.textContent);
-            cartCount.textContent = currentCount + parseInt(quantity);
-        }
-        
-        // طلب الآن
-        function orderNow() {
-            addToCart();
-            // هنا يمكن توجيه المستخدم إلى صفحة الدفع
-            // window.location.href = 'checkout.html';
-        }
-        
-        // تهيئة تقييم النجوم
-        rateProduct(5); // تقييم افتراضي 5 نجوم
+        });
     </script>
 </body>
 </html>

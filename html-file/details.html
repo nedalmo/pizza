@@ -109,6 +109,8 @@
 
 
 
+<!-- start Checkout -->
+
 <div class="Checkout">
     <div class="container">
         <div class="header_checkout">
@@ -125,7 +127,30 @@
                 <div>تفاصيل طلبك</div>
             </div>
             <div class="ALL_product_details_chechout"></div>
-           
+            <!-- <div class="text_detalis_order">
+                <div class="text_info">
+                <div class="name">بيتزا مارغريتا كلاسيكية</div>
+                <div class="size">الحجم : <span class="size_main">كبير</span></div>
+                <div class="quntity">  الكميه :  <div class="quntity_main">2</div></div>
+                </div>
+                <div class="price_details_order"><div class="price">100</div><div>جنيه</div></div>
+            </div>
+            <div class="text_detalis_order">
+                <div class="text_info">
+                <div class="name">بيتزا مارغريتا كلاسيكية</div>
+                <div class="size">الحجم : <span class="size_main">كبير</span></div>
+                <div class="quntity">  الكميه :  <div class="quntity_main">2</div></div>
+                </div>
+                <div class="price_details_order"><div class="price">100</div><div>جنيه</div></div>
+            </div>
+            <div class="text_detalis_order">
+                <div class="text_info">
+                <div class="name">بيتزا مارغريتا كلاسيكية</div>
+                <div class="size">الحجم : <span class="size_main">كبير</span></div>
+                <div class="quntity">  الكميه :  <div class="quntity_main">2</div></div>
+                </div>
+                <div class="price_details_order"><div class="price">100</div><div>جنيه</div></div>
+            </div> -->
             <button class="retrev_page" > <i class="fa-solid fa-plus"></i> أضف المزيد من المنتجات</button>
            
            
@@ -156,13 +181,21 @@
             <div>عنوان التوصيل</div>
         </div>
         <div class="locations_input">
-            <input type="text">
-            <div class="change">
+            <input type="text" placeholder="أدخل عنوانك بالتفصيل " id="address" >
+            <div class="change" id="change_address">
                 <i class="fa-solid fa-pen-to-square"></i>
-                <div>تغيير</div>
+                <div >تغيير</div>
             </div>
         </div>
-        <div class="name_locations">ksk ksxns skxsxsxk</div>
+            <div class="name_locations" id="address_text"></div>
+        <div class="locations_input phone">
+            <input type="text"  placeholder="رقم الهاتف" id="phone" >
+            <div class="change" id="change_phone">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <div  >تغيير</div>
+            </div>
+        </div>
+        <div class="name_locations" id="phone_text"></div>
        </div>
        <div class="Payment_Methods">
         <div class="payment_methods_header">
@@ -200,9 +233,15 @@
             <button class="btn-confirm" id="confirmOrder"><i class="fas fa-check-circle"></i> تأكيد الطلب والدفع</button>
         </div>
     </div>
-     
+     <div class="massege_Error">رقم الهاتف خطاء</div>
+     <div class="massege_Error two">  ادخل رقم الهاتف</div>
+     <div class="massege_Error four">  ادخل العنوان </div>
+     <div class="massege_Error five">   جاري تسجيل طلبك </div>
+     <div class="massege_Error three"><i class="fa-solid fa-triangle-exclamation"></i> يجب الموافقة على الشروط والاحكام</div>
 </div>
 
+<div class="success"> <i class="fa-solid fa-circle-check"></i>   تم تأكيد طلبك بنجاح! شكراً لاختيارك موقعنا . سيصلك الطلب خلال 30 دقيقة </div>
+<!-- end Checkout -->
 
     <div class="detailselemnt">
         

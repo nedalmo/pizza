@@ -631,3 +631,45 @@ nav ul li a.active::after {
         font-size: 1rem;
     }
 }
+
+.results_search{
+    position: absolute;
+    left: 50%;
+    top: 115%;
+    transform: translateX(-50%);
+    height: 270px;
+    overflow-y: scroll;
+    width: 290px;
+    background-color:#7f1c00;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    text-align: center;
+    border-radius: 8px;
+    display: none;
+}
+.results_search .search-result-item{
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.results_search .search-result-item:hover{
+    background-color: #ff1900;
+    color: white;
+    padding-right: 30px;
+}
+ .results_search .no-results{
+    margin-top:70px;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+}
+@media (max-width: 768px){
+    .results_search{
+        width: 250px;
+    }
+    .results_search .search-result-item{
+        padding: 10px;
+    }
+}
