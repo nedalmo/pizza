@@ -1663,7 +1663,8 @@ confirmOrder.addEventListener("click", e => {
                         buttons_two.click();
         },800)
         setTimeout(e=>{
-            location.reload();
+            window.location  = "http://127.0.0.1:5500/pizza/index.html"
+            // location.reload();
         },3000)
 
         document.querySelector(".success").classList.add("active");
