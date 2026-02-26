@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/pizza/css/normalize.css">
+    <link rel="stylesheet" href="/pizza/css/all.min.css">
+    <link rel="stylesheet" href="/pizza/css/header.css">
+    <link rel="stylesheet" href="/pizza/css/style.css">
+    <title>pizza</title>
+    <title>Document</title>
+</head>
+<body>
+  <header>
+<div class="cart-overly"></div>
+        <div class="container">
+            <div class="header-content">
+                <!-- Mobile Menu Toggle - هامبورجر -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- Logo - الشعار -->
+                <div class="logo">
+                    <a href="/pizza/index.html">
+                        <img src="/pizza/imges/logo1.jpeg" alt="بيتزا">
+                    </a>
+                </div>
+                
+                <!-- Search Form - نموذج البحث -->
+                <div class="search-wrapper" style="position: relative;">
+                    <div class="form">
+                        <input type="search" placeholder="ما الذي تبحث عنه؟" aria-label="بحث">
+                        <button type="submit" aria-label="بحث">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <div class="results_search"></div>
+                </div>
+                
+                <!-- Navigation Menu - القائمة الرئيسية -->
+                   <nav id="nav-menu">
+                    <ul>
+                        <li><a href="/pizza/index.html" class="active">الرئيسية</a></li>
+                        <li><a href="/pizza/html-file/muen.html"> قامه الطعام</a></li>
+                        <li><a href="/pizza/html-file/product.html">المنتجات</a></li>
+                        <li><a href="/pizza/html-file/login.html">تسجيل الدخول</a></li>
+                        <li><a href="/pizza/html-file/aobut _us.html">من نحن</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Cart Icon - أيقونة السلة -->
+                <div class="cart-icon">
+                 <i class="fa-solid fa-cart-arrow-down"></i>
+                    <span class="cart-badge">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<div class="cart-tab">
+    <div class="header-cart">
+        <div class="header-name-cart">
+            <i class="fas fa-shopping-cart"></i>
+
+            <h3>سله التسوق</h3>
+        </div>
+        <button class="close-btuuon"><i class="fas fa-times"></i></buttoXn>
+    </div>
+    <div class="products">
+        <div class="Main_element">
+         
+        </div>
+    </div>
+      <div class="empty-cart" id="emptyCart">
+                <i class="fas fa-shopping-basket"></i>
+                <p>سلتك فارغة</p>
+                <p class="empty-cart-sub">أضف بعض المنتجات  من قائمتنا!</p>
+                <button class="btn-browse" id="btnBrowse"> اضف منتجات</button>
+            </div>
+        <div class="samary-details-elemnt">
+            <div class="samary-price">
+                <div class="first-element">
+                    <div>المجموع الجزئي:</div>
+                    <div class="part-price"><div class="count-price">0</div>جنيه</div>
+                </div>
+                <div class="first-element">
+                    <span> رسوم التوصيل:</span>
+                    <div class="part-price"><div class="conections">30</div>جنيه</div>
+                </div>
+            </div>
+            <div class="samary-price">
+                     <div class="first-element last ">
+                    <span> المجموع الكلي:</span>
+                    <div class="part-price"><div class="total_price_of_cart">0</div>جنيه</div>
+                </div>
+            </div>
+            <div class="samary-price">
+                <div class="buttons-action">
+                    <button class="follow_showpping">متابعة التسوق</button>
+                    <button class="Place_Order">إتمام الطلب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="Checkout">
+    <div class="container">
+        <div class="header_checkout">
+            <div class="confirm_order">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <div>تأكيد طلبك</div>
+            </div>
+            <div class="close_chekout_page"><i class="fa-solid fa-xmark"></i>
+</div>
+        </div>
+        <div class="details_order">
+            <div class="header_detalis_order">
+                <i class="fa-solid fa-file-lines"></i>
+                <div>تفاصيل طلبك</div>
+            </div>
+            <div class="ALL_product_details_chechout"></div>
+            <!-- <div class="text_detalis_order">
+                <div class="text_info">
+                <div class="name">بيتزا مارغريتا كلاسيكية</div>
+                <div class="size">الحجم : <span class="size_main">كبير</span></div>
+                <div class="quntity">  الكميه :  <div class="quntity_main">2</div></div>
+                </div>
+                <div class="price_details_order"><div class="price">100</div><div>جنيه</div></div>
+            </div>
+            <div class="text_detalis_order">
+                <div class="text_info">
+                <div class="name">بيتزا مارغريتا كلاسيكية</div>
+                <div class="size">الحجم : <span class="size_main">كبير</span></div>
+                <div class="quntity">  الكميه :  <div class="quntity_main">2</div></div>
+                </div>
+                <div class="price_details_order"><div class="price">100</div><div>جنيه</div></div>
+            </div>
+            <div class="text_detalis_order">
+                <div class="text_info">
+                <div class="name">بيتزا مارغريتا كلاسيكية</div>
+                <div class="size">الحجم : <span class="size_main">كبير</span></div>
+                <div class="quntity">  الكميه :  <div class="quntity_main">2</div></div>
+                </div>
+                <div class="price_details_order"><div class="price">100</div><div>جنيه</div></div>
+            </div> -->
+            <button class="retrev_page" > <i class="fa-solid fa-plus"></i> أضف المزيد من المنتجات</button>
+           
+           
+        </div>
+       <div class="Order_Summary">
+        <div class="header_order_summary">
+            <i class="fa-solid fa-money-bill"></i>
+            <div>ملخص الطلب</div>
+        </div>
+        <div class="all_price_summary">
+            <div class="Subtotal">
+                <div class="text">المجموع الجزئي:</div>
+                <div class="pruce"><div class="number">100</div>جنيه</div>
+            </div>
+            <div class="Subtotal spi">
+                <div class="text"> رسوم التوصيل:</div>
+                <div class="pruce"><div class="number">60</div>جنيه</div>
+            </div>
+            <div class="Subtotal ">
+                <div class="text"> المبلغ المستحق:</div>
+                <div class="pruce"><div class="number">10870</div>جنيه</div>
+            </div>
+        </div>
+       </div>
+       <div class="locations">
+        <div class="header_location">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>عنوان التوصيل</div>
+        </div>
+        <div class="locations_input">
+            <input type="text" placeholder="أدخل عنوانك بالتفصيل " id="address" >
+            <div class="change" id="change_address">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <div >تغيير</div>
+            </div>
+        </div>
+            <div class="name_locations" id="address_text"></div>
+        <div class="locations_input phone">
+            <input type="text"  placeholder="رقم الهاتف" id="phone" >
+            <div class="change" id="change_phone">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <div  >تغيير</div>
+            </div>
+        </div>
+        <div class="name_locations" id="phone_text"></div>
+       </div>
+       <div class="Payment_Methods">
+        <div class="payment_methods_header">
+              <i class="fa-solid fa-wallet"></i>
+            <div class="header">طريقة الدفع</div>
+        </div>
+            <div class="cheked_chosen">
+                   <div class="answer">
+                    <input type="radio" id="ch1" checked>
+                    <label for="ch1"><i class="fa-solid fa-money-bill-wave"></i><div>نقداً عند الاستلام</div></label>
+                   </div>
+                   <div class="answer">
+                    <input type="radio" id="ch2">
+                    <label for="ch2">  <i class="fa-solid fa-credit-card"></i><div>  بطاقة ائتمان/مدينة</div></label>
+                   </div>
+                   <div class="answer">
+                    <input type="radio" id="ch3">
+                    <label for="ch3">  <i class="fa-brands fa-apple-pay"></i><div> Apple Pay / Mada </div></label>
+                   </div>
+            </div>
+       </div>
+       <div class="notaick">
+        <div class="header_notaick">
+            <i class="fa-solid fa-file-lines"></i>
+            <div>ملاحظات خاصة (اختياري)</div>
+        </div>
+            <textarea name="" placeholder="اكتب ملاحظاتك او اي شيئ تريده في الطلب" id=""></textarea>
+       </div>
+       <div class="withdoem">
+            <input type="checkbox" id="on">
+            <label for="on"> أوافق على <span>الشروط والأحكام</span> وسياسة الخصوصية </label>
+       </div>
+          <div class="checkout-actions">
+            <button class="btn-back" id="backToCart"><i class="fas fa-arrow-right"></i> العودة للسلة</button>
+            <button class="btn-confirm" id="confirmOrder"><i class="fas fa-check-circle"></i> تأكيد الطلب والدفع</button>
+        </div>
+    </div>
+     <div class="massege_Error">رقم الهاتف خطاء</div>
+     <div class="massege_Error two">  ادخل رقم الهاتف</div>
+     <div class="massege_Error four">  ادخل العنوان </div>
+     <div class="massege_Error five">   جاري تسجيل طلبك </div>
+     <div class="massege_Error three"><i class="fa-solid fa-triangle-exclamation"></i> يجب الموافقة على الشروط والاحكام</div>
+</div>
+
+<div class="success"> <i class="fa-solid fa-circle-check"></i>   تم تأكيد طلبك بنجاح! شكراً لاختيارك موقعنا . سيصلك الطلب خلال 30 دقيقة </div>
+<!-- end Checkout -->
+
+<div class="laind">
+    <div class="container">
+        <div class="logoptr">
+            <img src="/pizza/imges/logo1.jpeg" alt="">
+            <div class="para">
+                <h1 id="head_para_main"> </h1>
+                <p>قامه باسماء اليتزا التي يقدمها الموقع</p>
+            </div>
+        </div>
+    </div>
+    <div class="images">
+        <img src="/pizza/imges/muen.jpg" alt="">
+        <img src="/pizza/imges/mune3.webp" alt="">
+        <img src="/pizza/imges/mune2.jpg" alt="">
+    </div>
+</div>
+<div class="sec2">
+        <div class="artecails-section ">
+        <h2> انواع البيتزا المختلفه </h2>
+        <p> كل ما تحتجه هنا </p>
+    </div>
+<div class="container">
+
+<div class="types">
+    <div class="type wow">
+        <ul>
+            <div class="header">
+
+                <h3>بيتزا مارغريتا</h3>
+            </div>
+            <li>
+                <a href="/pizza/html-file/product.html">بيتزا الجبنة الكلاسيكية</a>
+                <div class="price">....... 230 جنيه</div>
+            </li>
+            <li>
+                <a href="/pizza/html-file/product.html">بيتزا الجبنة الإضافية</a>
+                <div class="price">....... 240 جنيه</div>
+            </li>
+            <li>
+                <a href="/pizza/html-file/product.html">بيتزا الريحان الطازج</a>
+                <div class="price">....... 250 جنيه</div>
+            </li>
+            <li>
+                <a href="/pizza/html-file/product.html">بيتزا بالعجينة الرقيقة</a>
+                <div class="price">....... 235 جنيه</div>
+            </li>
+        </ul>
+        <div class="imges">
+            <img src="/pizza/imges/margherite.avif" alt="">
+        </div>
+    </div>
+
+    <div class="type wow">
+        <ul>
+            <div class="header">
+
+                <h3>بيتزا بيبروني</h3>
+            </div>
+
+            <li>
+                <a href="/pizza/html-file/product.html">بيبروني كلاسيكي</a>
+                <div class="price">....... 260 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">بيبروني إضافي</a>
+                <div class="price">....... 270 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">بيبروني حار</a>
+                <div class="price">....... 280 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">بيبروني بالجبنة</a>
+                <div class="price">....... 290 جنيه</div>
+            </li>
+        </ul>
+
+        <div class="imges">
+            <img src="/pizza/imges/pepperoni.jpeg" alt="بيتزا بيبروني">
+        </div>
+    </div>
+
+    <div class="type wow">
+        <ul>
+            <div class="header">
+
+                <h3>بيتزا هاواي</h3>
+            </div>
+
+            <li>
+                <a href="/pizza/html-file/product.html">هاواي كلاسيكي</a>
+                <div class="price">....... 240 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">هاواي بالأناناس</a>
+                <div class="price">....... 255 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">هاواي باللحم والجبنة</a>
+                <div class="price">....... 275 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">هاواي بأسلوب حلو</a>
+                <div class="price">....... 260 جنيه</div>
+            </li>
+        </ul>
+
+        <div class="imges">
+            <img src="/pizza/imges/Hawaiian.jpg" alt="بيتزا هاواي">
+        </div>
+    </div>
+
+    <div class="type wow">
+        <ul>
+            <div class="header">
+
+                <h3>بيتزا دجاج باربكيو</h3>
+            </div>
+
+            <li>
+                <a href="/pizza/html-file/product.html">دجاج باربكيو كلاسيكي</a>
+                <div class="price">....... 270 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">دجاج باربكيو المدخن</a>
+                <div class="price">....... 280 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">دجاج باربكيو بالجبنة</a>
+                <div class="price">....... 290 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">دجاج باربكيو حار</a>
+                <div class="price">....... 300 جنيه</div>
+            </li>
+        </ul>
+
+        <div class="imges">
+            <img src="/pizza/imges/BBQ-Chicken.jpg" alt="بيتزا دجاج باربكيو">
+        </div>
+    </div>
+
+    <div class="type wow">
+        <ul>
+            <div class="header">
+
+                <h3>بيتزا الخضروات</h3>
+            </div>
+
+            <li>
+                <a href="/pizza/html-file/product.html">خضروات كلاسيكية</a>
+                <div class="price">....... 230 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">خضروات الطازجة</a>
+                <div class="price">....... 240 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">خضروات بالجبنة</a>
+                <div class="price">....... 250 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">اختيار صحي للخضروات</a>
+                <div class="price">....... 235 جنيه</div>
+            </li>
+        </ul>
+
+        <div class="imges">
+            <img src="/pizza/imges/veggie.jpeg" alt="بيتزا الخضروات">
+        </div>
+    </div>
+
+    <div class="type wow">
+        <ul>
+            <div class="header">
+
+                <h3>بيتزا أربع أجبان</h3>
+            </div>
+
+            <li>
+                <a href="/pizza/html-file/product.html">أربع أجبان كلاسيكية</a>
+                <div class="price">....... 260 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">مزيج الجبنة الكريمي</a>
+                <div class="price">....... 270 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">أسلوب جبنة إيطالي</a>
+                <div class="price">....... 280 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">بيتزا محبي الجبنة</a>
+                <div class="price">....... 290 جنيه</div>
+            </li>
+        </ul>
+
+        <div class="imges">
+            <img src="/pizza/imges/four-cheese.jpeg" alt="بيتزا أربع أجبان">
+        </div>
+    </div>
+
+    <div class="type wow">
+        <ul>
+            <div class="header">
+
+                <h3>بيتزا محبي اللحوم</h3>
+            </div>
+
+            <li>
+                <a href="/pizza/html-file/product.html">محبي اللحوم كلاسيكي</a>
+                <div class="price">....... 270 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">لحم إضافي</a>
+                <div class="price">....... 280 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">باربكيو محبي اللحوم</a>
+                <div class="price">....... 290 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">خليط اللحوم الحار</a>
+                <div class="price">....... 300 جنيه</div>
+            </li>
+        </ul>
+
+        <div class="imges">
+            <img src="/pizza/imges/meat-lovers.jpeg" alt="بيتزا محبي اللحوم">
+        </div>
+    </div>
+
+    <div class="type wow">
+        <ul>
+            <div class="header">
+
+                <h3>بيتزا الفطر</h3>
+            </div>
+
+            <li>
+                <a href="/pizza/html-file/product.html">فطر كلاسيكي</a>
+                <div class="price">....... 230 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">فطر كريمي</a>
+                <div class="price">....... 240 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">فطر بالجبنة</a>
+                <div class="price">....... 250 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">فطر بالثوم</a>
+                <div class="price">....... 235 جنيه</div>
+            </li>
+        </ul>
+
+        <div class="imges">
+            <img src="/pizza/imges/mushrooom.jpeg" alt="بيتزا الفطر">
+        </div>
+    </div>
+
+    <div class="type wow">
+        <ul>
+            <div class="header">
+
+                <h3>بيتزا المأكولات البحرية</h3>
+            </div>
+
+            <li>
+                <a href="/pizza/html-file/product.html">بحرية كلاسيكية</a>
+                <div class="price">....... 280 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">روبيان بحري</a>
+                <div class="price">....... 290 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">بحرية بالجبنة</a>
+                <div class="price">....... 300 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">بحرية حارة</a>
+                <div class="price">....... 295 جنيه</div>
+            </li>
+        </ul>
+
+        <div class="imges">
+            <img src="/pizza/imges/seafood.webp" alt="بيتزا المأكولات البحرية">
+        </div>
+    </div>
+
+    <div class="type wow">
+        <ul>
+            <div class="header">
+
+                <h3>بيتزا دجاج بافلو</h3>
+            </div>
+
+            <li>
+                <a href="/pizza/html-file/product.html">بافلو كلاسيكي</a>
+                <div class="price">....... 260 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">دجاج بافلو حار</a>
+                <div class="price">....... 270 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">بافلو بالجبنة</a>
+                <div class="price">....... 280 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">دجاج بافلو برانش</a>
+                <div class="price">....... 290 جنيه</div>
+            </li>
+        </ul>
+
+        <div class="imges">
+            <img src="/pizza/imges/Buffalc-chicken.jpeg" alt="بيتزا دجاج بافلو">
+        </div>
+    </div>
+
+    <div class="type wow">
+        <ul>
+            <div class="header">
+
+                <h3>بيتزا سوبريم</h3>
+            </div>
+
+            <li>
+                <a href="/pizza/html-file/product.html">سوبريم كلاسيكي</a>
+                <div class="price">....... 270 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">سوبريم محشو</a>
+                <div class="price">....... 280 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">سوبريم بالجبنة</a>
+                <div class="price">....... 290 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">سوبريم حار</a>
+                <div class="price">....... 300 جنيه</div>
+            </li>
+        </ul>
+
+        <div class="imges">
+            <img src="/pizza/imges/Supreme.jpg" alt="بيتزا سوبريم">
+        </div>
+    </div>
+
+    <div class="type wow">
+        <ul>
+            <div class="header">
+
+                <h3>بيتزا التونة</h3>
+            </div>
+
+            <li>
+                <a href="/pizza/html-file/product.html">تونة كلاسيكية</a>
+                <div class="price">....... 240 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">تونة بالجبنة</a>
+                <div class="price">....... 250 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">تونة حارة</a>
+                <div class="price">....... 260 جنيه</div>
+            </li>
+
+            <li>
+                <a href="/pizza/html-file/product.html">تونة بالزيتون</a>
+                <div class="price">....... 235 جنيه</div>
+            </li>
+        </ul>
+
+        <div class="imges">
+            <img src="/pizza/imges/Tuna.jpeg" alt="بيتزا التونة">
+        </div>
+    </div>
+</div>
+
+    </div>
+  <div class="artecails-section wow" style="margin: 50px 0;">
+        <h2>   استمتع بعروضنا الخاصة اليوم الآن هنا </h2>
+        <p>  لا تفوت الفرصة الآن   </p>
+    </div>
+
+<!-- start offers section   -->
+
+
+<div class="overys">
+       <div class="container">
+        <!-- Header -->
+        
+
+        <!-- Offers Grid -->
+        <div class="offers-grid">
+            <!-- Card 1 -->
+            <div class="offer-card wow" >
+                <div class="card-badge badge-popular">
+                    <i class="fas fa-crown"></i>
+                    الأكثر مبيعاً
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">عرض العائلة المثالية</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-user-friends"></i> 4-5 أشخاص</span>
+                        <span><i class="fas fa-clock"></i> 45 دقيقة</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> 2 بيتزا</div>
+                        <div class="item"><i class="fas fa-can-food"></i> 4 مشروبات</div>
+                        <div class="item"><i class="fas fa-french-fries"></i> 2 بطاطس</div>
+                        <div class="item"><i class="fas fa-cookie"></i> 4 حلويات</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">39.90 <span class="currency"> جنيه</span></span>
+                            <span class="old-price">49.90</span>
+                        </div>
+                        <button class="add-btn"  >
+                 <i class="fa-solid fa-cart-arrow-down"></i>
+                        </button>
+                    </div>
+                    <div class="savings">وفر 10  جنيه</div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="offer-card wow">
+                <div class="card-badge badge-limited">
+                    <i class="fas fa-heart"></i>
+                    حصري
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">عشاء رومانسي</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-user-friends"></i> شخصين</span>
+                        <span><i class="fas fa-wine-glass-alt"></i> مع شمعة</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> بيتزا قلب</div>
+                        <div class="item"><i class="fas fa-utensils"></i> باستا ألفريدو</div>
+                        <div class="item"><i class="fas fa-wine-bottle"></i> زجاجة نبيذ</div>
+                        <div class="item"><i class="fas fa-cake"></i> تشيز كيك</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">32.00 <span class="currency"> جنيه</span></span>
+                            <span class="old-price">42.00</span>
+                        </div>
+                        <button class="add-btn"  >
+                 <i class="fa-solid fa-cart-arrow-down"></i>
+                        </button>
+                    </div>
+                    <div class="savings">وفر 10  جنيه</div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="offer-card wow">
+                <div class="card-badge badge-new">
+                    <i class="fas fa-gift"></i>
+                    هدية مجانية
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-child"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">عرض الأولاد</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-child"></i> للأطفال</span>
+                        <span><i class="fas fa-gamepad"></i> مع لعبة</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> بيتزا أطفال</div>
+                        <div class="item"><i class="fas fa-french-fries"></i> أصابع جبنة</div>
+                        <div class="item"><i class="fas fa-juice"></i> عصير طبيعي</div>
+                        <div class="item"><i class="fas fa-gamepad"></i> لعبة مفاجأة</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">8.90 <span class="currency"> جنيه</span></span>
+                        </div>
+                        <button class="add-btn"  >
+                 <i class="fa-solid fa-cart-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="offer-card wow">
+                <div class="card-badge badge-hot">
+                    <i class="fas fa-clock"></i>
+                    سريع
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">غداء تنفيذي</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-user"></i> فردي</span>
+                        <span><i class="fas fa-clock"></i> 20 دقيقة</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> 2 شريحة</div>
+                        <div class="item"><i class="fas fa-salad"></i> سلطة سيزر</div>
+                        <div class="item"><i class="fas fa-can-food"></i> مشروب + قهوة</div>
+                        <div class="item"><i class="fas fa-cookie"></i> كوكيز</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">6.90 <span class="currency"> جنيه</span></span>
+                            <span class="old-price">9.90</span>
+                        </div>
+                        <button class="add-btn"  >
+                 <i class="fa-solid fa-cart-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="offer-card  wow">
+                <div class="card-badge badge-popular">
+                    <i class="fas fa-fire"></i>
+                    مكس
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-drumstick-bite"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">دجاج & بيتزا</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-user-friends"></i> 2-3 أشخاص</span>
+                        <span><i class="fas fa-fire"></i> حار</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> بيتزا كبيرة</div>
+                        <div class="item"><i class="fas fa-drumstick-bite"></i> 6 بروستد</div>
+                        <div class="item"><i class="fas fa-french-fries"></i> 2 بطاطس</div>
+                        <div class="item"><i class="fas fa-can-food"></i> 3 مشروبات</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">29.90 <span class="currency"> جنيه</span></span>
+                            <span class="old-price">38.90</span>
+                        </div>
+                        <button class="add-btn"  >
+                            <i class="fa-solid fa-cart-arrow-down"></i>
+                        </button>
+                    </div>
+                    <div class="savings">وفر 9  جنيه</div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="offer-card wow">
+                <div class="card-badge badge-hot">
+                    <i class="fas fa-pepper-hot"></i>
+                    حار جداً
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-pepper-hot"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">تحدي النار</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-user"></i> فردي</span>
+                        <span><i class="fas fa-trophy"></i> مع شهادة</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> بيتزا حارة</div>
+                        <div class="item"><i class="fas fa-can-food"></i> 3 مشروبات</div>
+                        <div class="item"><i class="fas fa-milk"></i> كأس حليب</div>
+                        <div class="item"><i class="fas fa-award"></i> شهادة</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">18.00 <span class="currency"> جنيه</span></span>
+                        </div>
+                        <button class="add-btn"  >
+                            <i class="fa-solid fa-cart-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="offer-card wow">
+                <div class="card-badge badge-popular">
+                    <i class="fas fa-star"></i>
+                    كومبو
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">بيتزا & باستا</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-user-friends"></i> 2 شخص</span>
+                        <span><i class="fas fa-clock"></i> 35 دقيقة</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> بيتزا وسط</div>
+                        <div class="item"><i class="fas fa-utensils"></i> باستا ألفريدو</div>
+                        <div class="item"><i class="fas fa-can-food"></i> 2 مشروب</div>
+                        <div class="item"><i class="fas fa-bread"></i> خبز ثوم</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">21.90 <span class="currency"> جنيه</span></span>
+                            <span class="old-price">27.90</span>
+                        </div>
+                        <button class="add-btn"  >
+                            <i class="fa-solid fa-cart-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="offer-card wow">
+                <div class="card-badge badge-new">
+                    <i class="fas fa-leaf"></i>
+                    نباتي
+                </div>
+                <div class="card-image">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">خيارات نباتية</h3>
+                    <div class="card-meta">
+                        <span><i class="fas fa-seedling"></i> عضوي</span>
+                        <span><i class="fas fa-heart"></i> صحي</span>
+                    </div>
+                    <div class="items-grid">
+                        <div class="item"><i class="fas fa-pizza-slice"></i> بيتزا خضار</div>
+                        <div class="item"><i class="fas fa-salad"></i> سلطة كينوا</div>
+                        <div class="item"><i class="fas fa-juice"></i> عصير أخضر</div>
+                        <div class="item"><i class="fas fa-cake"></i> كيك جزر</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="current-price">24.00 <span class="currency"> جنيه</span></span>
+                            <span class="old-price">29.00</span>
+                        </div>
+                        <button class="add-btn">
+                            <i class="fa-solid fa-cart-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delivery Bar -->
+       
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        تمت إضافة العرض إلى سلة المشتريات
+    </div>
+</div>
+
+
+
+<!-- end  offers section   -->
+
+
+
+
+
+<!-- strart footer  -->
+<div class="artecails-section wow ">
+  <h2>معلومات التواصل</h2>
+  <p>نوفر لك جميع وسائل التواصل للوصول إلينا بسرعة وسهولة في أي وقت</p>
+</div>
+ <footer class="wow">
+    <div class="container">
+
+        <div class="imges">
+            <img src="/pizza/imges/images (1).jpeg" alt="">
+            <img src="/pizza/imges/images (2).jpeg" alt="">
+            <img src="/pizza/imges/images (4).jpeg" alt="">
+            <img src="/pizza/imges/images (6).jpeg" alt="">
+        </div>
+       <div class="coluem2">
+        <ul>
+                <li><a href="./index.html">الرئيسية</a></li>
+                <li><a href="./html-file/muen.html">قائمة الطعام</a></li>
+                <li><a href="./html-file/product.html">المنتجات</a></li>
+                <li><a href="/pizza/html-file/login.html">تسجيل الدخول</a></li>
+                <li><a href="/pizza/html-file/aobut _us.html">من نحن</a></li>
+            </ul>
+       </div>
+       <div class="coluem3">
+        <div class="location">
+            <i class="fas fa-map-marker-alt fa-fw"></i>
+            <p>  الفيوم، حي الجامعة، شارع الجلاء، عمارة 10، الدور الأول  </p>
+        </div>
+        <div class="time">
+           <i class="far fa-clock fa-fw"></i>
+            <p>ساعات العمل: من 10:00 صباحاً إلى 6:00 مساءً</p>
+        </div>
+        <div class="call">
+        <i class="fas fa-phone-volume fa-fw"></i>
+           <div class="text">
+             <p>+20123456789</p>
+            <p>+20198765432</p>
+           </div>
+        </div>
+              <div class="call">
+            <i class="fas fa-envelope"></i>
+           <div class="text">
+            <p>pizzaRrest@pizza.com</p>
+           </div>
+        </div>
+       </div>
+      
+        <div class="coluem1">
+         <h1>pizza</h1>
+        
+        <ul class="social">
+            <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" class="youtube"><i class="fab fa-youtube"></i></a></li>
+          </ul>
+        <p>تابعنا للحصول على العروض الحصرية</p>
+       </div>
+    </div>
+    <div class="copy">copy with @ <span>2025</span></div>
+ </footer>
+<!-- End footer  -->
+<script src="/pizza/javascrpt/product.js"></script>
+<!-- <script src="/pizza/javascrpt/muen.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pizza/css/normalize.css">
+        <link rel="stylesheet" href="/pizza/css/all.min.css">
+        <link rel="stylesheet" href="/pizza/css/header.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   
+        <link rel="stylesheet" href="/pizza/css/style.css"> 
+
+
+</head>
+
+<body>
+
+
+  <header>
+<div class="cart-overly"></div>
+        <div class="container">
+            <div class="header-content">
+                <!-- Mobile Menu Toggle - هامبورجر -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- Logo - الشعار -->
+                <div class="logo">
+                    <a href="/pizza/index.html">
+                        <img src="/pizza/imges/logo1.jpeg" alt="بيتزا">
+                    </a>
+                </div>
+                
+                <!-- Search Form - نموذج البحث -->
+                <div class="search-wrapper" style="position: relative;">
+                    <div class="form">
+                        <input type="search" placeholder="ما الذي تبحث عنه؟" aria-label="بحث">
+                        <button type="submit" aria-label="بحث">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <div class="results_search"></div>
+                </div>
+                
+                <!-- Navigation Menu - القائمة الرئيسية -->
+                <nav id="nav-menu">
+                    <ul>
+                        <li><a href="/pizza/index.html" class="active">الرئيسية</a></li>
+                        <li><a href="/pizza/html-file/muen.html"> قامه الطعام</a></li>
+                        <li><a href="/pizza/html-file/product.html">المنتجات</a></li>
+                        <li><a href="/pizza/html-file/login.html">تسجيل الدخول</a></li>
+                        <li><a href="/pizza/html-file/aobut _us.html">من نحن</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Cart Icon - أيقونة السلة -->
+                <div class="cart-icon">
+                 <i class="fa-solid fa-cart-arrow-down"></i>
+                    <span class="cart-badge">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+<div class="cart-overly"></div>
+<div class="cart-tab">
+    <div class="header-cart">
+        <div class="header-name-cart">
+            <i class="fas fa-shopping-cart"></i>
+
+            <h3>سله التسوق</h3>
+        </div>
+        <button class="close-btuuon"><i class="fas fa-times"></i></buttoXn>
+    </div>
+    <div class="products">
+        <div class="Main_element">
+         
+        </div>
+    </div>
+      <div  class="empty-cart" id="emptyCart">
+                <i class="fas fa-shopping-basket"></i>
+                <p>سلتك فارغة</p>
+                <p class="empty-cart-sub">أضف بعض المنتجات  من قائمتنا!</p>
+                <button class="btn-browse" id="btnBrowse"> اضف منتجات</button>
+            </div>
+        <div class="samary-details-elemnt">
+            <div class="samary-price">
+                <div class="first-element">
+                    <div>المجموع الجزئي:</div>
+                    <div class="part-price"><div class="count-price">0</div>جنيه</div>
+                </div>
+                <div class="first-element">
+                    <span> رسوم التوصيل:</span>
+                    <div class="part-price"><div class="conections">30</div>جنيه</div>
+                </div>
+            </div>
+            <div class="samary-price">
+                     <div class="first-element last ">
+                    <span> المجموع الكلي:</span>
+                    <div class="part-price"><div class="total_price_of_cart">0</div>جنيه</div>
+                </div>
+            </div>
+            <div class="samary-price">
+                <div class="buttons-action">
+                    <button class="follow_showpping">متابعة التسوق</button>
+                    <button class="Place_Order">إتمام الطلب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!-- <div class="container"></div> -->
+</div>
+
+
+<!-- start Checkout -->
+
+<div class="Checkout">
+    <div class="container">
+        <div class="header_checkout">
+            <div class="confirm_order">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <div>تأكيد طلبك</div>
+            </div>
+            <div class="close_chekout_page"><i class="fa-solid fa-xmark"></i>
+</div>
+        </div>
+        <div class="details_order">
+            <div class="header_detalis_order">
+                <i class="fa-solid fa-file-lines"></i>
+                <div>تفاصيل طلبك</div>
+            </div>
+            <div class="ALL_product_details_chechout"></div>
+            <div class="text_detalis_order">
+                <div class="text_info">
+                <div class="name">بيتزا مارغريتا كلاسيكية</div>
+                <div class="size">الحجم : <span class="size_main">كبير</span></div>
+                <div class="quntity">  الكميه :  <div class="quntity_main">2</div></div>
+                </div>
+                <div class="price_details_order"><div class="price">100</div><div>جنيه</div></div>
+            </div>
+            <div class="text_detalis_order">
+                <div class="text_info">
+                <div class="name">بيتزا مارغريتا كلاسيكية</div>
+                <div class="size">الحجم : <span class="size_main">كبير</span></div>
+                <div class="quntity">  الكميه :  <div class="quntity_main">2</div></div>
+                </div>
+                <div class="price_details_order"><div class="price">100</div><div>جنيه</div></div>
+            </div>
+            <div class="text_detalis_order">
+                <div class="text_info">
+                <div class="name">بيتزا مارغريتا كلاسيكية</div>
+                <div class="size">الحجم : <span class="size_main">كبير</span></div>
+                <div class="quntity">  الكميه :  <div class="quntity_main">2</div></div>
+                </div>
+                <div class="price_details_order"><div class="price">100</div><div>جنيه</div></div>
+            </div>
+            <button class="retrev_page" > <i class="fa-solid fa-plus"></i> أضف المزيد من المنتجات</button>
+           
+           
+        </div>
+       <div class="Order_Summary">
+        <div class="header_order_summary">
+            <i class="fa-solid fa-money-bill"></i>
+            <div>ملخص الطلب</div>
+        </div>
+        <div class="all_price_summary">
+            <div class="Subtotal">
+                <div class="text">المجموع الجزئي:</div>
+                <div class="pruce"><div class="number">100</div>جنيه</div>
+            </div>
+            <div class="Subtotal spi">
+                <div class="text"> رسوم التوصيل:</div>
+                <div class="pruce"><div class="number">60</div>جنيه</div>
+            </div>
+            <div class="Subtotal ">
+                <div class="text"> المبلغ المستحق:</div>
+                <div class="pruce"><div class="number">10870</div>جنيه</div>
+            </div>
+        </div>
+       </div>
+       <div class="locations">
+        <div class="header_location">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>عنوان التوصيل</div>
+        </div>
+        <div class="locations_input">
+            <input type="text" placeholder="أدخل عنوانك بالتفصيل " id="address" >
+            <div class="change" id="change_address">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <div >تغيير</div>
+            </div>
+        </div>
+            <div class="name_locations" id="address_text"></div>
+        <div class="locations_input phone">
+            <input type="text"  placeholder="رقم الهاتف" id="phone" >
+            <div class="change" id="change_phone">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <div  >تغيير</div>
+            </div>
+        </div>
+        <div class="name_locations" id="phone_text"></div>
+       </div>
+       <div class="Payment_Methods">
+        <div class="payment_methods_header">
+              <i class="fa-solid fa-wallet"></i>
+            <div class="header">طريقة الدفع</div>
+        </div>
+            <div class="cheked_chosen">
+                   <div class="answer">
+                    <input type="radio" id="ch1" checked>
+                    <label for="ch1"><i class="fa-solid fa-money-bill-wave"></i><div>نقداً عند الاستلام</div></label>
+                   </div>
+                   <div class="answer">
+                    <input type="radio" id="ch2">
+                    <label for="ch2">  <i class="fa-solid fa-credit-card"></i><div>  بطاقة ائتمان/مدينة</div></label>
+                   </div>
+                   <div class="answer">
+                    <input type="radio" id="ch3">
+                    <label for="ch3">  <i class="fa-brands fa-apple-pay"></i><div> Apple Pay / Mada </div></label>
+                   </div>
+            </div>
+       </div>
+       <div class="notaick">
+        <div class="header_notaick">
+            <i class="fa-solid fa-file-lines"></i>
+            <div>ملاحظات خاصة (اختياري)</div>
+        </div>
+            <textarea name="" placeholder="اكتب ملاحظاتك او اي شيئ تريده في الطلب" id=""></textarea>
+       </div>
+       <div class="withdoem">
+            <input type="checkbox" id="on">
+            <label for="on"> أوافق على <span>الشروط والأحكام</span> وسياسة الخصوصية </label>
+       </div>
+          <div class="checkout-actions">
+            <button class="btn-back" id="backToCart"><i class="fas fa-arrow-right"></i> العودة للسلة</button>
+            <button class="btn-confirm" id="confirmOrder"><i class="fas fa-check-circle"></i> تأكيد الطلب والدفع</button>
+        </div>
+    </div>
+     <div class="massege_Error">رقم الهاتف خطاء</div>
+     <div class="massege_Error two">  ادخل رقم الهاتف</div>
+     <div class="massege_Error four">  ادخل العنوان </div>
+     <div class="massege_Error five">   جاري تسجيل طلبك </div>
+     <div class="massege_Error three"><i class="fa-solid fa-triangle-exclamation"></i> يجب الموافقة على الشروط والاحكام</div>
+</div>
+
+<div class="success"> <i class="fa-solid fa-circle-check"></i>   تم تأكيد طلبك بنجاح! شكراً لاختيارك موقعنا . سيصلك الطلب خلال 30 دقيقة </div>
+<!-- end Checkout -->
+    
+
+    <!-- start Hero Section -->
+
+
+  <section class="hero">
+        <canvas id="canvas"></canvas>
+        
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        
+        <div class="hero-content">
+            <p class="hero-subtitle">منذ 1985</p>
+            <h1 class="hero-title" >
+                شغف <span>البيتزا</span>حكاية <span>طعم</span>
+            </h1>
+            <p class="hero-description" >
+                في مطبخنا، نصنع البيتزا كما لو كنا نصنعها لأحبابنا.. بقليل من الحب وكثير من الجودة
+            </p>
+            <div class="hero-cta" >
+                <a href="#open" class="btn btn-primary">
+                    <i class="fas fa-book-open"></i>
+                    اكتشف قصتنا
+                </a>
+               
+                <a href="/pizza/html-file/product.html" class="btn btn-outline" >
+                    <i class="fas fa-pizza-slice"></i>
+                    اطلب الآن
+                </a>
+            </div>
+        </div>
+        
+        <a href = "#scroll" class="scroll-indicator" >
+           <i class="fa-solid fa-arrow-down"></i>
+            <span>اسحب للأسفل</span>
+        </a>
+    </section>
+
+    <!-- Main Content -->
+     <div class="Main-Content">
+
+         <div class="container">
+             <!-- Stats Section -->
+                <div class="artecails-section wow">
+        <h2> إحصائيات نجاح مطعمنا</h2>
+    <p>أرقام حقيقية تعكس نجاحنا وجودة خدماتنا في تقديم أفضل بيتزا</p>
+    </div>
+             <div class="stats-grid">
+                 <div class="stat-card wow" style="transition-delay: 0.9s;">
+                     <div class="stat-icon"><i class="fa-solid fa-pizza-slice"></i></div>
+                     <div style="display: flex ; align-items: center; justify-content: center;">
+                    <div class="stat-number" id="stat1">0</div>
+                     <div><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                     <div class="stat-label">بيتزا مباعة</div>
+                 </div>
+                 <div class="stat-card wow"style="transition-delay: 0.7s;" >
+                     <div class="stat-icon"><i class="fa-solid fa-user-check"></i></div>
+                        <div style="display: flex ; align-items: center; justify-content: center;">
+                    <div class="stat-number" id="stat2">0</div>
+                     <div><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                     <div class="stat-label">عميل سعيد</div>
+                 </div>
+                 <div class="stat-card wow" style="transition-delay: 0.5s;">
+                     <div class="stat-icon">👨‍🍳</div>
+                     <div class="stat-number" id="stat3">0</div>
+                     <div class="stat-label">شيف محترف</div>
+                 </div>
+                 <div class="stat-card wow" style="transition-delay: 0.3s;">
+                     <div class="stat-icon"><i class="fa-solid fa-trophy"></i></div>
+                     <div class="stat-number" id="stat4">0</div>
+                     <div class="stat-label">جائزة عالمية</div>
+                 </div>
+             </div>
+     
+             <!-- Story Section -->
+               <div class="artecails-section wow">
+        <h2> تاريخ من الجودة والتميز</h2>
+        <p>قصة شغف تمتد لأكثر من 35 عاماً</p>
+    </div>
+             <div class="story-section">
+                 <div class="story-content wow" >
+                     <h2 class="story-title">نصنع البيتزا كما لو كانت لنا وحدنا</h2>
+                     <p class="story-text">
+                         في عام 1985، بدأ الشيف أحمد رحلته مع البيتزا في مطبخ صغير بمدينة نابولي الإيطالية. 
+                         تعلم أسرار العجينة المثالية من أشهر المخابز الإيطالية، وعاد إلى وطنه ليشارك هذا الشغف معكم.
+                     </p>
+                     <p class="story-text">
+                         اليوم، وبعد أكثر من ثلاثة عقود، لا زلنا متمسكين بنفس المبادئ: عجينة تتخمر لمدة 48 ساعة، 
+                         صلصة محضرة من أجود أنواع الطماطم الإيطالية، وأجبان أصلية تمنح البيتزا نكهتها الفريدة.
+                     </p>
+                     <ul class="story-features">
+                         <li><i class="fas fa-check-circle"></i> عجينة تخمير بطيء 48 ساعة</li>
+                         <li><i class="fas fa-check-circle"></i> مكونات إيطالية أصلية</li>
+                         <li><i class="fas fa-check-circle"></i> أفران حجرية تقليدية</li>
+                     </ul>
+                 </div>
+                 
+                 <div class="story-image wow" >
+                     <img src="/pizza/imges/contact-imge.jpg" alt="صناعة البيتزا">
+                     <div class="experience-badge">
+                         <span class="years">35+</span>
+                         <span class="text">عاماً من الخبرة</span>
+                     </div>
+                 </div>
+             </div>
+                         <div class="artecails-section wow">
+        <h2>  ما يميزنا في البيتزا </h2>
+    <p > الجودة والشغف أساس نجاحنا دائمًا </p>
+    </div>
+             <div class="values-slider">
+                 
+                 <div class="swiper valuesSwiper wow">
+                     <div class="swiper-wrapper">
+                         <div class="swiper-slide">
+                             <div class="value-card">
+                                 <div class="value-icon">
+                                     <i class="fas fa-seedling"></i>
+                                 </div>
+                                 <h3 class="value-title">مكونات طازجة</h3>
+                                 <p class="value-description">نستخدم أجود المكونات الطازجة يومياً، ولا نؤمن أبداً بالمعلبات أو المجمدات</p>
+                             </div>
+                         </div>
+                         <div class="swiper-slide">
+                             <div class="value-card">
+                                 <div class="value-icon">
+                                     <i class="fas fa-clock"></i>
+                                 </div>
+                                 <h3 class="value-title">تخمير بطيء</h3>
+                                 <p class="value-description">عجينتنا تتخمر لمدة 48 ساعة كاملة، سر القشرة المقرمشة والهشة</p>
+                             </div>
+                         </div>
+                         <div class="swiper-slide">
+                             <div class="value-card">
+                                 <div class="value-icon">
+                                     <i class="fas fa-fire"></i>
+                                 </div>
+                                 <h3 class="value-title">فرن حجري</h3>
+                                 <p class="value-description">نخبز البيتزا في فرن حجري تقليدي على درجة حرارة 400 درجة مئوية</p>
+                             </div>
+                         </div>
+                         <div class="swiper-slide">
+                             <div class="value-card">
+                                 <div class="value-icon">
+                                     <i class="fas fa-heart"></i>
+                                 </div>
+                                 <h3 class="value-title">شغف لا ينتهي</h3>
+                                 <p class="value-description">كل بيتزا تصنع بحب، لأننا نؤمن أن الحب هو المكون السري</p>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="swiper-pagination"></div>
+                 </div>
+             </div>
+     
+       
+            <div class="artecails-section wow">
+            <h2>  فريقنا يصنع التميز </h2>
+            <p> الاحترافية والشغف أساس جودة البيتزا </p>
+                    </div>
+             <div class="team-grid ">
+          
+                          <div class="team-card wow" style="transition-delay: 0.6s;" >
+                     <div class="team-image">
+                         <img src="/pizza/imges/chef2.jpg" alt="الشيف علي">
+                         <div class="team-overlay">
+                             <div class="team-social">
+                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="#"><i class="fab fa-instagram"></i></a>
+                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="team-info">
+                         <h3 class="team-name">الشيف علي</h3>
+                         <p class="team-role">الشيف التنفيذي</p>
+                         <p class="team-bio">خبرة 20 عاماً في أشهر مطاعم ميلانو وروما</p>
+                     </div>
+                 </div>
+                 <div class="team-card wow" style="transition-delay: 0.3s;" >
+                     <div class="team-image">
+                         <img src="/pizza/imges/chef4.jpg" alt=" شيف اسماعيل ">
+                         <div class="team-overlay">
+                             <div class="team-social">
+                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="#"><i class="fab fa-instagram"></i></a>
+                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="team-info">
+                         <h3 class="team-name">الشيف اسماعيل  </h3>
+                         <p class="team-role">خبير الوصفات</p>
+                         <p class="team-bio">مبتكر 50 وصفة حاصل على جوائز عالمية</p>
+                     </div>
+                 </div>
+                 
+                 <div class="team-card wow " >
+                     <div class="team-image">
+                         <img src="/pizza/imges/chef3.jpg" alt="الشيف نيبالي">
+                         <div class="team-overlay">
+                             <div class="team-social">
+                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="#"><i class="fab fa-instagram"></i></a>
+                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="team-info">
+                         <h3 class="team-name">الشيف نيبالي</h3>
+                         <p class="team-role">خبيرة العجائن</p>
+                         <p class="team-bio">حاصله على شهادة في فنون الخبز من إيطاليا</p>
+                     </div>
+                 </div>
+               
+             </div>
+     
+
+
+    <div id = "open" class="artecails-section wow " >
+        <h2>رحلتنا مع البيتزا</h2>
+        <p>منذ انطلاقتنا الأولى بدأنا نصنع بيتزا بطعم لا يُنسى وشغف لا يتوقف.</p>
+    </div>
+          <div class="timeline-section">
+    <div class="timeline">
+        <!-- البوكسات الموجودة -->
+     
+          <div class="timeline-item wow"style="transition-delay: 0.6s;" >
+            <div class="timeline-content">
+            
+                <span class="timeline-year">2005</span>
+                <h3 class="timeline-title">جائزة أفضل بيتزا</h3>
+                <p>حصلنا على جائزة أفضل مطعم بيتزا في الشرق الأوسط</p>
+            </div>
+        </div>
+        <div class="timeline-item wow"style="transition-delay: 0.3s;">
+            <div class="timeline-content">
+                <span class="timeline-year">1995</span>
+                <h3 class="timeline-title">التوسع الأول</h3>
+                <p>افتتحنا 3 فروع جديدة وبدأنا خدمة التوصيل للمنازل</p>
+            </div>
+        </div>
+        
+      
+           <div class="timeline-item wow" >
+            <div class="timeline-content">
+            
+                <span class="timeline-year">1985</span>
+                <h3 class="timeline-title">بداية الحلم</h3>
+                <p>افتتحنا أول فرع صغير في قلب المدينة بطاقة استيعابية 20 كرسي فقط</p>
+            </div>
+        </div>
+      
+                
+        <div class="timeline-item wow" style="transition-delay: 0.6s;" >
+            <div class="timeline-content ">
+               
+                <span class="timeline-year">2026</span>
+                <h3 class="timeline-title">التحول الرقمي</h3>
+                <p>إطلاق تطبيق ذكي مع توصيل بالطائرات المسيرة وذكاء اصطناعي</p>
+              
+            </div>
+        </div>
+        <div class="timeline-item wow" style="transition-delay: 0.3s;" >
+            <div class="timeline-content ">
+             
+                <span class="timeline-year">2025</span>
+                <h3 class="timeline-title">الانطلاق العالمي</h3>
+                <p>افتتاح أول فرع خارج البلاد في دبي مع تجربة بيتزا فريدة</p>
+            </div>
+        </div>
+        
+          <div class="timeline-item wow">
+            <div class="timeline-content">
+              
+                <span class="timeline-year">2024</span>
+                <h3 class="timeline-title">الريادة في التميز</h3>
+                <p>10 فروع وخدمة تغطي كامل المدينة ورضا عملاء 98%</p>
+            </div>
+        </div>
+        <div class="timeline-item wow">
+            <div class="timeline-content">
+            
+                <span class="timeline-year">2027</span>
+                <h3 class="timeline-title">الاستدامة والتميز</h3>
+                <p>حصلنا على شهادة البلاتينيوم في الاستدامة وأفضل بيئة عمل</p>
+             
+            </div>
+        </div>
+    </div>
+</div>
+     
+         <div class="artecails-section wow">
+        <h2>آراء عملائنا</h2>
+        <p>تجارب حقيقية من عملائنا تعكس جودة البيتزا والطعم المميز والخدمة الممتازة لدينا</p>
+    </div>
+     
+             <div class="swiper testimonialsSwiper wow">
+                 <div class="swiper-wrapper">
+                     <div class="swiper-slide">
+                         <div class="testimonial-card" >
+                             <div class="testimonial-quote">❝</div>
+                             <div class="testimonial-rating">
+                                 <i class="fas fa-star"></i>
+                                 <i class="fas fa-star"></i>
+                                 <i class="fas fa-star"></i>
+                                 <i class="fas fa-star"></i>
+                                 <i class="fas fa-star"></i>
+                             </div>
+                             <p class="testimonial-text">
+                                 أفضل بيتزا تذقتها في حياتي! العجينة خفيفة والمكونات طازجة والتوصيل أسرع من المتوقع.
+                             </p>
+                             <div class="testimonial-author">
+                                 <div class="author-image">
+                                     <img src="/pizza/imges/custm_svin.jpg" alt="عميلة">
+                                 </div>
+                                 <div class="author-info">
+                                     <h4>سارة الأحمد</h4>
+                                     <p>عميلة منذ 5 سنوات</p>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     
+                     <div class="swiper-slide">
+                         <div class="testimonial-card" >
+                             <div class="testimonial-quote">❝</div>
+                             <div class="testimonial-rating">
+                                 <i class="fas fa-star"></i>
+                                 <i class="fas fa-star"></i>
+                                 <i class="fas fa-star"></i>
+                                 <i class="fas fa-star"></i>
+                                 <i class="fas fa-star"></i>
+                             </div>
+                             <p class="testimonial-text">
+                                 الجودة تستحق الثمن. فريق محترف وتعامل راقي. أنصح الجميع بتجربة بيتزا المأكولات البحرية.
+                             </p>
+                             <div class="testimonial-author">
+                                 <div class="author-image">
+                                     <img src="/pizza/imges/custm_two.png" alt="عميل">
+                                 </div>
+                                 <div class="author-info">
+                                     <h4>محمد العلي</h4>
+                                     <p>زبون دائم</p>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     
+                     <div class="swiper-slide">
+                         <div class="testimonial-card" >
+                             <div class="testimonial-quote">❝</div>
+                             <div class="testimonial-rating">
+                                 <i class="fas fa-star"></i>
+                                 <i class="fas fa-star"></i>
+                                 <i class="fas fa-star"></i>
+                                 <i class="fas fa-star"></i>
+                                 <i class="fas fa-star-half-alt"></i>
+                             </div>
+                             <p class="testimonial-text">
+                                 مكان رائع للعائلات. أطفالي يعشقون بيتزا المارغريتا هناك. الجو لطيف والخدمة ممتازة.
+                             </p>
+                             <div class="testimonial-author">
+                                 <div class="author-image">
+                                     <img src="/pizza/imges/custom_one.jpg" alt="عميلة">
+                                 </div>
+                                 <div class="author-info">
+                                     <h4>نورة الفهد</h4>
+                                     <p>أم لثلاثة أطفال</p>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <!-- العميل الأول -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <div class="testimonial-quote">❝</div>
+        <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">
+            أفضل بيتزا جربتها في حياتي! الطعم رائع والعجينة خفيفة ومقرمشة. بالتأكيد سأطلب مرة أخرى.
+        </p>
+        <div class="testimonial-author">
+            <div class="author-image">
+                <img src="/pizza/imges/custme_three.jpg" alt="عميل">
+            </div>
+            <div class="author-info">
+                <h4>أحمد محمود</h4>
+                <p>عميل مميز</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- العميل الثاني -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <div class="testimonial-quote">❝</div>
+        <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">
+            سرعة في التوصيل وخدمة ممتازة. أحببت بيتزا البيبروني والطعم كان خرافي.
+        </p>
+        <div class="testimonial-author">
+            <div class="author-image">
+                <img src="/pizza/imges/custm_four.jpg" alt="عميل">
+            </div>
+            <div class="author-info">
+                <h4> حسن سيد</h4>
+        <p> زبون دائم </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- العميل الثالث -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <div class="testimonial-quote">❝</div>
+        <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">
+            تجربة ممتازة من حيث الجودة والسعر. أحب أجواء المكان وتعامل الموظفين الراقي.
+        </p>
+        <div class="testimonial-author">
+            <div class="author-image">
+                <img src="/pizza/imges/custm_five.jpeg" alt="عميل">
+            </div>
+            <div class="author-info">
+                <h4>كريم يوسف</h4>
+                <p>محب للبيتزا</p>
+            </div>
+        </div>
+    </div>
+</div>
+                 </div>
+                 <div class="swiper-pagination"></div>
+             </div>
+     
+
+
+
+                 <div id="scroll" class="artecails-section wow" style="margin: 90px 0;">
+        <h2> صوره حقيقيه لما نقدم</h2>
+        <p>صور حقيقيه تعكس مدا جوده البيتزا  عندنا</p>
+    </div>
+             <!-- Gallery -->
+             <div class="gallery">
+                 <div class="gallery-item wow" >
+                     <img src="/pizza/imges/pizza_one.jpeg" alt="بيتزا">
+                     <div class="gallery-overlay">
+                         <i class="fas fa-search-plus"></i>
+                     </div>
+                 </div>
+                 <div class="gallery-item wow"  >
+                     <img src="/pizza/imges/pizza_two.jpg" alt="بيتزا">
+                     <div class="gallery-overlay">
+                         <i class="fas fa-search-plus"></i>
+                     </div>
+                 </div>
+                 <div class="gallery-item wow"  >
+                     <img src="/pizza/imges/pizza_three.webp" alt="بيتزا">
+                     <div class="gallery-overlay">
+                         <i class="fas fa-search-plus"></i>
+                     </div>
+                 </div>
+                 <div class="gallery-item wow" >
+                     <img src="/pizza/imges/pizza_four.jpg" alt="بيتزا">
+                     <div class="gallery-overlay">
+                         <i class="fas fa-search-plus"></i>
+                     </div>
+                 </div>
+                 <div class="gallery-item wow">
+                     <img src="/pizza/imges/pizza_five.avif" alt="بيتزا">
+                     <div class="gallery-overlay">
+                         <i class="fas fa-search-plus"></i>
+                     </div>
+                 </div>
+                 <div class="gallery-item wow">
+                     <img src="/pizza/imges/pizza_six.png" alt="بيتزا">
+                     <div class="gallery-overlay">
+                         <i class="fas fa-search-plus"></i>
+                     </div>
+                 </div>
+             </div>
+        </div>
+
+    <!-- end Hero Section -->
+
+
+
+
+
+<!-- strart footer  -->
+<div class="artecails-section wow">
+  <h2>معلومات التواصل</h2>
+  <p>نوفر لك جميع وسائل التواصل للوصول إلينا بسرعة وسهولة في أي وقت</p>
+</div>
+ <footer class="wow">
+    <div class="container">
+
+        <div class="imges">
+            <img src="/pizza/imges/images (1).jpeg" alt="">
+            <img src="/pizza/imges/images (2).jpeg" alt="">
+            <img src="/pizza/imges/images (4).jpeg" alt="">
+            <img src="/pizza/imges/images (6).jpeg" alt="">
+        </div>
+       <div class="coluem2">
+         <ul>
+                <li><a href="./index.html">الرئيسية</a></li>
+                <li><a href="./html-file/muen.html">قائمة الطعام</a></li>
+                <li><a href="./html-file/product.html">المنتجات</a></li>
+                <li><a href="/pizza/html-file/login.html">تسجيل الدخول</a></li>
+                <li><a href="/pizza/html-file/aobut _us.html">من نحن</a></li>
+            </ul>
+       </div>
+       <div class="coluem3">
+        <div class="location">
+            <i class="fas fa-map-marker-alt fa-fw"></i>
+            <p>  الفيوم، حي الجامعة، شارع الجلاء، عمارة 10، الدور الأول  </p>
+        </div>
+        <div class="time">
+           <i class="far fa-clock fa-fw"></i>
+            <p>ساعات العمل: من 10:00 صباحاً إلى 6:00 مساءً</p>
+        </div>
+        <div class="call">
+        <i class="fas fa-phone-volume fa-fw"></i>
+           <div class="text">
+             <p>+20123456789</p>
+            <p>+20198765432</p>
+           </div>
+        </div>
+            <div class="call">
+            <i class="fas fa-envelope"></i>
+           <div class="text">
+            <p>pizzaRrest@pizza.com</p>
+           </div>
+        </div>
+       </div>
+      
+        <div class="coluem1">
+         <h1>pizza</h1>
+        
+        <ul class="social">
+            <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" class="youtube"><i class="fab fa-youtube"></i></a></li>
+          </ul>
+        <p>تابعنا للحصول على العروض الحصرية</p>
+       </div>
+    </div>
+    <div class="copy">copy with @ <span>2025</span></div>
+ </footer>
+<!-- End footer  -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script src="/pizza/javascrpt/cont.js"></script>
+<script src="/pizza/javascrpt/product.js"></script>
+
+  <script>
+
+  
+  </script>
+</body>
+
+</html>

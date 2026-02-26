@@ -1,0 +1,675 @@
+* {
+    /* margin: 0;
+    padding: 0; */
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ff1900;
+    --primary-dark: #ff5a4a;
+    --primary-light: #ffd5d0;
+    --bg-light: #fceae9;
+    --text-dark: #2d3436;
+    --text-light: #636e72;
+    --white: #ffffff;
+    --shadow-sm: 0 2px 8px rgba(255, 123, 107, 0.1);
+    --shadow-md: 0 4px 12px rgba(255, 123, 107, 0.15);
+    --shadow-lg: 0 8px 20px rgba(255, 123, 107, 0.2);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--white);
+    /* line-height: 1.6; */
+}
+
+
+/* Header Styles */
+header {
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+    border-bottom: 3px solid white;
+    animation: slideDown 0.5s ease;
+    margin-bottom: 10px;
+    background-color: #ff1900;
+    color: white;
+    /* width: 100%; */
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+ header .container .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    height: 70px;
+    max-width: 1400px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    width: 100%;
+}
+
+/* Logo Styles */
+ header .container .logo {
+    flex-shrink: 20px;
+}
+
+ header .container .logo  a {
+    display: block;
+    transition: var(--transition);
+}
+
+ header .container .logo  a:hover {
+    transform: scale(1.05);
+}
+
+ header .container .logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.hamburger {
+    color: white;
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+.hamburger:hover {
+    background-color: black;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 2px 0;
+    border-radius: 3px;
+    transition: 0.4s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Search Form */
+.search-wrapper {
+    flex: 0 0 350px;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    background-color: linear-gradient(145deg, white, #fff5f3);
+    border-radius: 50px;
+    padding: 0.3rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--primary-light);
+    transition: var(--transition);
+        background: white;
+
+}
+
+.form:focus-within {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.form input {
+    border: none;
+    outline: none;
+    padding: 0.8rem 1.2rem;
+    width: 100%;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    background-color: transparent;
+}
+
+.form input::placeholder {
+    color: #adb5bd;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.form input:focus::placeholder {
+    opacity: 0.7;
+    transform: translateX(10px);
+}
+
+.form button {
+    background: var(--primary-color);
+    border: none;
+    border-radius: 50px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--white);
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.form button:hover {
+    background: var(--primary-dark);
+    transform: scale(0.95);
+}
+
+.form button i {
+    font-size: 1.1rem;
+}
+
+/* Navigation Menu */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.8rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.4s;
+    white-space: nowrap;
+    position: relative;
+    padding: 0.5rem 0;
+    padding-bottom: 30px;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background:black;
+    transition: var(--transition);
+}
+
+nav ul li a:hover {
+    color:black;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a.active {
+    color: black;
+}
+
+nav ul li a.active::after {
+    width: 100%;
+}
+
+/* Cart Icon */
+.cart-icon {
+    position: relative;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    padding: 0.8rem;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.cart-icon:hover {
+    background-color: black;
+    transform: rotate(2deg);
+}
+
+.cart-badge {
+    position: absolute;
+    top: 1px;
+    right: -2px;
+    background-color:black;
+    color: var(--white);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid var(--white);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+/* جميع العناصر في سطر واحد بالشاشات الصغيرة */
+
+@media (max-width: 1200px) {
+     header .container .header-content  {
+        gap: 1.5rem;
+    }
+    
+    .search-wrapper {
+        flex: 0 0 300px;
+    }
+    
+    nav ul {
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+     header .container .header-content {
+        gap: 1rem;
+        height: 80px;
+    }
+    
+    .search-wrapper {
+        flex: 0 0 250px;
+    }
+    
+    nav ul {
+        gap: 1rem;
+    }
+    
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+    
+    .logo img {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+/* ===== الشاشات الصغيرة - كل العناصر في سطر واحد ===== */
+@media (max-width: 768px) {
+  header .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+        padding-top: 0;
+        padding-bottom: 0;
+        flex-wrap: nowrap; /* منع النزول لسطر جديد */
+        gap: 0.5rem;
+    }
+    
+    /* إظهار الهامبرجر */
+    .hamburger {
+        display: flex;
+        order: 1;
+        flex-shrink: 0;
+        padding: 0.4rem;
+    }
+    
+    .hamburger span {
+        width: 22px;
+        height: 2.5px;
+    }
+    
+    /* الشعار */
+    .logo {
+        order: 2;
+        flex-shrink: 0;
+    }
+    
+     header .container .logo img {
+        width: 45px;
+        height: 45px;
+    }
+    
+    /* شريط البحث - يأخذ المساحة المتبقية */
+    .search-wrapper {
+        order: 3;
+        flex: 1; /* يأخذ المساحة المتبقية */
+        margin-top: 0;
+        min-width: 120px; /* عرض минимальный */
+    }
+    
+    .form {
+        padding: 0.2rem;
+    }
+    
+    .form input {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .form input::placeholder {
+        font-size: 0.8rem;
+    }
+    
+    .form button {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .form button i {
+        font-size: 0.9rem;
+    }
+    
+    /* سلة التسوق */
+    .cart-icon {
+        order: 4;
+        font-size: 1.3rem;
+        padding: 0.3rem;
+        flex-shrink: 0;
+    }
+    
+    .cart-badge {
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+        top: -4px;
+        right: -4px;
+    }
+    
+    /* القائمة المنسدلة */
+    nav {
+        order: 5;
+        position: fixed;
+        top: 77px;
+        right:  -100%;
+        background-color: #7f1c00;
+        height: 500px;
+        width: 280px;
+        box-shadow: var(--shadow-lg);
+        transition: right 0.3s ease-in-out;
+        padding: 80px 1.5rem 2rem;
+        border-radius: 0;
+        z-index: 99999;
+        display: block;
+    }
+    
+    nav.active {
+        right: 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    nav ul li a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        white-space: normal;
+    }
+    
+    nav ul li a:hover {
+        background-color: var(--primary-light);
+    }
+    
+    nav ul li a::after {
+        display: none;
+    }
+}
+
+/* ===== الشاشات الصغيرة جداً ===== */
+@media (max-width: 480px) {
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    
+    .header-content {
+        height: 65px;
+        gap: 0.4rem;
+    }
+    
+    .hamburger span {
+        width: 20px;
+    }
+    
+    .logo img {
+        width: 40px;
+        height: 40px;
+        border-width: 2px;
+    }
+    
+    .search-wrapper {
+        min-width: 100px;
+    }
+    
+    .form input {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .form input::placeholder {
+        font-size: 0.75rem;
+        content: "بحث";
+    }
+    
+    .form button {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .form button i {
+        font-size: 0.85rem;
+    }
+    
+    .cart-icon {
+        font-size: 1.2rem;
+    }
+    
+    .cart-badge {
+        width: 16px;
+        height: 16px;
+        font-size: 0.65rem;
+    }
+    
+    nav {
+        width: 85%;
+        padding: 70px 1rem 2rem;
+    }
+}
+
+/* ===== الشاشات الصغيرة جداً جداً ===== */
+@media (max-width: 360px) {
+    .header-content {
+        height: 60px;
+        gap: 0.3rem;
+    }
+    
+    .hamburger {
+        padding: 0.3rem;
+    }
+    
+    .hamburger span {
+        width: 18px;
+        height: 2px;
+    }
+    
+    .logo img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .search-wrapper {
+        min-width: 90px;
+    }
+    
+    .form input {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.7rem;
+    }
+    
+    .form input::placeholder {
+        font-size: 0.7rem;
+    }
+    
+    .form button {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .form button i {
+        font-size: 0.75rem;
+    }
+    
+    .cart-icon {
+        font-size: 1.1rem;
+        padding: 0.2rem;
+    }
+    
+    .cart-badge {
+        width: 14px;
+        height: 14px;
+        font-size: 0.6rem;
+        top: -3px;
+        right: -3px;
+    }
+}
+
+/* ===== الوضع الأفقي (Landscape) ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .header-content {
+        height: 60px;
+    }
+    
+    nav {
+        height: 100vh;
+        overflow-y: auto;
+        padding-top: 60px;
+    }
+    
+    nav ul {
+        gap: 0.8rem;
+    }
+    
+    nav ul li a {
+        padding: 0.5rem 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* ===== تحسينات الأداء ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ===== دعم الشاشات عالية الدقة ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo img {
+        border-width: 2px;
+    }
+}
+
+/* ===== الشاشات المتوسطة ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        /* padding-left: 20px;
+        padding-right: 20px; */
+    }
+}
+
+/* ===== الشاشات الكبيرة جداً ===== */
+@media (min-width: 1600px) {
+   header .container .header-content {
+        max-width: 1600px;
+    }
+    
+    .search-wrapper {
+        flex: 0 0 400px;
+    }
+    
+    nav ul {
+        gap: 2.2rem;
+    }
+    
+    nav ul li a {
+        font-size: 1rem;
+    }
+}
+
+.results_search{
+    position: absolute;
+    left: 50%;
+    top: 115%;
+    transform: translateX(-50%);
+    height: 270px;
+    overflow-y: scroll;
+    width: 290px;
+    background-color:#7f1c00;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    text-align: center;
+    border-radius: 8px;
+    display: none;
+}
+.results_search .search-result-item{
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.results_search .search-result-item:hover{
+    background-color: #ff1900;
+    color: white;
+    padding-right: 30px;
+}
+ .results_search .no-results{
+    margin-top:70px;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+}
+@media (max-width: 768px){
+    .results_search{
+        width: 250px;
+    }
+    .results_search .search-result-item{
+        padding: 10px;
+    }
+}

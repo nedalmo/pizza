@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/pizza/css/normalize.css">
+        <link rel="stylesheet" href="/pizza/css/all.min.css">
+        <link rel="stylesheet" href="/pizza/css/header.css">
+    <link rel="stylesheet" href="/pizza/css/style.css">
+    <title> تسجيل الدخول</title>
+   
+</head>
+<body>
+   <div class="login">
+        <div class="container">
+            <div class="card">
+                <!-- الجانب الأيمن - التراث الإيطالي مع إحصائيات ديناميكية -->
+                <div class="heritage-side">
+                    <div class="heritage-icons">
+                        <i class="fas fa-pizza-slice"></i>
+                        <i class="fas fa-wine-bottle"></i>
+                        <i class="fas fa-olive"></i>
+                        <i class="fas fa-cheese"></i>
+                    </div>
+                    <div class="heritage-content">
+                        <div class="heritage-tag">
+                            <i class="fas fa-crown"></i> EST. 1985 • ITALY
+                        </div>
+                        <h1 class="heritage-title">حيث تلتقي الأصالة بالنكهة</h1>
+                        <p class="heritage-desc">من قلب نابولي إلى طاولتك، نقدم لك وصفات عائلية إيطالية أصيلة تم توارثها عبر أربعة أجيال.</p>
+                        <div class="quote">
+                            <i class="fas fa-quote-right"></i> البيتزا ليست مجرد طعام، إنها قصة حب إيطالية <i class="fas fa-quote-left"></i>
+                        </div>
+                        
+                        <!-- قسم الإحصائيات المهمة - تتغير مع كل reload -->
+                        <div class="stats-container" id="statsContainer">
+                            <div class="stats-title">
+                                <i class="fas fa-chart-line"></i>
+                                <span>إحصائيات حية اليوم</span>
+                            </div>
+                            <div class="stats-grid" id="statsGrid">
+                         
+                            </div>
+                            <div class="update-time" id="updateTime">
+                                <i class="fas fa-sync-alt"></i>
+                                <span > </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الجانب الأيسر - النماذج -->
+                <div class="forms-side">
+                    <div class="welcome-text">
+                        <h2>مرحباً بك</h2>
+                        <p>سجل دخولك أو أنشئ حساب للاستمتاع بتجربة بيتزا استثنائية</p>
+                    </div>
+
+                    <!-- تبويبات أنيقة -->
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" >
+                            <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                        </button>
+                        <button class="auth-tab" >
+                            <i class="fas fa-user-plus"></i> حساب جديد
+                        </button>
+                    </div>
+
+                    <!-- نموذج تسجيل الدخول -->
+                    <div id="loginForm" class="auth-form active">
+                        <form >
+                            <div class="input-group">
+                                <label class="input-label">
+                                    <i class="fas fa-envelope"></i>
+                                    البريد الإلكتروني
+                                </label>
+                                <input type="email" class="input-field" placeholder="your@email.com" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label class="input-label">
+                                    <i class="fas fa-lock"></i>
+                                    كلمة المرور
+                                </label>
+                                <input type="password" class="input-field" placeholder="********" required minlength="6">
+                            </div>
+
+                            <div class="forg">
+                                <label>
+                                    <input type="checkbox"> 
+                                    <i class="far fa-check-circle"></i> تذكرني
+                                </label>
+                                <a href="#" class="forget_password">
+                                    <i class="fas fa-question-circle"></i> نسيت كلمة المرور؟
+                                </a>
+                            </div>
+
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-sign-in-alt"></i> سجل دخولك واطلب
+                            </button>
+                        </form>
+
+                        <div class="alt-options">
+                            <p><i class="fas fa-asterisk"></i> أو الدخول باستخدام <i class="fas fa-asterisk"></i></p>
+                            <div class="social-buttons">
+                                <button class="social-btn" type="button"><i class="fab fa-google"></i></button>
+                                <button class="social-btn" type="button"><i class="fab fa-facebook-f"></i></button>
+                                <button class="social-btn" type="button"><i class="fab fa-twitter"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- نموذج إنشاء حساب --> 
+                    <div id="registerForm" class="auth-form"  style="position: relative;">
+                            <div class="sacsses">تم انشاء حسابك بنجاح</div>
+
+                            <div class="name-row">
+                                <div class="input-group">
+                                    <label for="first_name" class="input-label"><i class="fas fa-user"></i> الاسم الأول</label>
+                                    <input id="first_name" type="text" class="input-field" placeholder="الاسم الاول" required  minlength="3" maxlength="12" >
+                                </div>
+                                <div class="input-group">
+                                    <label for="last_name" class="input-label"><i class="fas fa-user"></i> الاسم الأخير</label>
+                                    <input id="last_name" type="text" class="input-field" placeholder="الاسم الثاني" required minlength="3" maxlength="12">
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="Email_field" class="input-label"><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
+                                <input id="Email_field" type="email" class="input-field" placeholder="البريد الإلكتروني" required  pattern="[a-z0-9._%+\-]{3,9}@[a-z0-9.\-]+\.[a-z]{2,}$">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="phone_field" class="input-label"><i class="fas fa-phone-alt"></i> رقم الجوال</label>
+                            <input id="phone_field" type="tel" class="input-field" placeholder="XXX XXXX XXXX" required pattern="01(0|2|5|1)\d{8}$" >
+                            </div>
+
+                            <div class="input-group">
+                                <label for="password_field" class="input-label"><i class="fas fa-lock"></i> كلمة المرور</label>
+                                <input id="password_field" type="password" class="input-field" placeholder="********" required  maxlength="13" minlength="6">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="confirm_password" class="input-label"><i class="fas fa-lock"></i> تأكيد كلمة المرور</label>
+                                <input id="confirm_password" type="password" class="input-field" placeholder="********" required maxlength="13" minlength="6">
+                            </div>
+                        
+                            <div class="acsebt" >
+                                <label for="checkbox">
+                                    <input id="checkbox" type="checkbox" required> 
+                                    <i class="far fa-check-circle"></i> أوافق على الشروط والأحكام
+                                </label>
+                                <a href="#" class="forget_password">
+                                    <i class="fas fa-question-circle"></i> تحتاج مساعدة؟
+                                </a>
+                            </div>
+
+                            <button type="submit" class="btn-submit" id="new_account_but">
+                                <i class="fas fa-fire"></i>
+                                أنشئ حساب جديد
+                            </button>
+                            <div class="check_mesage"></div>
+                        <div class="alt-options">
+                            <p><i class="fas fa-asterisk"></i> أو التسجيل باستخدام <i class="fas fa-asterisk"></i></p>
+                            <div class="social-buttons">
+                                <button class="social-btn" type="button"><i class="fab fa-google"></i></button>
+                                <button class="social-btn" type="button"><i class="fab fa-facebook-f"></i></button>
+                                <button class="social-btn" type="button"><i class="fab fa-twitter"></i></button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- strart footer  -->
+<div class="artecails-section " style="margin: 100px 0;" >
+  <h2>معلومات التواصل</h2>
+  <p>نوفر لك جميع وسائل التواصل للوصول إلينا بسرعة وسهولة في أي وقت</p>
+</div>
+ <footer class="">
+    <div class="container">
+
+        <div class="imges">
+            <img src="/pizza/imges/images (1).jpeg" alt="">
+            <img src="/pizza/imges/images (2).jpeg" alt="">
+            <img src="/pizza/imges/images (4).jpeg" alt="">
+            <img src="/pizza/imges/images (6).jpeg" alt="">
+        </div>
+       <div class="coluem2">
+             <ul>
+                        <li><a href="/pizza/index.html" class="active">الرئيسية</a></li>
+                        <li><a href="/pizza/html-file/muen.html"> قامه الطعام</a></li>
+                        <li><a href="/pizza/html-file/product.html">المنتجات</a></li>
+                        <li><a href="/pizza/html-file/login.html">تسجيل الدخول</a></li>
+                        <li><a href="/pizza/html-file/aobut _us.html">من نحن</a></li>
+                    </ul>
+       </div>
+       <div class="coluem3">
+        <div class="location">
+            <i class="fas fa-map-marker-alt fa-fw"></i>
+            <p>  الفيوم، حي الجامعة، شارع الجلاء، عمارة 10، الدور الأول  </p>
+        </div>
+        <div class="time">
+           <i class="far fa-clock fa-fw"></i>
+            <p>ساعات العمل: من 10:00 صباحاً إلى 6:00 مساءً</p>
+        </div>
+        <div class="call">
+        <i class="fas fa-phone-volume fa-fw"></i>
+           <div class="text">
+             <p>+20123456789</p>
+            <p>+20198765432</p>
+           </div>
+        </div>
+              <div class="call">
+            <i class="fas fa-envelope"></i>
+           <div class="text">
+            <p>pizzaRrest@pizza.com</p>
+           </div>
+        </div>
+       </div>
+      
+        <div class="coluem1">
+         <h1>pizza</h1>
+        
+        <ul class="social">
+            <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" class="youtube"><i class="fab fa-youtube"></i></a></li>
+          </ul>
+        <p>تابعنا للحصول على العروض الحصرية</p>
+       </div>
+    </div>
+    <div class="copy">copy with @ <span>2025</span></div>
+ </footer>
+<!-- End footer  -->
+  
+<SCript src="/pizza/javascrpt/login.js"></SCript>
+    <script>
+     
+    </script>
+</body>
+</html>
