@@ -528,7 +528,6 @@ function Checkout_function(cart) {
 if (document.querySelector(".detailselemnt")) {
 
 
-
     let requestOne = new XMLHttpRequest();
     requestOne.open("GET", myproducts);
     requestOne.send()
@@ -926,22 +925,22 @@ function elel(e) {
     // إنشاء التبويب الأول
     const tab1 = document.createElement('div');
     tab1.className = 'thosen';
-    tab1.setAttribute('data-clases', '.one');
+    tab1.setAttribute('data-clases', '.ones');
     tab1.textContent = 'الوصف التفصيلي';
 
     // إنشاء التبويب الثاني
     const tab2 = document.createElement('div');
-    tab2.setAttribute('data-clases', '.two');
+    tab2.setAttribute('data-clases', '.twos');
     tab2.textContent = 'المكونات';
 
     // إنشاء التبويب الثالث
     const tab3 = document.createElement('div');
-    tab3.setAttribute('data-clases', '.three');
+    tab3.setAttribute('data-clases', '.threes');
     tab3.textContent = 'القيمة الغذائية';
 
     // إنشاء التبويب الرابع
     const tab4 = document.createElement('div');
-    tab4.setAttribute('data-clases', '.four');
+    tab4.setAttribute('data-clases', '.fours');
     tab4.textContent = 'التقييمات';
 
     // إضافة التبويبات إلى tabs
@@ -956,7 +955,7 @@ function elel(e) {
 
     // المحتوى الأول - الوصف التفصيلي
     const content1 = document.createElement('div');
-    content1.className = 'one';
+    content1.className = 'ones';
 
     const h4_1 = document.createElement('h4');
     h4_1.textContent = `${e.name}`;
@@ -1039,7 +1038,7 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
 
     // المحتوى الثاني - المكونات
     const content2 = document.createElement('div');
-    content2.className = 'two';
+    content2.className = 'twos';
 
     const h4_2 = document.createElement('h4');
     h4_2.textContent = ` مكونات ${e.name} `;
@@ -1138,7 +1137,7 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
 
     // المحتوى الثالث - القيمة الغذائية
     const content3 = document.createElement('div');
-    content3.className = 'three';
+    content3.className = 'threes';
 
     const h4_3 = document.createElement('h4');
     h4_3.textContent = 'المعلومات الغذائية';
@@ -1276,7 +1275,7 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
 
     // المحتوى الرابع - التقييمات
     const content4 = document.createElement('div');
-    content4.className = 'four';
+    content4.className = 'fours';
 
     const h4_4 = document.createElement('h4');
     h4_4.textContent = 'تقييمات العملاء';
@@ -1560,7 +1559,7 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     let tabss = document.querySelectorAll(".more-details .container .tabs > div");
     let contentss = document.querySelectorAll(".contents >div");
     let revesStrass = document.querySelectorAll(".reves-stras > i");
-
+console.log(contentss)
 
 
     tabss.forEach(tab => {
@@ -1572,6 +1571,7 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
             contentss.forEach(cont => {
                 cont.style.display = "none"
             })
+            // console.log(document.querySelector(tab.currentTarget.dataset.clases))
             document.querySelector(tab.currentTarget.dataset.clases).style.display = "block";
         })
     })
@@ -1663,8 +1663,7 @@ confirmOrder.addEventListener("click", e => {
                         buttons_two.click();
         },800)
         setTimeout(e=>{
-            window.location  = "http://127.0.0.1:5500/pizza/index.html"
-            // location.reload();
+window.location.href = "../index.html";            // location.reload();
         },3000)
 
         document.querySelector(".success").classList.add("active");
@@ -1751,8 +1750,7 @@ hamburger.addEventListener("click",e=>{
 })
 
 
-if(window.location.href ==="http://127.0.0.1:5500/pizza/html-file/muen.html"){
-    
+if (window.location.pathname===("/pizza/html-file/muen.html")) {
 
 let text = "اكتشف تشكيلتنا المتنوعة من البيتزا المعدة يومياً";
    let i = 0;

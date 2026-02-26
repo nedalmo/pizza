@@ -2759,65 +2759,65 @@ margin: 20px 0;
 display: none;
 }
 
-.more-details .container .contents .one{
+.more-details .container .contents .ones{
 background-color: var(--dark-secondary);
 color: white;
 padding: 30px;
 border-radius: 10px;
 }
-.more-details .container .contents .one h4,
-.more-details .container .contents .two h4,
-.more-details .container .contents .three h4,
-.more-details .container .contents .four h4
+.more-details .container .contents .ones h4,
+.more-details .container .contents .twos h4,
+.more-details .container .contents .threes h4,
+.more-details .container .contents .fours h4
 {
 margin: 20px 0;
 font-size: 23px;
 text-align: center;
 }
-.more-details .container .contents .one p{
+.more-details .container .contents .ones p{
 line-height: 2;
 
 }
-.more-details .container .contents .one .info-moe{
+.more-details .container .contents .ones .info-moe{
 font-weight: bold;
 margin-bottom: 10px;
 font-size: 20px;
 }
-.more-details .container .contents .one ul{
+.more-details .container .contents .ones ul{
 margin: 15px 0;
 }
-.more-details .container .contents .one ul li{
+.more-details .container .contents .ones ul li{
 margin-bottom: 30px;
 list-style-type:decimal;
 }
-.more-details .container .contents .one ul li  span{
+.more-details .container .contents .ones ul li  span{
 font-weight: bold;
 font-size: 16px;
 padding-left:5px ;
 }
-.more-details .container .contents .one .conte-value{
+.more-details .container .contents .ones .conte-value{
 margin-top: 20px;
 }
-.more-details .container .contents .one .conte-value  div{
+.more-details .container .contents .ones .conte-value  div{
 font-weight: bold;
 margin: 0;
 }
-.more-details .container .contents .one .conte-value  p{
+.more-details .container .contents .ones .conte-value  p{
 margin: 3px;
 color: #ff0000;
 }
 
-.more-details .container .contents .two {
+.more-details .container .contents .twos {
 background-color: var(--dark-secondary);
 color: white;
 padding: 10px;
 border-radius: 10px;
 }
-.more-details .container .contents .two ul{
+.more-details .container .contents .twos ul{
 display: grid;
 grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
 }
-.more-details .container .contents .two ul li{
+.more-details .container .contents .twos ul li{
 background-color: var(--error-color);
 margin: 5px;
 text-align: center;
@@ -2827,44 +2827,44 @@ border-radius: 7px;
 border: 2px solid black;
 transition: var(--transition);
 }
-.more-details .container .contents .two ul li:hover{
+.more-details .container .contents .twos ul li:hover{
 transform: translateY(3px);
 }
-.more-details .container .contents .two ul li h5{
+.more-details .container .contents .twos ul li h5{
 margin: 5px;
 font-size: 20px;
 }
-.more-details .container .contents .two ul li h6{
+.more-details .container .contents .twos ul li h6{
 font-size: 15px;
 margin: 10px 0;
 }
-.more-details .container .contents .two .steci{
+.more-details .container .contents .twos .steci{
 font-size: 20px;
 padding: 10px;
 }
-.more-details .container .contents .two .steci span{
+.more-details .container .contents .twos .steci span{
 margin: 20px 0;
 margin-right: 20px;
 }
 
-.more-details .container .contents .three{
+.more-details .container .contents .threes{
 background-color: #7f1c00;
 color: white;
 padding: 30px;
 border-radius: 10px;
 }
-.more-details .container .contents .three  h3{
+.more-details .container .contents .threes  h3{
 margin: 20px 0;
 font-size: 23px;
 text-align: center;
 }
-.more-details .container .contents .three .values{
+.more-details .container .contents .threes .values{
 display: grid;
 grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
 margin-bottom: 20px;
 }
 
-.more-details .container .contents .three .values li{
+.more-details .container .contents .threes .values li{
 background-color: #ff0000;
 margin: 5px;
 text-align: center;
@@ -2874,30 +2874,30 @@ border-radius: 7px;
 border: 2px solid black;
 transition: 0.4s;
 }
-.more-details .container .contents .three .values li:hover{
+.more-details .container .contents .threes .values li:hover{
 transform: translateY(3px);
 }
 
-.more-details .container .contents .three .exter li {
+.more-details .container .contents .threes .exter li {
 display: flex;
 margin-bottom: 10px;
 list-style-type: decimal;
 }
-.more-details .container .contents .three .exter li  span{
+.more-details .container .contents .threes .exter li  span{
 font-weight: bold;
 margin-left: 10px;
 }
-.more-details .container .contents .three .tabsx{
+.more-details .container .contents .threes .tabsx{
 padding: 10px 0;
 font-weight: bold;
 }
-.more-details .container .contents .four{
+.more-details .container .contents .fours{
 background-color: var(--dark-secondary);
 color: white;
 padding: 20px;
 border-radius: 10px;
 }
-.more-details .container .contents .four ul li{
+.more-details .container .contents .fours ul li{
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -2907,26 +2907,26 @@ background-color: var(--error-color);
 padding: 10px;
 
 }
-.more-details .container .contents .four ul li .coments{
+.more-details .container .contents .fours ul li .coments{
 padding: 5px;
 }
 
-.more-details .container .contents .four ul li .stars{
+.more-details .container .contents .fours ul li .stars{
 margin: 10px 0;
 }
-.more-details .container .contents .four ul li .stars .fa-star{
+.more-details .container .contents .fours ul li .stars .fa-star{
 color: white;
 }
-.more-details .container .contents .four ul li .coments   p{
+.more-details .container .contents .fours ul li .coments   p{
 margin: 0;
 }
-.more-details .container .contents .four .add-coment{
+.more-details .container .contents .fours .add-coment{
 margin: 10px 0;
 }
-.more-details .container .contents .four .add-coment .rev {
+.more-details .container .contents .fours .add-coment .rev {
 margin-bottom: 20px;
 }
-.more-details .container .contents .four .add-coment textarea{
+.more-details .container .contents .fours .add-coment textarea{
 width: 100%;
 padding: 10px;
 margin: 15px 0;
@@ -2934,16 +2934,16 @@ border-radius: 5px;
 border: 1px solid #ddd;
 outline: none;
 }
-.more-details .container .contents .four .add-coment .rev .reves-stras{
+.more-details .container .contents .fours .add-coment .rev .reves-stras{
 display: block;
 margin: 10px 0;
 }
-.more-details .container .contents .four .add-coment .reves-stras i{
+.more-details .container .contents .fours .add-coment .reves-stras i{
 cursor: pointer;
 padding-left: 5px;
 
 }
-.more-details .container .contents .four .add-coment button{
+.more-details .container .contents .fours .add-coment button{
 background-color: var(--orange-accent);
 font-size: 18px;
 color: white;
@@ -2954,7 +2954,7 @@ border-radius: 6px;
 cursor: pointer;
 transition: var(--transition);
 }
-.more-details .container .contents .four .add-coment button:hover{
+.more-details .container .contents .fours .add-coment button:hover{
 background-color: var(--dark-secondary);
 }
 
