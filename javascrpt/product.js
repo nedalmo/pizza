@@ -338,7 +338,6 @@ function addToCart(cart){
         drawItem(newCart);
     }
 
-    // حفظ في localStorage بعد التغييرات
     localStorage.setItem("car", JSON.stringify(cars));
     
     samaryPrice.innerHTML = calcTotalPrice();
@@ -437,7 +436,6 @@ function removeItem(id) {
         boxToRemove.remove();
     }
     
-    // حفظ في localStorage بعد التغييرات
     localStorage.setItem("car", JSON.stringify(cars));
     
     samaryPrice.innerHTML = calcTotalPrice();
