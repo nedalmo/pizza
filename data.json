@@ -61,8 +61,6 @@
     },
     "price": 35.00,
     "category": "كلاسيكية",
-    "tags": ["إيطالي", "نباتي", "تقليدي", "طازج"],
-    "availability": true,
     "discount": {"hasDiscount": true, "discountPercentage": 10, "originalPrice": 38.00, "validUntil": "2024-12-31"}
   },
   {
@@ -670,9 +668,9 @@
     "id": 11,
     "name": "بيتزا بيكون وجبنة إضافية",
     "images": [
-      "/pizza/imgesJson/صلصه بيضا3.jpg",
-      "/pizza/imgesJson",
-      "https://example.com/pizza/bacon3.jpg"
+      "/pizza/imgesJson/بيكون1.jpg",
+      "/pizza/imgesJson/بيكون2.png",
+      "/pizza/imgesJson/بيكون3.jpg"
     ],
     "quickDescription": "بيتزا غنية بالبيكون مع جبنة إضافية",
     "detailedInfo": {
@@ -737,9 +735,9 @@
     "id": 12,
     "name": "بيتزا فطر وجبنة بالصلصة البيضاء",
     "images": [
-      "بيكون/imgesJson/صلصه بيضا2.jpg",
-      "بيكون/imgesJson/صلصه بيضا3.jpg",
-      "بيكون/imgesJson/صلصه بيضا.jpg"
+      "/pizza/imgesJson//صلصه بيضا2.jpg",
+  "/pizza/imgesJson/صلصه بيضا.jpg",
+      "/pizza/imgesJson/صلصه بيضا3.jpg"
     ],
     "quickDescription": "بيتزا نباتية بالفطر والجبنة وصلصة بيضاء",
     "detailedInfo": {
@@ -803,9 +801,9 @@
     "id": 13,
     "name": "بيتزا سبانخ وجبنة فيتا",
     "images": [
-      "https://example.com/pizza/spinach1.jpg",
-      "https://example.com/pizza/spinach2.jpg",
-      "https://example.com/pizza/spinach3.jpg"
+      "/pizza/imgesJson/سبانخ 1.avif",
+      "/pizza/imgesJson/سبانخ 2.jpg",
+      "/pizza/imgesJson/سبانخ 3.avif"
     ],
     "quickDescription": "بيتزا نباتية بالسبانخ وجبنة الفيتا",
     "detailedInfo": {
@@ -869,9 +867,9 @@
     "id": 14,
     "name": "بيتزا مكسيكية حارة",
     "images": [
-      "https://example.com/pizza/mexican1.jpg",
-      "https://example.com/pizza/mexican2.jpg",
-      "https://example.com/pizza/mexican3.jpg"
+      "/pizza/imgesJson/مكسيكية 1.jpg",
+      "/pizza/imgesJson/مكسيكية 2.jpg",
+      "/pizza/imgesJson/مكسيكية 3.jpg"
     ],
     "quickDescription": "بيتزا حارة بنكهات مكسيكية مع فلفل حار ولحم",
     "detailedInfo": {
@@ -936,9 +934,9 @@
     "id": 15,
     "name": "بيتزا بولونيز",
     "images": [
-      "https://example.com/pizza/bolognese1.jpg",
-      "https://example.com/pizza/bolognese2.jpg",
-      "https://example.com/pizza/bolognese3.jpg"
+      "/pizza/imgesJson/بولونيز1.jpg",
+      "/pizza/imgesJson/بيتزا بولونيز2.jpg",
+      "/pizza/imgesJson/بيتزا بولونيز3.jpg"
     ],
     "quickDescription": "بيتزا مع صلصة بولونيز الإيطالية والجبنة",
     "detailedInfo": {
@@ -1003,9 +1001,9 @@
     "id": 16,
     "name": "بيتزا بروكولي وجبنة",
     "images": [
-      "https://example.com/pizza/broccoli1.jpg",
-      "https://example.com/pizza/broccoli2.jpg",
-      "https://example.com/pizza/broccoli3.jpg"
+      "/pizza/imgesJson/بروكولي 1.jpg",
+      "/pizza/imgesJson/بروكولي 2.jpg",
+      "/pizza/imgesJson/بروكولي 3.jpeg"
     ],
     "quickDescription": "بيتزا نباتية بالبروكولي والجبنة",
     "detailedInfo": {
@@ -1069,9 +1067,9 @@
     "id": 17,
     "name": "بيتزا سجق إيطالي",
     "images": [
-      "https://example.com/pizza/sausage1.jpg",
-      "https://example.com/pizza/sausage2.jpg",
-      "https://example.com/pizza/sausage3.jpg"
+      "/pizza/imgesJson/سجق1.jpg",
+      "/pizza/imgesJson/سجق2.png",
+      "/pizza/imgesJson/سجق3.jpg"
     ],
     "quickDescription": "بيتزا مع سجق إيطالي حار وفلفل",
     "detailedInfo": {
@@ -1135,9 +1133,9 @@
     "id": 18,
     "name": "بيتزا بيستو الدجاج",
     "images": [
-      "https://example.com/pizza/pesto1.jpg",
-      "https://example.com/pizza/pesto2.jpg",
-      "https://example.com/pizza/pesto3.jpg"
+      "/pizza/imgesJson/بيستو1.jpg",
+      "/pizza/imgesJson/بيستو2.jpg",
+      "/pizza/imgesJson/بيستو3.jpg"
     ],
     "quickDescription": "بيتزا مع صلصة البيستو والدجاج والجبنة",
     "detailedInfo": {
@@ -1201,9 +1199,9 @@
     "id": 19,
     "name": "بيتزا جبنة الماعز والعسل",
     "images": [
-      "https://example.com/pizza/goatcheese1.jpg",
-      "https://example.com/pizza/goatcheese2.jpg",
-      "https://example.com/pizza/goatcheese3.jpg"
+      "/pizza/imgesJson/الماعز 1.jpg",
+      "/pizza/imgesJson/الماعز3.jpg",
+      "/pizza/imgesJson/الماعز2.jpg"
     ],
     "quickDescription": "بيتزا مع جبنة الماعز والعسل والجوز",
     "detailedInfo": {
@@ -1267,9 +1265,9 @@
     "id": 20,
     "name": "بيتزا كرافتيزا",
     "images": [
-      "https://example.com/pizza/craft1.jpg",
-      "https://example.com/pizza/craft2.jpg",
-      "https://example.com/pizza/craft3.jpg"
+      "/pizza/imgesJson/كرافتيزا1.jpg",
+      "/pizza/imgesJson/كرافتيزا2.jpg",
+      "/pizza/imgesJson/كرافتيزا3.jpg"
     ],
     "quickDescription": "بيتزا إيطالية تقليدية بصلصة الطماطم والموتزاريلا",
     "detailedInfo": {
@@ -1332,9 +1330,9 @@
     "id": 21,
     "name": "بيتزا دجاج بالكريمة والفطر",
     "images": [
-      "https://example.com/pizza/cream1.jpg",
-      "https://example.com/pizza/cream2.jpg",
-      "https://example.com/pizza/cream3.jpg"
+      "/pizza/imgesJson/دجاج 1.jpg",
+      "/pizza/imgesJson/دجاج 2.jpg",
+      "/pizza/imgesJson/دجاج3.jpg"
     ],
     "quickDescription": "بيتزا بدجاج وفطر بصلصة كريمية",
     "detailedInfo": {
@@ -1398,9 +1396,9 @@
     "id": 22,
     "name": "بيتزا السجق والبيبروني",
     "images": [
-      "https://example.com/pizza/sausagepep1.jpg",
-      "https://example.com/pizza/sausagepep2.jpg",
-      "https://example.com/pizza/sausagepep3.jpg"
+      "/pizza/imgesJson/السجق والبيبروني1.png",
+      "/pizza/imgesJson/السجق والبيبروني2.png",
+      "/pizza/imgesJson/السجق والبيبروني3.avif"
     ],
     "quickDescription": "بيتزا تجمع بين السجق والبيبروني الحار",
     "detailedInfo": {
@@ -1464,9 +1462,9 @@
     "id": 23,
     "name": "بيتزا الخضار المشوية",
     "images": [
-      "https://example.com/pizza/grilledveg1.jpg",
-      "https://example.com/pizza/grilledveg2.jpg",
-      "https://example.com/pizza/grilledveg3.jpg"
+      "/pizza/imgesJson/المشوية1.jpg",
+      "/pizza/imgesJson/المشوية2.webp",
+      "/pizza/imgesJson/المشوية3.jpg"
     ],
     "quickDescription": "بيتزا نباتية بخضار مشوية",
     "detailedInfo": {
@@ -1531,9 +1529,9 @@
     "id": 24,
     "name": "بيتزا باللحم المفروم والجبن",
     "images": [
-      "https://example.com/pizza/groundbeef1.jpg",
-      "https://example.com/pizza/groundbeef2.jpg",
-      "https://example.com/pizza/groundbeef3.jpg"
+      "/pizza/imgesJson/المفروم.jpg",
+      "/pizza/imgesJson/المفروم2.jpg",
+      "/pizza/imgesJson/المفروم3.jpg"
     ],
     "quickDescription": "بيتزا مع لحم مفروم وجبنة موتزاريلا",
     "detailedInfo": {
@@ -1597,9 +1595,9 @@
     "id": 25,
     "name": "بيتزا بالتونة والبصل",
     "images": [
-      "https://example.com/pizza/tuna1.jpg",
-      "https://example.com/pizza/tuna2.jpg",
-      "https://example.com/pizza/tuna3.jpg"
+      "/pizza/imgesJson/بالتونة 1.jpg",
+      "/pizza/imgesJson/بالتونة2.jpg",
+      "/pizza/imgesJson/بالتونة4.jpg"
     ],
     "quickDescription": "بيتزا بالتونة المعلبة والبصل والجبنة",
     "detailedInfo": {
@@ -1663,9 +1661,9 @@
     "id": 26,
     "name": "بيتزا بالفلفل الحار والجبنة",
     "images": [
-      "https://example.com/pizza/hotpepper1.jpg",
-      "https://example.com/pizza/hotpepper2.jpg",
-      "https://example.com/pizza/hotpepper3.jpg"
+      "/pizza/imgesJson/بالفلفل 1.png",
+      "/pizza/imgesJson/بالفلفل2.png",
+      "/pizza/imgesJson/بالفلفل3.jpg"
     ],
     "quickDescription": "بيتزا نباتية حارة بالفلفل الحار والجبنة",
     "detailedInfo": {
@@ -1729,9 +1727,9 @@
     "id": 27,
     "name": "بيتزا بالبصل والزيتون",
     "images": [
-      "https://example.com/pizza/onionolive1.jpg",
-      "https://example.com/pizza/onionolive2.jpg",
-      "https://example.com/pizza/onionolive3.jpg"
+      "/pizza/imgesJson/الزيتون1.jpg",
+      "/pizza/imgesJson/الزيتون2.jpg",
+      "/pizza/imgesJson/الزيتون3.jpg"
     ],
     "quickDescription": "بيتزا نباتية بسيطة بالبصل والزيتون",
     "detailedInfo": {
@@ -1795,9 +1793,9 @@
     "id": 28,
     "name": "بيتزا اللحم المدخن",
     "images": [
-      "https://example.com/pizza/smokedmeat1.jpg",
-      "https://example.com/pizza/smokedmeat2.jpg",
-      "https://example.com/pizza/smokedmeat3.jpg"
+      "/pizza/imgesJson/المدخن1.jpg",
+      "/pizza/imgesJson/المدخن2.jpg",
+      "/pizza/imgesJson/المدخن3.jpg"
     ],
     "quickDescription": "بيتزا مع لحم بقري مدخن وجبنة",
     "detailedInfo": {
@@ -1862,9 +1860,9 @@
     "id": 29,
     "name": "بيتزا الجبنة والفواكه المجففة",
     "images": [
-      "https://example.com/pizza/driedfruit1.jpg",
-      "https://example.com/pizza/driedfruit2.jpg",
-      "https://example.com/pizza/driedfruit3.jpg"
+      "/pizza/imgesJson/الفواكه1.jpg",
+      "/pizza/imgesJson/الفواكه2.jpg",
+      "/pizza/imgesJson/الفواكه3.jpg"
     ],
     "quickDescription": "بيتزا حلوة بالجبنة والفواكه المجففة",
     "detailedInfo": {
@@ -1929,9 +1927,9 @@
     "id": 30,
     "name": "بيتزا الخضار والجبنة قليلة الدسم",
     "images": [
-      "https://example.com/pizza/lowfat1.jpg",
-      "https://example.com/pizza/lowfat2.jpg",
-      "https://example.com/pizza/lowfat3.jpg"
+      "/pizza/imgesJson/الدسم1.jpg",
+      "/pizza/imgesJson/الدسم2.jpg",
+      "/pizza/imgesJson/الدسم3.jpeg"
     ],
     "quickDescription": "بيتزا صحية بخضار طازجة وجبنة قليلة الدسم",
     "detailedInfo": {

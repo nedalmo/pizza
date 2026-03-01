@@ -648,14 +648,16 @@ nav ul li a.active::after {
     display: none;
 }
 .results_search .search-result-item{
+    display: block;
     padding: 15px;
     border-bottom: 1px solid #ccc;
     cursor: pointer;
+    color: white;
     transition: 0.4s;
 }
 .results_search .search-result-item:hover{
     background-color: #ff1900;
-    color: white;
+    
     padding-right: 30px;
 }
  .results_search .no-results{

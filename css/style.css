@@ -450,7 +450,7 @@ padding: 10px 15px;
 .login_descont{
 position: fixed;
 left: 50%;
-top: 100%;
+top: 120%;
 transform: translateX(-50%);
 background-color: #ff0000;
 color: white;
@@ -460,9 +460,10 @@ font-size: 17px;
 text-decoration: none;
 border-radius: 6px; 
 transition: 0.4s;
-width: 30%;
+width: 60%;
 text-align: center;
 line-height: 2;
+z-index: 10000;
 }
 .login_descont.active{
 top: 40%;

@@ -121,10 +121,14 @@ if (document.querySelector(".productAll .container")) {
         if (requestOne.readyState === 4 && requestOne.status === 200) {
             let myData = JSON.parse(requestOne.responseText)
             createElement(myData);
-            // searchFunction(myData);
         }
     }
+
 }
+
+
+
+
 fetch(myproducts)
   .then(response => {
 
@@ -139,43 +143,36 @@ fetch(myproducts)
   });
 
 function searchFunction(object) {
-let input_reslultes = document.querySelector(".search-wrapper .form input[type='search']");
+let input = document.querySelector(".search-wrapper .form input[type='search']");
 let resultes = document.querySelector(".search-wrapper .results_search");
+input.addEventListener("input",e=>{
+    if((input.value).trim()==""){
+        resultes.style.display = "none"
+            resultes.innerHTML = "لاتوجد نتاج بحث"
 
-    input_reslultes.addEventListener("input", e => {
-        resultes.style.display = "block";
-        // Clear previous results
-        resultes.innerHTML = '';
-        
-        if (input_reslultes.value.trim() !== "") {
-                    resultes.style.display = "block";
-
-            let arr = object.map(el => el.name);
-            
-            let filteredResults = arr.filter(name => 
-                name.toLowerCase().includes(input_reslultes.value.toLowerCase())
-            );
-            filteredResults.forEach((result, index) => {
-                let resultElement = document.createElement("div");
-                resultElement.textContent = result;
-                resultElement.classList.add('search-result-item'); // Optional styling
-                resultes.appendChild(resultElement);
-                // noResultsElement.innerHTML = '';
-            
-            });
-              let noResultsElement = document.createElement("div");
-                    noResultsElement.className = 'no-results'; // Optional styling
-                    noResultsElement.textContent = 'لا يوجد نتائج للبحث';
-                    resultes.appendChild(noResultsElement);
+        return 0;
+    }
+    else{
+        let filters = object.filter(item=>{
+            return item.name.toLocaleLowerCase().includes(input.value.toLocaleLowerCase())
+        })
+        if(filters.length>0){
+              resultes.innerHTML = ""
+            resultes.style.display = "block"
+            filters.forEach(e=>{
+               let div = document.createElement("a");
+               div.href = "/pizza/html-file/product.html"
+               div.addEventListener("click",e=>input.innerHTML = "")
+                  div.className = 'search-result-item'
+               div.textContent = e.name;
+               resultes.append(div)
+            })
+        }else{
+            resultes.innerHTML = "لاتوجد نتاج بحث"
         }
-        else{
-                  
-                    resultes.style.display = "none";
-
-        }
-    });
+    }
+})
 }
-
 
 function createElement(myData) {
     let mainDivs = document.querySelector(".productAll .container");
@@ -341,7 +338,7 @@ function addToCart(cart){
     localStorage.setItem("car", JSON.stringify(cars));
     
     samaryPrice.innerHTML = calcTotalPrice();
-    updateCartCount(); // تحديث عدد المنتجات
+    updateCartCount();
     renderCheckout();
 }
 
@@ -390,6 +387,9 @@ function drawItem(cart) {
         localStorage.setItem("car", JSON.stringify(cars));
         
         samaryPrice.innerHTML = calcTotalPrice();
+        document.querySelector(".all_price_summary .Subtotal .pruce .number").innerHTML = calcTotalPrice()
+        document.querySelector(".all_price_summary .Subtotal .All .number").innerHTML = calcTotalPrice()+30 + "جنيه"
+
         updateCartCount(); 
         renderCheckout();
     });
@@ -399,6 +399,10 @@ function drawItem(cart) {
         if(cart.qwn <= 0){
             removeItem(cart.id);
             samaryPrice.innerHTML = calcTotalPrice();
+                    document.querySelector(".all_price_summary .Subtotal .pruce .number").innerHTML = calcTotalPrice()
+                    document.querySelector(".all_price_summary .Subtotal .All .number").innerHTML = calcTotalPrice()+30 + "جنيه"
+
+
         } else {
             counte.innerHTML = cart.qwn;
             price.innerHTML = (cart.price * cart.qwn) + "جنيه";
@@ -406,6 +410,10 @@ function drawItem(cart) {
             localStorage.setItem("car", JSON.stringify(cars));  
             
             samaryPrice.innerHTML = calcTotalPrice();
+                    document.querySelector(".all_price_summary .Subtotal .pruce .number").innerHTML = calcTotalPrice()
+                    document.querySelector(".all_price_summary .Subtotal .All .number").innerHTML = calcTotalPrice() +30 + "جنيه"
+
+
             updateCartCount();   
         }
         renderCheckout();
@@ -425,9 +433,11 @@ function drawItem(cart) {
     box.append(imge_And_name, increment_And_decrement, price, remove);
     body_of_cart.append(box);
     samaryPrice.innerHTML = calcTotalPrice();
+            document.querySelector(".all_price_summary .Subtotal .pruce .number").innerHTML = calcTotalPrice()
+    document.querySelector(".all_price_summary .Subtotal .All .number").innerHTML = calcTotalPrice()+30 + "جنيه"
+
     updateCartCount();  
 }
-
 function removeItem(id) {
     cars = cars.filter(item => item.id != id);
     
@@ -453,7 +463,7 @@ function removeItem(id) {
         textDetailsToRemove.remove();
     }
     
-    updateCartCount(); // تحديث عدد المنتجات
+    updateCartCount();
     renderCheckout();
 }
 
@@ -462,8 +472,8 @@ function calcTotalPrice() {
     cars.forEach(item => {
         total += item.price * item.qwn;
     });
+
     
-    // التحقق من وجود عنصر conections
     const connectionsValue = conections?.innerHTML ? parseInt(conections.innerHTML) : 0;
     total_price_of_cart.innerHTML = total + connectionsValue;
     
@@ -471,15 +481,13 @@ function calcTotalPrice() {
 }
 
 function Checkout_function(cart) {
-    // إنشاء العنصر الرئيسي
+
     const textDetailsOrder = document.createElement('div');
     textDetailsOrder.className = 'text_detalis_order';
 
-    // إنشاء div.text_info
     const textInfo = document.createElement('div');
     textInfo.className = 'text_info';
 
-    // إنشاء العناصر الداخلية
     const nameDiv = document.createElement('div');
     nameDiv.className = 'name';
     nameDiv.textContent = cart.name;
@@ -492,12 +500,11 @@ function Checkout_function(cart) {
     quantityDiv.className = 'quntity';
     quantityDiv.innerHTML = `الكميه : <div class="quntity_main">${cart.qwn}</div>`;
 
-    // إضافة العناصر إلى textInfo
+
     textInfo.appendChild(nameDiv);
     textInfo.appendChild(sizeDiv);
     textInfo.appendChild(quantityDiv);
 
-    // إنشاء div.price_details_order
     const priceDetailsOrder = document.createElement('div');
     priceDetailsOrder.className = 'price_details_order';
 
@@ -508,11 +515,9 @@ function Checkout_function(cart) {
     const currencyDiv = document.createElement('div');
     currencyDiv.textContent = 'جنيه';
 
-    // إضافة العناصر إلى priceDetailsOrder
     priceDetailsOrder.appendChild(priceDiv);
     priceDetailsOrder.appendChild(currencyDiv);
 
-    // إضافة العناصر إلى العنصر الرئيسي
     textDetailsOrder.appendChild(textInfo);
     textDetailsOrder.appendChild(priceDetailsOrder);
     details_order.append(textDetailsOrder);
@@ -522,7 +527,6 @@ function Checkout_function(cart) {
 
 
 
-// end code cart   
 if (document.querySelector(".detailselemnt")) {
 
 
@@ -547,30 +551,24 @@ if (document.querySelector(".detailselemnt")) {
 
 
 function createDetails(e) {
-    // إنشاء العنصر الرئيسي
     const detailsElement = document.querySelector('.detailselemnt');
     detailsElement.className = 'detailselemnt';
 
-    // إنشاء الحاوية
     const container = document.createElement('div');
     container.className = 'container';
 
-    // قسم اسم المنتج
     const nameProductDiv = document.createElement('div');
     nameProductDiv.className = 'name-product';
     const productName = document.createElement('div');
     productName.textContent = `${e.name}`;
     nameProductDiv.appendChild(productName);
 
-    // القسم الرئيسي للتفاصيل
     const mainDetailsDiv = document.createElement('div');
     mainDetailsDiv.className = 'main-details';
 
-    // قسم الصور
     const imagesDetailsDiv = document.createElement('div');
     imagesDetailsDiv.className = 'imges-detels';
 
-    // الصورة الرئيسية
     const mainImagesDiv = document.createElement('div');
     mainImagesDiv.className = 'main-imges';
     const mainImg = document.createElement('img');
@@ -578,7 +576,6 @@ function createDetails(e) {
     mainImg.alt = '';
     mainImagesDiv.appendChild(mainImg);
 
-    // الصور الفرعية
     const lastImagesDiv = document.createElement('div');
     lastImagesDiv.className = 'last-imges';
 
@@ -602,16 +599,14 @@ function createDetails(e) {
     imagesDetailsDiv.appendChild(mainImagesDiv);
     imagesDetailsDiv.appendChild(lastImagesDiv);
 
-    // قسم الوصف
     const descriptionDiv = document.createElement('div');
     descriptionDiv.className = 'descirption';
 
-    // العنوان
+    
     const titleDiv = document.createElement('div');
     titleDiv.className = 'title';
     titleDiv.textContent = `${e.quickDescription}`;
 
-    // الأسعار
     const pricesDiv = document.createElement('div');
     pricesDiv.className = 'prices';
 
@@ -628,11 +623,9 @@ function createDetails(e) {
     pricesDiv.appendChild(priceColon);
     pricesDiv.appendChild(numberPriceSpan);
 
-    // قسم الخيارات
     const optionsSection = document.createElement('div');
     optionsSection.className = 'options-section';
 
-    // خيارات الحجم
     const optionTitle1 = document.createElement('div');
     optionTitle1.className = 'option-title';
     optionTitle1.textContent = 'اختر الحجم:';
@@ -640,7 +633,6 @@ function createDetails(e) {
     const sizeOptionsDiv = document.createElement('div');
     sizeOptionsDiv.className = 'size-options';
 
-    // خيار الحجم الصغير
     const sizeOption1 = document.createElement('div');
     sizeOption1.className = 'size-option selected';
     const sizeText1 = document.createElement('div');
@@ -658,7 +650,6 @@ function createDetails(e) {
     sizeOption1.appendChild(sizeText1);
     sizeOption1.appendChild(sizeDetails1);
 
-    // خيار الحجم المتوسط
     const sizeOption2 = document.createElement('div');
     sizeOption2.className = 'size-option';
     const sizeText2 = document.createElement('div');
@@ -677,7 +668,6 @@ function createDetails(e) {
     sizeOption2.appendChild(sizeText2);
     sizeOption2.appendChild(sizeDetails2);
 
-    // خيار الحجم الكبير
     const sizeOption3 = document.createElement('div');
     sizeOption3.className = 'size-option';
     const sizeText3 = document.createElement('div');
@@ -698,7 +688,6 @@ function createDetails(e) {
     sizeOptionsDiv.appendChild(sizeOption2);
     sizeOptionsDiv.appendChild(sizeOption3);
 
-    // خيارات العجينة
     const optionTitle2 = document.createElement('div');
     optionTitle2.className = 'option-title';
     optionTitle2.textContent = 'اختر نوع العجينة:';
@@ -706,7 +695,6 @@ function createDetails(e) {
     const crustOptionsDiv = document.createElement('div');
     crustOptionsDiv.className = 'crust-options';
 
-    // خيار العجينة 1
     const crustOption1 = document.createElement('div');
     crustOption1.className = 'crust-option selected';
     const crustText1 = document.createTextNode(`${e.detailedInfo.crustOptions[0].type}`);
@@ -715,7 +703,6 @@ function createDetails(e) {
     crustOption1.appendChild(crustText1);
     crustOption1.appendChild(crustSpan1);
 
-    // خيار العجينة 2
     const crustOption2 = document.createElement('div');
     crustOption2.className = 'crust-option';
     const crustText2 = document.createTextNode(`${e.detailedInfo.crustOptions[1].type}(+`);
@@ -726,7 +713,6 @@ function createDetails(e) {
     crustOption2.appendChild(crustSpan2);
     crustOption2.appendChild(crustText2End);
 
-    // خيار العجينة 3    في تعديل هنا في ملف json
     const crustOption3 = document.createElement('div');
     crustOption3.className = 'crust-option';
     const crustText3 = document.createTextNode(`${e.detailedInfo.crustOptions[1].type}(+`);
@@ -746,7 +732,6 @@ function createDetails(e) {
     optionsSection.appendChild(optionTitle2);
     optionsSection.appendChild(crustOptionsDiv);
 
-    // قسم الكمية
     const formsDiv = document.createElement('div');
     formsDiv.className = 'forms';
 
@@ -770,7 +755,6 @@ function createDetails(e) {
     formsDiv.appendChild(quantityInput);
     formsDiv.appendChild(minusSpan);
 
-    // الأزرار
     const buttonsDiv = document.createElement('div');
     buttonsDiv.className = 'buttons';
 
@@ -785,22 +769,18 @@ function createDetails(e) {
     buttonsDiv.appendChild(addToCartBtn);
     buttonsDiv.appendChild(orderNowBtn);
 
-    // تجميع قسم الوصف
     descriptionDiv.appendChild(titleDiv);
     descriptionDiv.appendChild(pricesDiv);
     descriptionDiv.appendChild(optionsSection);
     descriptionDiv.appendChild(formsDiv);
     descriptionDiv.appendChild(buttonsDiv);
 
-    // تجميع القسم الرئيسي
     mainDetailsDiv.appendChild(imagesDetailsDiv);
     mainDetailsDiv.appendChild(descriptionDiv);
 
-    // تجميع الحاوية
     container.appendChild(nameProductDiv);
     container.appendChild(mainDetailsDiv);
 
-    // تجميع العنصر الرئيسي
     detailsElement.appendChild(container);
 
 
@@ -908,50 +888,39 @@ function createDetails(e) {
 
 
 function elel(e) {
-    // إنشاء العنصر الرئيسي
     const moreDetails = document.querySelector('.more-details');
-    // moreDetails.className = 'more-details';
 
-    // إنشاء الحاوية
     const container = document.createElement('div');
     container.className = 'container';
 
-    // إنشاء التبويبات
     const tabs = document.createElement('div');
     tabs.className = 'tabs';
 
-    // إنشاء التبويب الأول
     const tab1 = document.createElement('div');
     tab1.className = 'thosen';
     tab1.setAttribute('data-clases', '.ones');
     tab1.textContent = 'الوصف التفصيلي';
 
-    // إنشاء التبويب الثاني
     const tab2 = document.createElement('div');
     tab2.setAttribute('data-clases', '.twos');
     tab2.textContent = 'المكونات';
 
-    // إنشاء التبويب الثالث
     const tab3 = document.createElement('div');
     tab3.setAttribute('data-clases', '.threes');
     tab3.textContent = 'القيمة الغذائية';
 
-    // إنشاء التبويب الرابع
     const tab4 = document.createElement('div');
     tab4.setAttribute('data-clases', '.fours');
     tab4.textContent = 'التقييمات';
 
-    // إضافة التبويبات إلى tabs
     tabs.appendChild(tab1);
     tabs.appendChild(tab2);
     tabs.appendChild(tab3);
     tabs.appendChild(tab4);
 
-    // إنشاء محتويات التبويبات
     const contents = document.createElement('div');
     contents.className = 'contents';
 
-    // المحتوى الأول - الوصف التفصيلي
     const content1 = document.createElement('div');
     content1.className = 'ones';
 
@@ -1017,7 +986,7 @@ function elel(e) {
     conteValueDiv.textContent = 'المحتوى الغذائي (للحجم المتوسط):';
 
     const conteValueP = document.createElement('p');
-    // conteValueP.textContent = 'تحتوي على &` سعر حراري، 35 جم بروتين، 110 جم كربوهيدرات، 28 جم دهون، 5 جم ألياف، 1200 ملجم صوديوم.';
+
     conteValueP.textContent = `  تحتوي على  ${e.detailedInfo.nutritionalInfo.calories}  سعر حراري،
 
 ${e.detailedInfo.nutritionalInfo.protein} بروتين، 
@@ -1034,7 +1003,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     content1.appendChild(ul1);
     content1.appendChild(conteValue);
 
-    // المحتوى الثاني - المكونات
     const content2 = document.createElement('div');
     content2.className = 'twos';
 
@@ -1043,7 +1011,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
 
     const ul2 = document.createElement('ul');
 
-    // العنصر الأول في المكونات
     const li2_1 = document.createElement('li');
     const h5_1 = document.createElement('h5');
     h5_1.textContent = `${e.detailedInfo.ingredients[0].name}`;
@@ -1055,7 +1022,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     li2_1.appendChild(h6_1);
     li2_1.appendChild(div1);
 
-    // العنصر الثاني في المكونات
     const li2_2 = document.createElement('li');
     const h5_2 = document.createElement('h5');
     h5_2.textContent = `${e.detailedInfo.ingredients[1].name}`;
@@ -1067,7 +1033,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     li2_2.appendChild(h6_2);
     li2_2.appendChild(div2);
 
-    // العنصر الثالث في المكونات
     const li2_3 = document.createElement('li');
     const h5_3 = document.createElement('h5');
     h5_3.textContent = `${e.detailedInfo.ingredients[2].name}`;
@@ -1079,7 +1044,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     li2_3.appendChild(h6_3);
     li2_3.appendChild(div3);
 
-    // العنصر الرابع في المكونات
     const li2_4 = document.createElement('li');
     const h5_4 = document.createElement('h5');
     h5_4.textContent = `${e.detailedInfo.ingredients[3].name}`;
@@ -1091,7 +1055,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     li2_4.appendChild(h6_4);
     li2_4.appendChild(div4);
 
-    // العنصر الخامس في المكونات
     const li2_5 = document.createElement('li');
     const h5_5 = document.createElement('h5');
     h5_5.textContent = `${e.detailedInfo.ingredients[4].name}`;;
@@ -1103,7 +1066,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     li2_5.appendChild(h6_5);
     li2_5.appendChild(div5);
 
-    // العنصر السادس في المكونات
     const li2_6 = document.createElement('li');
     const h5_6 = document.createElement('h5');
     h5_6.textContent = 'ملح البحر';
@@ -1133,7 +1095,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     content2.appendChild(ul2);
     content2.appendChild(steci);
 
-    // المحتوى الثالث - القيمة الغذائية
     const content3 = document.createElement('div');
     content3.className = 'threes';
 
@@ -1271,7 +1232,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     content3.appendChild(exterUl);
     content3.appendChild(tabsx);
 
-    // المحتوى الرابع - التقييمات
     const content4 = document.createElement('div');
     content4.className = 'fours';
 
@@ -1280,7 +1240,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
 
     const ul4 = document.createElement('ul');
 
-    // التقييم الأول
     const reviewLi1 = document.createElement('li');
     const comments1 = document.createElement('div');
     comments1.className = 'coments';
@@ -1331,7 +1290,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     reviewLi1.appendChild(comments1);
     reviewLi1.appendChild(date1);
 
-    // التقييم الثاني
     const reviewLi2 = document.createElement('li');
     const comments2 = document.createElement('div');
     comments2.className = 'coments';
@@ -1383,7 +1341,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     reviewLi2.appendChild(comments2);
     reviewLi2.appendChild(date2);
 
-    // التقييم الثاني
     const reviewLi4 = document.createElement('li');
     const comments4 = document.createElement('div');
     comments4.className = 'coments';
@@ -1436,7 +1393,6 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     reviewLi4.appendChild(comments4);
     reviewLi4.appendChild(date4);
 
-    // التقييم الثالث
     const reviewLi3 = document.createElement('li');
     const comments3 = document.createElement('div');
     comments3.className = 'coments';
@@ -1540,17 +1496,14 @@ ${e.detailedInfo.nutritionalInfo.sodium}  صوديوم `;
     content4.appendChild(ul4);
     content4.appendChild(addComent);
 
-    // إضافة جميع المحتويات إلى contents
     contents.appendChild(content1);
     contents.appendChild(content2);
     contents.appendChild(content3);
     contents.appendChild(content4);
 
-    // إضافة tabs و contents إلى container
     container.appendChild(tabs);
     container.appendChild(contents);
 
-    // إضافة container إلى moreDetails
     moreDetails.appendChild(container);
 
 
@@ -1569,7 +1522,6 @@ console.log(contentss)
             contentss.forEach(cont => {
                 cont.style.display = "none"
             })
-            // console.log(document.querySelector(tab.currentTarget.dataset.clases))
             document.querySelector(tab.currentTarget.dataset.clases).style.display = "block";
         })
     })
@@ -1579,7 +1531,6 @@ console.log(contentss)
             e.target.style.color = "gold"
         })
     })
-    // إضافة العنصر إلى الصفحة
 }
 
 
@@ -1661,8 +1612,8 @@ confirmOrder.addEventListener("click", e => {
                         buttons_two.click();
         },800)
         setTimeout(e=>{
-window.location.href = "../index.html";            // location.reload();
-        },3000)
+window.location.href = "../index.html";            
+        },5000)
 
         document.querySelector(".success").classList.add("active");
         setTimeout(e=>{
@@ -1670,7 +1621,6 @@ window.location.href = "../index.html";            // location.reload();
 
         document.querySelector(".success").classList.add("active");
 
-        // location.reload();
         },1200)
 
 
@@ -1679,15 +1629,24 @@ window.location.href = "../index.html";            // location.reload();
 
         setTimeout(e=>{
             document.querySelector(".success").classList.add("active");
-        },7000)
+        },3000)
 
-        // document.querySelector(".success").classList.add("active");
 
     }
-   
+window.onload = e=>{
+    setTimeout(e=>{
+document.querySelector(".login_descont").classList.add("active")
+overly.classList.add("active")
+},5000)
+document.querySelector(".close_message").addEventListener("click",e=>{
+    document.querySelector(".login_descont").classList.remove("active")
+overly.classList.remove("active")
 })
 
+}
 
+   
+})
 
 
 
@@ -1738,7 +1697,6 @@ window.addEventListener("scroll",e=>{
             e.target.classList.add("active");
         })
     })
-    // let nav = document.querySelector("nav")
 
 let hamburger  = document.getElementById("hamburger");
 hamburger.addEventListener("click",e=>{
@@ -1759,7 +1717,6 @@ let text = "اكتشف تشكيلتنا المتنوعة من البيتزا ا�
       let element = document.getElementById("head_para_main");
 
       if (!isDeleting) {
-        // كتابة
         element.innerHTML = text.slice(0, i + 1);
         i++;
 
@@ -1770,7 +1727,6 @@ let text = "اكتشف تشكيلتنا المتنوعة من البيتزا ا�
         }
 
       } else {
-        // مسح
         element.innerHTML = text.slice(0, i - 1);
         i--;
 
